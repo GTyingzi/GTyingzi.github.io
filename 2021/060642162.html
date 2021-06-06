@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Latex——伪代码算法, 影子的成长">
+    <meta name="keywords" content="Python实现聚类 KMeans算法, 影子的成长">
     <meta name="description" content="The harder you work, the luckier you are">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Latex——伪代码算法 | 影子的成长</title>
+    <title>Python实现聚类 KMeans算法 | 影子的成长</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Latex——伪代码算法</h1>
+                    <h1 class="description center-align post-title">Python实现聚类 KMeans算法</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Latex/">
-                                <span class="chip bg-color">Latex</span>
+                            <a href="/tags/machine-learning-Python/">
+                                <span class="chip bg-color">machine learning,Python</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Latex/" class="post-category">
-                                Latex
+                            <a href="/categories/machine-learning/" class="post-category">
+                                machine learning
                             </a>
                         
                     </div>
@@ -477,103 +477,93 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>一般在论文的写作中，需要有算法流程图，现讲述两种伪代码算法流程图的实现：algorithm,algorithme2</p>
-<p>第一个：algorithm</p>
-<pre><code>%导包
-\usepackage&#123;algorithm&#125;
-\usepackage&#123;algorithmic&#125;
-</code></pre>
-<p>完整代码：</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
-\usepackage&#123;algorithm&#125;
-\usepackage&#123;algorithmic&#125;
+                <pre><code class="python">#-*- coding: utf-8 -*-
+&#39;&#39;&#39;
+# author： 影子
+# datetime： 2021-05-18 12:10 
+# ide： PyCharm
+target : 完成一个简单的KMeans聚类算法
+&#39;&#39;&#39;
+from numpy import *
 
-\begin&#123;document&#125;
-    
-\begin&#123;algorithm&#125;
-    \renewcommand&#123;\algorithmicrequire&#125;&#123;\textbf&#123;Input:&#125;&#125;
-    \renewcommand&#123;\algorithmicensure&#125;&#123;\textbf&#123;Output:&#125;&#125;
-    \caption&#123;Bayesian Personalized Ranking Based Latent Feature Embedding Model&#125;
-    \label&#123;alg:1&#125;
-    \begin&#123;algorithmic&#125;[1]
-        \REQUIRE latent dimension $K$, $G$, target predicate $p$
-        \ENSURE $U^&#123;p&#125;$, $V^&#123;p&#125;$, $b^&#123;p&#125;$
-        \STATE Given target predicate $p$ and entire knowledge graph $G$, construct its bipartite subgraph, $G_&#123;p&#125;$ 
-        \STATE $m$ = number of subject entities in $G_&#123;p&#125;$
-        \STATE $n$ = number of object entities in $G_&#123;p&#125;$ 
-        \STATE Generate a set of training samples $D_&#123;p&#125; = \&#123;(s_p, o^&#123;+&#125;_&#123;p&#125;, o^&#123;-&#125;_&#123;p&#125;)\&#125;$ using uniform sampling technique
-        \STATE Initialize $U^&#123;p&#125;$ as size $m \times K$ matrix with $0$ mean and standard deviation $0.1$
-        \STATE Initialize $V^&#123;p&#125;$ as size $n \times K$ matrix with $0$ mean and stardard deviation $0.1$
-        \STATE Initialize $b^&#123;p&#125;$ as size $n \times 1$ column vector with $0$ mean and stardard deviation $0.1$
-        \FORALL&#123;$(s_p, o^&#123;+&#125;_&#123;p&#125;, o^&#123;-&#125;_&#123;p&#125;) \in D_&#123;p&#125;$&#125;
-        \STATE Update $U_&#123;s&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd1&#125;
-        \STATE Update $V_&#123;o^&#123;+&#125;&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd2&#125;
-        \STATE Update $V_&#123;o^&#123;-&#125;&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd3&#125;
-        \STATE Update $b_&#123;o^&#123;+&#125;&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd4&#125;
-        \STATE Update $b_&#123;o^&#123;-&#125;&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd5&#125;
-        \ENDFOR
-        \STATE \textbf&#123;return&#125; $U^&#123;p&#125;$, $V^&#123;p&#125;$, $b^&#123;p&#125;$
-    \end&#123;algorithmic&#125;  
-\end&#123;algorithm&#125;
+# 欧式距离函数
+def Euclidean_Distance(vecA,vecB):
+    return sqrt(sum(power(vecA-vecB,2)))
 
-\end&#123;document&#125;
-</code></pre>
-<p>结果如下<br><img src="https://img-blog.csdnimg.cn/20210127224832973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>第二个：algorith2me</p>
-<pre><code>%导包
-\usepackage[ruled]&#123;algorithm2e&#125;
-</code></pre>
-<p>完整代码</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
-\usepackage[ruled]&#123;algorithm2e&#125;
+# 随机设置k个质心
+def Rand_Cent(DataSet,k):
+    n = shape(DataSet)[1]     # 获取数据集的维度
+    centroids = mat(zeros([k,n]))  # 初始化一个k行n列的二维数组，数组初始值全部为0，然后用mat函数将其转化为矩阵
+    for j in range(n):
+        minj = min(DataSet[:,j])
+        rangej = float(max(DataSet[:,j])-minj)
+        centroids[:,j] = mat(minj+rangej*random.rand(k,1)) # 随机生成一个范围在[min_j,max_j]的数据
+    return centroids   # 返回k个初始质心
 
-\begin&#123;document&#125;
+# k-Means算法实现
+def kMeans(DataSet,k,Dist=Euclidean_Distance,set_cent=Rand_Cent):
+    &#39;&#39;&#39;
+    :param DataSet: 需要聚类的数据集
+    :param k: 聚类数目
+    :param Dist: 距离函数,此处调用了欧式距离函数
+    :param set_cent: 初始质心函数，此处调用随机生成的质心函数
+    :return: 质心点；数据对应的聚类簇
+    &#39;&#39;&#39;
+    m = shape(DataSet)[0]   # 获取样本个数
+    centoids = set_cent(DataSet,k)  # 初始化质心
+    clusterAssment = mat(zeros((m,2))) # 第一列存放每个样本的聚类簇，第二列存放对该样本到该聚类中心的距离
+    clusterChanged = True
+    while clusterChanged:
+        clusterChanged = False
+        for i in range(m):   # 遍历所有样本
+            minDist = inf # 初始设定最小距离为无穷大
+            minIdex = -1 # 初始设定样本聚类簇为 -1
+            for j in range(k): # 对每个样本，计算到其他k个聚类中心的距离
+                DistJI = Dist(centoids[j,:],DataSet[i,:])
+                if minDist &gt; DistJI:  # 该样本到最小距离的聚类中心记录下来,此样本记录为该簇
+                    minDist = DistJI
+                    minIdex = j
+            if clusterAssment[i,0] != minIdex: # 判断样本所属簇是否更新，若更新则记为True
+                clusterChanged = True
+            clusterAssment[i,:]=minIdex,minDist # 将样本的聚类簇和到该聚类簇中心的距离记录下来
+        for cent_i in range(k):
+            cluster = DataSet[nonzero(clusterAssment[:,0].A==cent_i)[0]]
+            &#39;&#39;&#39;
+            clusterAssment[:,0]：记录每个样本的聚类簇
+            clusterAssment[:,0].A：将其转化为行矩阵
+            nonzero(clusterAssment[:,0].A==cent_i)[0]：获得元素为Ture的样本下标
+            整句含义：获得数据集中聚类簇为cent_i的样本
+            &#39;&#39;&#39;
+            centoids[cent_i,:] = mean(cluster,axis=0) # 按行取均值
+    return centoids,clusterAssment # 返回质心点；每个样本的(聚类簇+最短距离)
 
-\begin&#123;algorithm&#125;[h]
-    
-    \caption&#123;The process of location change of fish&#125;  
-    \label&#123;alg:1&#125;
-    \KwIn&#123;$\rho(x,y,0),\beta,v_&#123;max&#125;,u_&#123;min&#125;,u_&#123;max&#125;$&#125;
-    \KwOut&#123;$\rho(x,y,50)$&#125;  
-    
-    \For&#123;t=1 to 50&#125;&#123;
-        The random distractor $\epsilon_t$ can be get in the process of identification of variance \newline
-        The dispersed $u(x, y, t)$ can be predicted based on the model ARIMA(1,1,0) and the $u(x, y, t 1)$ \newline
-        The continuous $u(x, y, t)$ can be get based on the linear interposition of value of the dispersed $u(x, y, t)$\newline
-        The continuous $\nabla u$ can be identified based on the equation (11) \newline
-        The continuous $v(x, y, t)$ can be calculated based on the equation (12) \newline
-        The location change of each fish can be calculated based on equation (7) \newline
-        The $\rho_t(x, y)$ of each fish can be refreshed based on the equation (8) \newline
-    &#125;
-\end&#123;algorithm&#125;  
+# 画图
+def show(DataSet,k,centroids,clusterAssment):
+    from matplotlib import pyplot as plt
+    m,n = DataSet.shape
+    mark = [&#39;or&#39;, &#39;ob&#39;, &#39;og&#39;, &#39;ok&#39;, &#39;^r&#39;, &#39;+r&#39;, &#39;sr&#39;, &#39;dr&#39;, &#39;&lt;r&#39;, &#39;pr&#39;] # 样本集的样式
+    for i in range(m):
+        markIdex = int(clusterAssment[i,0])
+        plt.plot(DataSet[i,0],DataSet[i,1],mark[markIdex])
+    mark= [&#39;Dr&#39;, &#39;Db&#39;, &#39;Dg&#39;, &#39;Dk&#39;, &#39;^b&#39;, &#39;+b&#39;, &#39;sb&#39;, &#39;db&#39;, &#39;&lt;b&#39;, &#39;pb&#39;] # 质点的样式
+    for i in range(k):
+        plt.plot(centroids[i,0],centroids[i,1],mark[i],markersize=20)
+    plt.show()
 
-\end&#123;document&#125;  
+
+def main():
+    DataSet = random.rand(100,2) # 随机生成100行2列的数据
+    DataSet = mat(DataSet) # 转化为矩阵
+    k=4 # 设置聚类簇
+    myCentroids,clustAssing = kMeans(DataSet,k) # 调用kMeans算法
+    print(&#39;聚类的质心为&#39;)
+    print(myCentroids)
+    show(DataSet,k,myCentroids,clustAssing)  # 画图
+
+if __name__ == &#39;__main__&#39;:
+    main()
 </code></pre>
-<p>结果如下<br><img src="https://img-blog.csdnimg.cn/20210127225255881.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>关于 <strong>algorithm2e</strong>的补充</p>
-<pre><code>\usepackage[ruled,linesnumbered]&#123;algorithm2e&#125;
-</code></pre>
-<ul>
-<li><code>ruled</code> 让标题显示在上方，否则将显示在下方</li>
-<li><code>linesnumbered</code> 在算法流程图内显示行号</li>
-<li>可添加 <code>boxed</code>，让算法排版时插入在一个盒子里</li>
-</ul>
-<p> 展示效果如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/20210127230434622.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>另外补充：</p>
-<table>
-<thead>
-<tr>
-<th>代码</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>\;</td>
-<td>在行末添加分号，并自动换行</td>
-</tr>
-</tbody></table>
-<p>| \caption{}|插入标题<br>\KwIn{输入消息}|效果为：“input:输入消息”<br>KwOut{输出消息}|效果为：“Out:输出消息”<br>KwData{输入消息}|效果为：“Data:输入消息”<br>KwResult{输出消息}|效果为：“Result:输出消息”<br>\For{条件}{循环语句}|for 条件 do 循环语句 end<br>\If{条件}{肯定语句}|if 条件 then 肯定语句 end<br>|While{条件}{循环语句}|while 条件 then 循环语句 end<br>\tcc{注释}|/*注释*/<br>\tcp{注释}|//注释<br>\elf{条件}{肯定语句}{否定语句}|if 条件 then 肯定语句 else 否定语句 end</p>
-<p>如果有问题，欢迎给我留言</p>
+<p><img src="https://img-blog.csdnimg.cn/20210518134759975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
                 
             </div>
@@ -600,7 +590,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gtyingzi.github.io/2021/060658338.html">https://gtyingzi.github.io/2021/060658338.html</a>
+                    <a href="https://gtyingzi.github.io/2021/060642162.html">https://gtyingzi.github.io/2021/060642162.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -638,8 +628,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Latex/">
-                                    <span class="chip bg-color">Latex</span>
+                                <a href="/tags/machine-learning-Python/">
+                                    <span class="chip bg-color">machine learning,Python</span>
                                 </a>
                             
                         </div>
@@ -810,7 +800,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-06T14-35-39',
+        id: '2021-06-06T15-03-55',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -836,17 +826,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/060615907.html">
+                <a href="/2021/060642162.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Latex——从基础表到进阶表的讲述">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python实现聚类 KMeans算法">
                         
-                        <span class="card-title">Latex——从基础表到进阶表的讲述</span>
+                        <span class="card-title">Python实现聚类 KMeans算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -856,26 +847,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Latex/" class="post-category">
-                                    Latex
+                            <a href="/categories/machine-learning/" class="post-category">
+                                    machine learning
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Latex/">
-                        <span class="chip bg-color">Latex</span>
+                    <a href="/tags/machine-learning-Python/">
+                        <span class="chip bg-color">machine learning,Python</span>
                     </a>
                     
                 </div>
@@ -889,13 +881,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/060656548.html">
+                <a href="/2021/060615907.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Latex——图片基本插入及多图并排">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Latex——从基础表到进阶表的讲述">
                         
-                        <span class="card-title">Latex——图片基本插入及多图并排</span>
+                        <span class="card-title">Latex——从基础表到进阶表的讲述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
