@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python实现聚类 KMeans算法, 影子的成长">
+    <meta name="keywords" content="标准BP算法matlab实现,简单易懂, 影子的成长">
     <meta name="description" content="The harder you work, the luckier you are">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python实现聚类 KMeans算法 | 影子的成长</title>
+    <title>标准BP算法matlab实现,简单易懂 | 影子的成长</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python实现聚类 KMeans算法</h1>
+                    <h1 class="description center-align post-title">标准BP算法matlab实现,简单易懂</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/machine-learning-Python/">
-                                <span class="chip bg-color">machine learning,Python</span>
+                            <a href="/tags/machine-learning-Matlab/">
+                                <span class="chip bg-color">machine learning,Matlab</span>
                             </a>
                         
                     </div>
@@ -477,93 +477,301 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code class="python">#-*- coding: utf-8 -*-
-&#39;&#39;&#39;
-# author： 影子
-# datetime： 2021-05-18 12:10 
-# ide： PyCharm
-target : 完成一个简单的KMeans聚类算法
-&#39;&#39;&#39;
-from numpy import *
-
-# 欧式距离函数
-def Euclidean_Distance(vecA,vecB):
-    return sqrt(sum(power(vecA-vecB,2)))
-
-# 随机设置k个质心
-def Rand_Cent(DataSet,k):
-    n = shape(DataSet)[1]     # 获取数据集的维度
-    centroids = mat(zeros([k,n]))  # 初始化一个k行n列的二维数组，数组初始值全部为0，然后用mat函数将其转化为矩阵
-    for j in range(n):
-        minj = min(DataSet[:,j])
-        rangej = float(max(DataSet[:,j])-minj)
-        centroids[:,j] = mat(minj+rangej*random.rand(k,1)) # 随机生成一个范围在[min_j,max_j]的数据
-    return centroids   # 返回k个初始质心
-
-# k-Means算法实现
-def kMeans(DataSet,k,Dist=Euclidean_Distance,set_cent=Rand_Cent):
-    &#39;&#39;&#39;
-    :param DataSet: 需要聚类的数据集
-    :param k: 聚类数目
-    :param Dist: 距离函数,此处调用了欧式距离函数
-    :param set_cent: 初始质心函数，此处调用随机生成的质心函数
-    :return: 质心点；数据对应的聚类簇
-    &#39;&#39;&#39;
-    m = shape(DataSet)[0]   # 获取样本个数
-    centoids = set_cent(DataSet,k)  # 初始化质心
-    clusterAssment = mat(zeros((m,2))) # 第一列存放每个样本的聚类簇，第二列存放对该样本到该聚类中心的距离
-    clusterChanged = True
-    while clusterChanged:
-        clusterChanged = False
-        for i in range(m):   # 遍历所有样本
-            minDist = inf # 初始设定最小距离为无穷大
-            minIdex = -1 # 初始设定样本聚类簇为 -1
-            for j in range(k): # 对每个样本，计算到其他k个聚类中心的距离
-                DistJI = Dist(centoids[j,:],DataSet[i,:])
-                if minDist &gt; DistJI:  # 该样本到最小距离的聚类中心记录下来,此样本记录为该簇
-                    minDist = DistJI
-                    minIdex = j
-            if clusterAssment[i,0] != minIdex: # 判断样本所属簇是否更新，若更新则记为True
-                clusterChanged = True
-            clusterAssment[i,:]=minIdex,minDist # 将样本的聚类簇和到该聚类簇中心的距离记录下来
-        for cent_i in range(k):
-            cluster = DataSet[nonzero(clusterAssment[:,0].A==cent_i)[0]]
-            &#39;&#39;&#39;
-            clusterAssment[:,0]：记录每个样本的聚类簇
-            clusterAssment[:,0].A：将其转化为行矩阵
-            nonzero(clusterAssment[:,0].A==cent_i)[0]：获得元素为Ture的样本下标
-            整句含义：获得数据集中聚类簇为cent_i的样本
-            &#39;&#39;&#39;
-            centoids[cent_i,:] = mean(cluster,axis=0) # 按行取均值
-    return centoids,clusterAssment # 返回质心点；每个样本的(聚类簇+最短距离)
-
-# 画图
-def show(DataSet,k,centroids,clusterAssment):
-    from matplotlib import pyplot as plt
-    m,n = DataSet.shape
-    mark = [&#39;or&#39;, &#39;ob&#39;, &#39;og&#39;, &#39;ok&#39;, &#39;^r&#39;, &#39;+r&#39;, &#39;sr&#39;, &#39;dr&#39;, &#39;&lt;r&#39;, &#39;pr&#39;] # 样本集的样式
-    for i in range(m):
-        markIdex = int(clusterAssment[i,0])
-        plt.plot(DataSet[i,0],DataSet[i,1],mark[markIdex])
-    mark= [&#39;Dr&#39;, &#39;Db&#39;, &#39;Dg&#39;, &#39;Dk&#39;, &#39;^b&#39;, &#39;+b&#39;, &#39;sb&#39;, &#39;db&#39;, &#39;&lt;b&#39;, &#39;pb&#39;] # 质点的样式
-    for i in range(k):
-        plt.plot(centroids[i,0],centroids[i,1],mark[i],markersize=20)
-    plt.show()
-
-
-def main():
-    DataSet = random.rand(100,2) # 随机生成100行2列的数据
-    DataSet = mat(DataSet) # 转化为矩阵
-    k=4 # 设置聚类簇
-    myCentroids,clustAssing = kMeans(DataSet,k) # 调用kMeans算法
-    print(&#39;聚类的质心为&#39;)
-    print(myCentroids)
-    show(DataSet,k,myCentroids,clustAssing)  # 画图
-
-if __name__ == &#39;__main__&#39;:
-    main()
+                <p>机器学习的实验课要求自编写一份简易的标准BP（神经网络）算法,我用matlab基本实现了，现将自己的思想记录下来，方便自己以后重温.话不多说，让我们进入正题</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mynameisgt/article/details/115579209">调用matlab的神经网络算法解决具体问题&lt;参照我另一篇博客&gt;</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mynameisgt/article/details/115644410">这里是自己编写的python实现标准BP算法</a><br>@[toc]</p>
+<h3 id="简要介绍"><a href="#简要介绍" class="headerlink" title="简要介绍"></a>简要介绍</h3><p>神经网络中最基本的成分是神经元模型,先简单提一个最简单的神经元模型M-P神经元模型<br><img src="https://img-blog.csdnimg.cn/2021041020141417.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>该神经元模型有两层：输入层,输出层。<br>其中输入层包含 <strong>n</strong> 个神经元,输出层包含 <strong>1</strong> 个神经元。<br>输入信号通过连接的权重$w_i$到达输出神经元,总接收的输入值与阀值$\theta$进行比较,然后通过”激活函数”处理以产生神经元的输出。这里介绍一个最具典型的Sigmoid函数</p>
+<p><img src="https://img-blog.csdnimg.cn/20210410202932741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Sigmod函数能把较大范围内变化的输入值积压到(0,1)的输出值范围内,有时也被称为”挤压函数”</p>
+<p>通常情况下,为了处理更加复杂的问题,在输入层与输出层之间会增添多个隐层.常见的神经网络形如下图的层级结构,每层神经元与下层神经元全互连,同层神经元不进行连接,也不存在跨层连接。其中需要注意的是:</p>
+<pre><code>输入层神经元接收外界输入,隐层与输出层神经元对信号进行加工,最终结果由输出层神经元输出.
+连接的边都具有相应的权值，隐层和输出层的神经单元上还有阀值和激活函数.
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20210518134759975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210410203809575.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>前期介绍完毕，接下来进行误差逆传播(error BackPropagation 简称 <strong>BP</strong> )算法的介绍</p>
+<h3 id="标准BP算法"><a href="#标准BP算法" class="headerlink" title="标准BP算法"></a>标准BP算法</h3><p><img src="https://img-blog.csdnimg.cn/20210410205233136.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>上图是一个三层神经元模型,其中输入层神经元数目为$d$,隐层神经元数目为$q$,输出层神经元数目为$l$,<br>标准BP算法主要针对一个训练样例（假定输入是$\mathbb{R^d}$维,输出是$\mathbb{R^l}$维）更新连接权值和阀值.<br>这里先对一些符号进行说明：</p>
+<ul>
+<li>$x_i$：传输信号,第i个输入神经元的传入信息</li>
+<li>$v_{ih}$：第i个输入神经元与第h个隐层神经元的连接权值</li>
+<li>$\alpha_h$：第h个隐层神经元从输入神经层接收到的信息值,$\alpha_h=\sum_{i=1}^dv_{ih}x_i$</li>
+<li>$\gamma_h$：第h个隐层神经元的阀值(虽未在图中标识,但实际存在)</li>
+<li>$b_h$：第h个隐层神经元的输出值,有公式:$b_h=f_1(\alpha_h-\gamma_h)$,$f_1$为隐层的激活函数</li>
+<li>$w_{hj}$：第h个隐层神经元与第j个输出神经元的连接权值</li>
+<li>$\beta_j$：第j个输出神经元从隐层神经层接收到的信息值,$\beta_j=\sum_{h=1}^qw_{hj}b_h$</li>
+<li>$\theta_j$：第j个输出神经元的阀值(虽未在图中标识,但实际存在)</li>
+<li>$y_j$：第j个输出层神经元的输出值,有公式:$y_j=f_2(\beta_j-\theta_j)$,$f_2$为输出层的激活函数</li>
+</ul>
+<p>$f_1,f_2$一般取sigmod函数，其次分析上面的参数,我们已知$x_i,y_j$,我们需要去求$v_{ih},\gamma_h,w_{hj},\theta_j$，</p>
+<pre><code>需要求解的参数个数为：(d+l+1)q+l,其中:
+输入层到隐层连边权值:d*q；隐层的阀值:q；隐层到输出层的权值：q*l；输出层的阀值：l
+总计：d*q+q+q*l+l=(d+l+1)q+l
+</code></pre>
+<p>我们需要去求解一个比较好的连边权值和阀值。初始随机设定连边权值和阀值,通过计算得到的误差反向修正连边权值和阀值。那么误差怎么计算呢,通过实际的输出和BP神经网络得到的$y_j$进行比较得到误差.</p>
+<p>标准BP算法针对的是一个训练样例(注意是一个样本！！)，假设输入为$X={x_1,x_2,…,x_d}\in\mathbb{R^d}$,输出$Y={y_1,y_2,..,y_l}\in\mathbb{R^l}$。</p>
+<p>通过标准BP算法得到的输出为$\hat{Y}$={$\hat{y_1},\hat{y_2},…,\hat{y_l}$}那么此时该样本的均方误差为:<br>$$<br>E=\frac{1}{2}\sum_{j=1}^l(\hat{y_j}-y_j)^2<br>$$<br>此处前面乘以1/2是人为这样写，方便后面计算,我们通过均方误差对连边权值和阀值进行反向修正</p>
+<p>即有：</p>
+<ul>
+<li>$v\leftarrow v+\Delta v$</li>
+<li>$\gamma\leftarrow \gamma+\Delta \gamma$</li>
+<li>$w\leftarrow w+\Delta w$</li>
+<li>$\theta\leftarrow \theta+\Delta \theta$</li>
+</ul>
+<p>这里主要运用了<strong>梯度下降策略</strong>,以目标的负梯度方向对参数进行调整,对于误差E，给定学习率$\eta$(一般取0.1)，以隐层到输出层的连边权值$w$为例子:<br>$$<br>\Delta w_{hj}=-\eta \frac{\partial E}{\partial w_{hj}}<br>$$<br>我们能发现如下的影响链条$w_{hj}\rightarrow \beta_j \rightarrow \hat{y_j} \rightarrow E$<br>$$<br>\frac{\partial E}{\partial w_{hj}}=\frac{\partial E}{\partial \hat{y_j}}*\frac{\partial \hat{y_j}}{\partial \beta_j}*\frac{\partial \beta_j}{\partial w_{hj}}<br>$$</p>
+<ul>
+<li>$\frac{\partial E}{\partial \hat{y_j}}=\hat{y_j}-y_j$</li>
+<li>$\frac{\partial \hat{y_j}}{\partial \beta_j}=f’_2(\beta_j-\theta_j)=\hat{y_j}(1-\hat{y_j})$</li>
+<li>$\frac{\partial \beta_j}{\partial w_{hj}}=b_h$</li>
+</ul>
+<p>解释以下上面第二个公式,$f’<em>2(\beta_j-\theta_j)=\hat{y_j}(1-\hat{y_j})$  注意：$y_j=f_2(\beta_j-\theta_j)$<br>Sigmod函数的性质:<br>$$<br>f’(x)=(\frac{1}{1+e^{-x}})’=\frac{e^{-x}}{(1+e^{-x})^2}=\frac{1}{1+e^{-x}}*\frac{e^{-x}}{1+e^{-x}}=f(x)(1-f(x))<br>$$<br>所以有:<br>$$<br>\Delta w</em>{hj}=-\eta \frac{\partial E}{\partial w_{hj}}=-\eta*(\hat{y_j}-y_j)*\hat{y_j}(1-\hat{y_j})<em>b_h<br>$$<br>若令$g_j=(y_j-\hat{y_j})<em>\hat{y_j}(1-\hat{y_j})$,上式可化简为:<br>$$<br>\Delta w_{hj}=\eta</em>g_j</em>b_h<br>$$</p>
+<p>类似可通过梯度下降得到其余三个,即</p>
+<ul>
+<li>$\Delta \theta_j=-\eta \frac{\partial E}{\partial \theta_j}=-\eta g_j$</li>
+<li>$\Delta v_{ih}=\frac{\partial E}{\partial v_{ih}}=\eta e_hx_i$</li>
+<li>$\Delta \gamma_h=\frac{\partial E}{\partial \gamma_h}-\eta e_h$</li>
+</ul>
+<p>其中<br>$$<br>e_h=-\frac{\partial E}{\partial b_h}\frac{\partial b_h}{\partial \alpha_h}=-\sum_{j=1}^l\frac{\partial E}{\partial \beta_j}\frac{\partial \beta_j}{\partial b_h}f’(\alpha_h-\gamma_h)=\sum_{j=1}^lw_{hj}g_jf’(\alpha_h-\gamma_h)=b_h(1-b_h)\sum_{j=1}^lw_{hj}g_j<br>$$</p>
+<p>ok，到这里有关标准BP算法的介绍已经讲完了,附上实现的matlab代码</p>
+<pre><code class="c">clear;clc
+%标准BP算法
+x=[1.24 1.27];y=[1 0];  %初始数据
+[v,r,w,h,y_hat]=standard_BP(x,y,3,1e-6);
+
+function [v,r,w,h,y_hat]=standard_BP(x,y,q,eps)  %q为隐层单元数目,eps均方误差限
+
+q=3;    %隐层单元数目
+L=length(y);    %输出单元数目
+n=length(x);  %获取数据的维度
+v=rand(n,q);  %初始化输入层到隐层的权值
+r=rand(1,q);    %初始化隐层的阀值
+w=rand(q,L);  %初始化隐层到输出层的权值
+h=rand(1,L);    %初始化输出层的阀值
+k=0.1;        %学习率
+E=1;
+while E&gt;eps  
+
+A=x*v;                %输入层-&gt;隐层,各个隐层单元具有的权值
+b=fc_sigmod(A-r);     %经过隐层的激活函数的输出
+
+B=b*w;                %隐层-&gt;输出层,各个输出层单元具有的权值
+y_hat=fc_sigmod(B-h); %经过输出层的激活函数的输出
+
+E=0.5*sum((y_hat-y).^2);  %求均方误差
+
+%以下对各个系数进行调整
+g=y_hat.*(1-y_hat).*(y-y_hat);
+e=b.*(1-b).*(w*g&#39;)&#39;;
+
+for i=1:n
+    for j=1:q
+        v(i,j)=v(i,j)+k*e(j)*x(i);   %输入层-&gt;隐层的权值更新
+    end
+end
+r=r-k*e;         %隐层的阀值更新
+
+for i=1:q
+    for j=1:L
+        w(i,j)=w(i,j)+k*g(j)*b(i);   %隐层-&gt;输出层的权值更新
+    end
+end
+h=h-k*g;
+
+end
+
+disp(&#39;输入层到隐层的权值为&#39;);v
+disp(&#39;隐层的阀值为&#39;);r
+disp(&#39;隐层到输出层的权值为&#39;);w
+disp(&#39;输出层的阀值为&#39;);h
+
+function y=fc_sigmod(x)
+y=1./(1+exp(-x));
+end
+end
+</code></pre>
+<p>我输入数据X=[1.24 1.27],输出数据是Y=[1 0],<br><img src="https://img-blog.csdnimg.cn/20210410225523931.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>拟合基本达到了要求,这里的程序不限定样本的输入和输出的维度,可自行调控。</p>
+<p>数据集通常是包含多个样本.在标准BP算法中，对每个样本都会进行更新连边权值和阀值,对一组数据进行训练.这里给出更为一般的标准BP算法.<br><img src="https://img-blog.csdnimg.cn/20210411152754644.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>给出数据集，15个样本,输入与输出的维度都为2.</p>
+<pre><code>x=[1.24,1.27;1.36,1.74;1.38,1.64;1.38,1.82;1.38,1.90;1.40,1.70;1.48,1.82;1.54,1.82;1.56,2.08;1.14,1.82;1.18,1.96;1.20,1.86;1.26,2.00 ;1.28,2.00;1.30,1.96];
+y=[1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;0 1;0 1;0 1;0 1;0 1;0 1];
+</code></pre>
+<p>这里跳出调整参数，我改成了迭代次数,</p>
+<pre><code class="c">clear;clc
+%标准BP算法
+x=[1.24,1.27;1.36,1.74;1.38,1.64;1.38,1.82;1.38,1.90; 
+ 1.40,1.70;1.48,1.82;1.54,1.82;1.56,2.08;1.14,1.82;1.18,1.96;1.20,1.86;1.26,2.00 
+ 1.28,2.00;1.30,1.96];
+y=[1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;0 1;0 1;0 1;0 1;0 1;0 1];  %初始数据
+
+[v,r,w,h,y_hat]=standard_BP(x,y,3,1e6);
+
+x_k=[1.24 1.80;1.28 1.84;1.40 2.04];
+
+function [v,r,w,h,y_hat]=standard_BP(x0,y0,q,N)  %q为隐层单元数目,N,迭代次数
+
+%初始化连边权值和阀值
+L=size(y0,2);    %输出单元数目
+[m,n]=size(x0);  %获取数据的维度
+v=rand(n,q);  %初始化输入层到隐层的权值
+r=rand(1,q);    %初始化隐层的阀值
+w=rand(q,L);  %初始化隐层到输出层的权值
+h=rand(1,L);    %初始化输出层的阀值
+k=0.05;        %学习率
+E=1;
+
+iter=1;
+a=1;
+
+while iter&lt;N
+    x=x0(a,:);
+    y=y0(a,:);
+    
+    A=x*v;                %输入层-&gt;隐层,各个隐层单元具有的权值
+    b=fc_sigmod(A-r);     %经过隐层的激活函数的输出
+    
+    B=b*w;                %隐层-&gt;输出层,各个输出层单元具有的权值
+    y_hat(a,:)=fc_sigmod(B-h); %经过输出层的激活函数的输出
+    
+    E=0.5*sum((y_hat(a,:)-y).^2);  %求均方误差
+    
+    %以下对各个系数进行调整
+    g=y_hat(a,:).*(1-y_hat(a,:)).*(y-y_hat(a,:));
+    e=b.*(1-b).*(w*g&#39;)&#39;;
+    
+    for i=1:n
+        for j=1:q
+            v(i,j)=v(i,j)+k*e(j)*x(i);   %输入层-&gt;隐层的权值更新
+        end
+    end
+    r=r-k*e;         %隐层的阀值更新
+    
+    for i=1:q
+        for j=1:L
+            w(i,j)=w(i,j)+k*g(j)*b(i);   %隐层-&gt;输出层的权值更新
+        end
+    end
+    h=h-k*g;
+    
+    if a&gt;=m
+        a=a-m;
+    end
+    a=a+1;
+    iter=iter+1;
+end
+
+disp(&#39;输入层到隐层的权值为&#39;);v
+disp(&#39;隐层的阀值为&#39;);r
+disp(&#39;隐层到输出层的权值为&#39;);w
+disp(&#39;输出层的阀值为&#39;);h
+
+function y=fc_sigmod(x)
+y=1./(1+exp(-x));
+end
+end
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210411144538764.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>调整后，输出的y_hat值达到较高的精度</p>
+<hr>
+<h3 id="累积BP算法"><a href="#累积BP算法" class="headerlink" title="累积BP算法"></a>累积BP算法</h3><p>因为标准BP算法每次更新都只针对单个样例,参数更新得非常频繁,而且对不同样例进行更新的效果可能出现“抵消”现象,因此，为了达到同样的累积误差极小点,标准BP算法往往需要进行更多次数的迭代.累积BP算法直接针对累积误差最小化,它在读取整个训练集D一遍后才对参数进行更新,其参数更新的频率低得多.<br>这里给出累积误差公式:<br>$$<br>\hat{E}=\frac{1}{m}\sum_{k=1}^mE_k<br>$$<br>我们用累积误差$\hat{E}$去对参数进行调整,举一个例子,比如：</p>
+<ul>
+<li>$\Delta w_{hj}=-\eta\frac{\partial \hat{E}}{\partial w_{hj}}=-\eta\sum_{k=1}^m\frac{\partial \hat{E}}{\partial E_k}\frac{\partial E_k}{\partial w_{hj}}=-\eta\frac{1}{m}\sum_{k=1}^m\frac{\partial E_k}{\partial w_{hj}}$<br>计算出m个样本的$\frac{\partial E_k}{\partial w_{hj}}$后取均值,即可</li>
+</ul>
+<p>当然,我们可以对上式进行进一步化简,由标准BP算法，我们有：</p>
+<ul>
+<li>$\Delta w_{hj}=\eta g_jb_h$</li>
+<li>$\Delta \theta_j=-\eta \frac{\partial E}{\partial \theta_j}=-\eta g_j$</li>
+<li>$\Delta v_{ih}=\eta e_hx_i$</li>
+<li>$\Delta \gamma_h=-\eta e_h$</li>
+</ul>
+<pre><code>我们只需要把对应的g_j,b_h,e_h以及x_i对应位置上通过m个样本计算完后,在其对应位置上取均值即可。
+</code></pre>
+<p>这里附上累积BP算法:</p>
+<pre><code class="c">clear;clc
+%累积BP算法
+x=[1.24,1.27;1.36,1.74;1.38,1.64;1.38,1.82;1.38,1.90; 
+ 1.40,1.70;1.48,1.82;1.54,1.82;1.56,2.08;1.14,1.82;1.18,1.96;1.20,1.86;1.26,2.00 
+ 1.28,2.00;1.30,1.96];
+y=[1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;0 1;0 1;0 1;0 1;0 1;0 1];  %初始数据
+
+[v,r,w,h,y_hat]=acc_BP(x,y,3,1e3);
+
+function [v,r,w,h,y_hat]=acc_BP(x0,y0,q,N)  %q为隐层单元数目,N为迭代次数
+
+%初始化连边权值和阀值
+L=size(y0,2);    %输出单元数目
+[m,n]=size(x0);  %获取样本个数以及数据维度
+v=rand(n,q);  %初始化输入层到隐层的权值
+r=rand(1,q);    %初始化隐层的阀值
+w=rand(q,L);  %初始化隐层到输出层的权值
+h=rand(1,L);    %初始化输出层的阀值
+k=0.1;        %学习率
+
+iter=1;
+while iter&lt;N
+
+for i=1:m
+    x=x0(i,:);
+    y=y0(i,:);
+    A=x*v;                %输入层-&gt;隐层,各个隐层单元具有的权值
+    b(i,:)=fc_sigmod(A-r);     %经过隐层的激活函数的输出
+    
+B=b(i,:)*w;                %隐层-&gt;输出层,各个输出层单元具有的权值
+y_hat(i,:)=fc_sigmod(B-h); %经过输出层的激活函数的输出
+    
+%以下对各个系数进行调整
+g(i,:)=y_hat(i,:).*(1-y_hat(i,:)).*(y-y_hat(i,:));
+e(i,:)=b(i,:).*(1-b(i,:)).*(w*g(i,:)&#39;)&#39;;    
+end
+
+%对上述梯度下降策略后的调整至取均值
+b_bar=mean(b);
+g_bar=mean(g);
+e_bar=mean(e);    
+
+E=mean(sum((y_hat-y0).^2,2));  %求均方误差
+    for i=1:n
+        for j=1:q
+            v(i,j)=v(i,j)+k*e_bar(j)*mean(x0(:,i));   %输入层-&gt;隐层的权值更新
+        end
+    end
+    r=r-k*e_bar;         %隐层的阀值更新
+    
+    for i=1:q
+        for j=1:L
+            w(i,j)=w(i,j)+k*g_bar(j)*b_bar(i);   %隐层-&gt;输出层的权值更新
+        end
+    end
+    h=h-k*g_bar;        %输出层的阀值更新
+    
+iter=iter+1;    
+end
+disp(&#39;输入层到隐层的权值为&#39;);v
+disp(&#39;隐层的阀值为&#39;);r
+disp(&#39;隐层到输出层的权值为&#39;);w
+disp(&#39;输出层的阀值为&#39;);h
+disp(&#39;此时误差E为&#39;);E
+
+
+function y=fc_sigmod(x)
+y=1./(1+exp(-x));
+end
+end
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210411151735405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这里调整后求出的$\hat{y}$效果不是很好，后期数据收敛了。</p>
+<p>我们通过神经网络的内在结构求出各个连边权值和阀值,由有标签的数据，去预测无标签的数据类型。最后，我附上自己编写的预测代码</p>
+<pre><code class="c">function y_hat=standard_BP_predict(data,v,r,w,h)
+[m,n]=size(data);
+for i=1:m
+    x=data(i,:);
+    A=x*v;                %输入层-&gt;隐层,各个隐层单元具有的权值
+    b=fc_sigmod(A-r);     %经过隐层的激活函数的输出
+    
+    B=b*w;                %隐层-&gt;输出层,各个输出层单元具有的权值
+    y_hat(i,:)=fc_sigmod(B-h); %经过输出层的激活函数的输出
+end
+function y=fc_sigmod(x)
+y=1./(1+exp(-x));
+end
+end
+</code></pre>
+<p>data是我们需要去预测的数据,得到其类型,而v,r,w,h是前期可通过标准BP算法或者累积BP算法算得。</p>
+<pre><code class="bash">当然，想要获得精度更准确的数据，还得参考其他大量有关BP算法的文章。本文只是简易的对标准BP算法以及累积BP算法做个实现.
+</code></pre>
 
                 
             </div>
@@ -590,7 +798,7 @@ if __name__ == &#39;__main__&#39;:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gtyingzi.github.io/2021/060642162.html">https://gtyingzi.github.io/2021/060642162.html</a>
+                    <a href="https://gtyingzi.github.io/2021/060650172.html">https://gtyingzi.github.io/2021/060650172.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,8 +836,8 @@ if __name__ == &#39;__main__&#39;:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/machine-learning-Python/">
-                                    <span class="chip bg-color">machine learning,Python</span>
+                                <a href="/tags/machine-learning-Matlab/">
+                                    <span class="chip bg-color">machine learning,Matlab</span>
                                 </a>
                             
                         </div>
@@ -800,7 +1008,7 @@ if __name__ == &#39;__main__&#39;:
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-06T15-03-55',
+        id: '2021-06-06T15-11-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -830,13 +1038,13 @@ if __name__ == &#39;__main__&#39;:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/060650172.html">
+                <a href="/2021/060658520.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="标准BP算法matlab实现,简单易懂">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="聚类性能度量指标及距离计算">
                         
-                        <span class="card-title">标准BP算法matlab实现,简单易懂</span>
+                        <span class="card-title">聚类性能度量指标及距离计算</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -864,8 +1072,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/machine-learning-Matlab/">
-                        <span class="chip bg-color">machine learning,Matlab</span>
+                    <a href="/tags/%E8%81%9A%E7%B1%BB%E6%8C%87%E6%A0%87%E5%8F%8A%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">
+                        <span class="chip bg-color">聚类指标及距离计算</span>
                     </a>
                     
                 </div>
@@ -879,13 +1087,13 @@ if __name__ == &#39;__main__&#39;:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/060615907.html">
+                <a href="/2021/060642162.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Latex——从基础表到进阶表的讲述">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python实现聚类 KMeans算法">
                         
-                        <span class="card-title">Latex——从基础表到进阶表的讲述</span>
+                        <span class="card-title">Python实现聚类 KMeans算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -902,8 +1110,8 @@ if __name__ == &#39;__main__&#39;:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Latex/" class="post-category">
-                                    Latex
+                            <a href="/categories/machine-learning/" class="post-category">
+                                    machine learning
                                 </a>
                             
                             
@@ -913,8 +1121,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Latex/">
-                        <span class="chip bg-color">Latex</span>
+                    <a href="/tags/machine-learning-Python/">
+                        <span class="chip bg-color">machine learning,Python</span>
                     </a>
                     
                 </div>

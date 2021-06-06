@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python实现聚类 KMeans算法, 影子的成长">
+    <meta name="keywords" content="聚类性能度量指标及距离计算, 影子的成长">
     <meta name="description" content="The harder you work, the luckier you are">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python实现聚类 KMeans算法 | 影子的成长</title>
+    <title>聚类性能度量指标及距离计算 | 影子的成长</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python实现聚类 KMeans算法</h1>
+                    <h1 class="description center-align post-title">聚类性能度量指标及距离计算</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/machine-learning-Python/">
-                                <span class="chip bg-color">machine learning,Python</span>
+                            <a href="/tags/%E8%81%9A%E7%B1%BB%E6%8C%87%E6%A0%87%E5%8F%8A%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">
+                                <span class="chip bg-color">聚类指标及距离计算</span>
                             </a>
                         
                     </div>
@@ -477,93 +477,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code class="python">#-*- coding: utf-8 -*-
-&#39;&#39;&#39;
-# author： 影子
-# datetime： 2021-05-18 12:10 
-# ide： PyCharm
-target : 完成一个简单的KMeans聚类算法
-&#39;&#39;&#39;
-from numpy import *
-
-# 欧式距离函数
-def Euclidean_Distance(vecA,vecB):
-    return sqrt(sum(power(vecA-vecB,2)))
-
-# 随机设置k个质心
-def Rand_Cent(DataSet,k):
-    n = shape(DataSet)[1]     # 获取数据集的维度
-    centroids = mat(zeros([k,n]))  # 初始化一个k行n列的二维数组，数组初始值全部为0，然后用mat函数将其转化为矩阵
-    for j in range(n):
-        minj = min(DataSet[:,j])
-        rangej = float(max(DataSet[:,j])-minj)
-        centroids[:,j] = mat(minj+rangej*random.rand(k,1)) # 随机生成一个范围在[min_j,max_j]的数据
-    return centroids   # 返回k个初始质心
-
-# k-Means算法实现
-def kMeans(DataSet,k,Dist=Euclidean_Distance,set_cent=Rand_Cent):
-    &#39;&#39;&#39;
-    :param DataSet: 需要聚类的数据集
-    :param k: 聚类数目
-    :param Dist: 距离函数,此处调用了欧式距离函数
-    :param set_cent: 初始质心函数，此处调用随机生成的质心函数
-    :return: 质心点；数据对应的聚类簇
-    &#39;&#39;&#39;
-    m = shape(DataSet)[0]   # 获取样本个数
-    centoids = set_cent(DataSet,k)  # 初始化质心
-    clusterAssment = mat(zeros((m,2))) # 第一列存放每个样本的聚类簇，第二列存放对该样本到该聚类中心的距离
-    clusterChanged = True
-    while clusterChanged:
-        clusterChanged = False
-        for i in range(m):   # 遍历所有样本
-            minDist = inf # 初始设定最小距离为无穷大
-            minIdex = -1 # 初始设定样本聚类簇为 -1
-            for j in range(k): # 对每个样本，计算到其他k个聚类中心的距离
-                DistJI = Dist(centoids[j,:],DataSet[i,:])
-                if minDist &gt; DistJI:  # 该样本到最小距离的聚类中心记录下来,此样本记录为该簇
-                    minDist = DistJI
-                    minIdex = j
-            if clusterAssment[i,0] != minIdex: # 判断样本所属簇是否更新，若更新则记为True
-                clusterChanged = True
-            clusterAssment[i,:]=minIdex,minDist # 将样本的聚类簇和到该聚类簇中心的距离记录下来
-        for cent_i in range(k):
-            cluster = DataSet[nonzero(clusterAssment[:,0].A==cent_i)[0]]
-            &#39;&#39;&#39;
-            clusterAssment[:,0]：记录每个样本的聚类簇
-            clusterAssment[:,0].A：将其转化为行矩阵
-            nonzero(clusterAssment[:,0].A==cent_i)[0]：获得元素为Ture的样本下标
-            整句含义：获得数据集中聚类簇为cent_i的样本
-            &#39;&#39;&#39;
-            centoids[cent_i,:] = mean(cluster,axis=0) # 按行取均值
-    return centoids,clusterAssment # 返回质心点；每个样本的(聚类簇+最短距离)
-
-# 画图
-def show(DataSet,k,centroids,clusterAssment):
-    from matplotlib import pyplot as plt
-    m,n = DataSet.shape
-    mark = [&#39;or&#39;, &#39;ob&#39;, &#39;og&#39;, &#39;ok&#39;, &#39;^r&#39;, &#39;+r&#39;, &#39;sr&#39;, &#39;dr&#39;, &#39;&lt;r&#39;, &#39;pr&#39;] # 样本集的样式
-    for i in range(m):
-        markIdex = int(clusterAssment[i,0])
-        plt.plot(DataSet[i,0],DataSet[i,1],mark[markIdex])
-    mark= [&#39;Dr&#39;, &#39;Db&#39;, &#39;Dg&#39;, &#39;Dk&#39;, &#39;^b&#39;, &#39;+b&#39;, &#39;sb&#39;, &#39;db&#39;, &#39;&lt;b&#39;, &#39;pb&#39;] # 质点的样式
-    for i in range(k):
-        plt.plot(centroids[i,0],centroids[i,1],mark[i],markersize=20)
-    plt.show()
-
-
-def main():
-    DataSet = random.rand(100,2) # 随机生成100行2列的数据
-    DataSet = mat(DataSet) # 转化为矩阵
-    k=4 # 设置聚类簇
-    myCentroids,clustAssing = kMeans(DataSet,k) # 调用kMeans算法
-    print(&#39;聚类的质心为&#39;)
-    print(myCentroids)
-    show(DataSet,k,myCentroids,clustAssing)  # 画图
-
-if __name__ == &#39;__main__&#39;:
-    main()
+                <h1 id="1-外部指标"><a href="#1-外部指标" class="headerlink" title="1.外部指标"></a>1.外部指标</h1><pre><code>将聚类结果与某个“参考模型进行比较”
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20210518134759975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>每次抽出两个样本，讨论所属聚类结果和参考模型，确定四个值：</p>
+<ul>
+<li>a:聚类结果同属于一类，参考模型同属于一类</li>
+<li>b:聚类结果同属于一类，参考模型<strong>不</strong>同属于一类</li>
+<li>c:聚类结果<strong>不</strong>同属于一类，参考模型属于同一类</li>
+<li>d:聚类结果<strong>不</strong>同属于一类，参考模型<strong>不</strong>同属于一类</li>
+</ul>
+<h2 id="1-1Jaccard系数（JC）"><a href="#1-1Jaccard系数（JC）" class="headerlink" title="1.1Jaccard系数（JC）"></a>1.1Jaccard系数（JC）</h2><p>$$<br>JC=\frac{a}{a+b+c}<br>$$</p>
+<h2 id="1-2FM指数（FMI）"><a href="#1-2FM指数（FMI）" class="headerlink" title="1.2FM指数（FMI）"></a>1.2FM指数（FMI）</h2><p>$$<br>FMI=\sqrt{\frac{a}{a+b}*\frac{a}{a+c}}<br>$$</p>
+<h2 id="1-3Rand指数（RI）"><a href="#1-3Rand指数（RI）" class="headerlink" title="1.3Rand指数（RI）"></a>1.3Rand指数（RI）</h2><p>$$<br>RI=\frac{2(a+d)}{m(m-1)}<br>$$</p>
+<p>上述性能度量的结果值均在[0,1]区间，值越大越好。</p>
+<h1 id="2-内部指标"><a href="#2-内部指标" class="headerlink" title="2.内部指标"></a>2.内部指标</h1><pre><code>直接考察聚类结果而不利用任何参考模型
+</code></pre>
+<p>将聚类结果的簇划分为$C={C_1,C_2,…,C_k}$,也就是总共划分为k个簇<br>$$<br>avg(C)=\frac{2}{|C|(|C|-1)}\sum_{1\leq i&lt;j\leq|C|}<br>dist(x_i,x_j)<br>$$</p>
+<ul>
+<li>$avg(C)$：对应于簇C内样本间的平均距离</li>
+</ul>
+<p>$$<br>diam(C)=max_{1\leq i&lt;j\leq|C|}dist(x_i,x_j)<br>$$</p>
+<ul>
+<li>$diam(C)$：对应于簇C内样本间的最远距离</li>
+</ul>
+<p>$$<br>d_{min}(C_i,C_j)=min_{x_i\in C_i,x_j\in C_j}dist(x_i,x_j)<br>$$</p>
+<ul>
+<li>$d_{min}(C_i,C_j)$：对应于簇$C_i$与簇$C_j$最近样本间的距离</li>
+</ul>
+<p>$$<br>d_{cen}(C_i,C_j)=dist(u_i,u_j)<br>$$</p>
+<ul>
+<li>$d_{cen}(C_i,C_j)$：对应于簇$C_i$与簇$C_j$中心点间的距离</li>
+</ul>
+<h2 id="2-1DB指数（DBI）"><a href="#2-1DB指数（DBI）" class="headerlink" title="2.1DB指数（DBI）"></a>2.1DB指数（DBI）</h2><p>$$<br>DBI=\frac{1}{k}\sum_{i=1}^{k}max_{j\ne i}(\frac{avg(C_i)+avg(C_j)}{d_{cen}(C_i,C_j)})<br>$$</p>
+<h2 id="2-2Dunn指数（DI）"><a href="#2-2Dunn指数（DI）" class="headerlink" title="2.2Dunn指数（DI）"></a>2.2Dunn指数（DI）</h2><p>$$<br>DI=min_{1\leq i\leq k}{min_{j\ne i}(\frac{d_{min}(C_i,C_j)}{max_{1\le l\le k}diam(C_l))})}<br>$$</p>
+<p>DBI的值越小越好，DI值越大越好.</p>
+<h1 id="3距离计算"><a href="#3距离计算" class="headerlink" title="3距离计算"></a>3距离计算</h1><p>dist(,)若它是一个“距离度量”，则需要满足一些基本性质：</p>
+<ul>
+<li>非负性：$dist(x_i,x_j)\geq0$</li>
+<li>同一性：$dist(x_i,x_j)=0$当且仅当$x_i=x_j$</li>
+<li>对称性：$dist(x_i,x_j)=dist(x_j,x_i)$</li>
+<li>直递性：$dist(x_i,x_j)\le dist(x_i,x_k)+dist(x_k,x_j)$</li>
+</ul>
+<p>给定样本$x_i=(x_{i1};x_{i2};…;x_{in})$与$x_j=(x_{j1};x_{j2};…;x_{jn})$,最常用的是”闵可夫斯基距离”(Minkokski distance)<br>$$<br>dist_{mk}(x_i,x_j)=(\sum_{u=1}^n|x_{iu}-x_{ju}|)^{\frac{1}{p}}<br>$$<br>$p\geq 1$时，满足上述的距离基本性质</p>
+<p>当$p=2$时，闵可夫斯基距离就是我们熟知的欧式距离(Euclidean distance)<br>$$<br>dist_{ed}(x_i,x_j)=||x_i-x_j||<em>2=\sqrt{\sum</em>{u=1}^n|x_{iu}-x_{ju}|^2}<br>$$<br>当$p=1$时,闵可夫斯基距离为曼哈顿距离(Manhattan distance)<br>$$<br>dist_{man}(x_i,x_j)=||x_i-x_j||<em>1=\sum</em>{u=1}^n|x_{iu}-x_{ju}|<br>$$</p>
 
                 
             </div>
@@ -590,7 +546,7 @@ if __name__ == &#39;__main__&#39;:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gtyingzi.github.io/2021/060642162.html">https://gtyingzi.github.io/2021/060642162.html</a>
+                    <a href="https://gtyingzi.github.io/2021/060658520.html">https://gtyingzi.github.io/2021/060658520.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,8 +584,8 @@ if __name__ == &#39;__main__&#39;:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/machine-learning-Python/">
-                                    <span class="chip bg-color">machine learning,Python</span>
+                                <a href="/tags/%E8%81%9A%E7%B1%BB%E6%8C%87%E6%A0%87%E5%8F%8A%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">
+                                    <span class="chip bg-color">聚类指标及距离计算</span>
                                 </a>
                             
                         </div>
@@ -800,7 +756,7 @@ if __name__ == &#39;__main__&#39;:
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-06T15-03-55',
+        id: '2021-06-06T15-17-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -830,13 +786,13 @@ if __name__ == &#39;__main__&#39;:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/060650172.html">
+                <a href="/2021/060624057.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="标准BP算法matlab实现,简单易懂">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="机器学习（周志华）——对数几率回归">
                         
-                        <span class="card-title">标准BP算法matlab实现,简单易懂</span>
+                        <span class="card-title">机器学习（周志华）——对数几率回归</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -864,8 +820,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/machine-learning-Matlab/">
-                        <span class="chip bg-color">machine learning,Matlab</span>
+                    <a href="/tags/%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">对数几率回归</span>
                     </a>
                     
                 </div>
@@ -879,13 +835,13 @@ if __name__ == &#39;__main__&#39;:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/060615907.html">
+                <a href="/2021/060650172.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Latex——从基础表到进阶表的讲述">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="标准BP算法matlab实现,简单易懂">
                         
-                        <span class="card-title">Latex——从基础表到进阶表的讲述</span>
+                        <span class="card-title">标准BP算法matlab实现,简单易懂</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -902,8 +858,8 @@ if __name__ == &#39;__main__&#39;:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Latex/" class="post-category">
-                                    Latex
+                            <a href="/categories/machine-learning/" class="post-category">
+                                    machine learning
                                 </a>
                             
                             
@@ -913,8 +869,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Latex/">
-                        <span class="chip bg-color">Latex</span>
+                    <a href="/tags/machine-learning-Matlab/">
+                        <span class="chip bg-color">machine learning,Matlab</span>
                     </a>
                     
                 </div>
