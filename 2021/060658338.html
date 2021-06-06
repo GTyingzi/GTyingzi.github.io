@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 影子的成长">
+    <meta name="keywords" content="Latex——伪代码算法, 影子的成长">
     <meta name="description" content="The harder you work, the luckier you are">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 影子的成长</title>
+    <title>Latex——伪代码算法 | 影子的成长</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Latex——伪代码算法</h1>
                 </div>
             </div>
         </div>
@@ -429,12 +429,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Latex/">
+                                <span class="chip bg-color">-Latex</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Latex/" class="post-category">
+                                Latex
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -464,19 +477,103 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+                <p>一般在论文的写作中，需要有算法流程图，现讲述两种伪代码算法流程图的实现：algorithm,algorithme2</p>
+<p>第一个：algorithm</p>
+<pre><code>%导包
+\usepackage&#123;algorithm&#125;
+\usepackage&#123;algorithmic&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>完整代码：</p>
+<pre><code class="cpp">\documentclass&#123;article&#125;
+\usepackage&#123;algorithm&#125;
+\usepackage&#123;algorithmic&#125;
+
+\begin&#123;document&#125;
+    
+\begin&#123;algorithm&#125;
+    \renewcommand&#123;\algorithmicrequire&#125;&#123;\textbf&#123;Input:&#125;&#125;
+    \renewcommand&#123;\algorithmicensure&#125;&#123;\textbf&#123;Output:&#125;&#125;
+    \caption&#123;Bayesian Personalized Ranking Based Latent Feature Embedding Model&#125;
+    \label&#123;alg:1&#125;
+    \begin&#123;algorithmic&#125;[1]
+        \REQUIRE latent dimension $K$, $G$, target predicate $p$
+        \ENSURE $U^&#123;p&#125;$, $V^&#123;p&#125;$, $b^&#123;p&#125;$
+        \STATE Given target predicate $p$ and entire knowledge graph $G$, construct its bipartite subgraph, $G_&#123;p&#125;$ 
+        \STATE $m$ = number of subject entities in $G_&#123;p&#125;$
+        \STATE $n$ = number of object entities in $G_&#123;p&#125;$ 
+        \STATE Generate a set of training samples $D_&#123;p&#125; = \&#123;(s_p, o^&#123;+&#125;_&#123;p&#125;, o^&#123;-&#125;_&#123;p&#125;)\&#125;$ using uniform sampling technique
+        \STATE Initialize $U^&#123;p&#125;$ as size $m \times K$ matrix with $0$ mean and standard deviation $0.1$
+        \STATE Initialize $V^&#123;p&#125;$ as size $n \times K$ matrix with $0$ mean and stardard deviation $0.1$
+        \STATE Initialize $b^&#123;p&#125;$ as size $n \times 1$ column vector with $0$ mean and stardard deviation $0.1$
+        \FORALL&#123;$(s_p, o^&#123;+&#125;_&#123;p&#125;, o^&#123;-&#125;_&#123;p&#125;) \in D_&#123;p&#125;$&#125;
+        \STATE Update $U_&#123;s&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd1&#125;
+        \STATE Update $V_&#123;o^&#123;+&#125;&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd2&#125;
+        \STATE Update $V_&#123;o^&#123;-&#125;&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd3&#125;
+        \STATE Update $b_&#123;o^&#123;+&#125;&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd4&#125;
+        \STATE Update $b_&#123;o^&#123;-&#125;&#125;^&#123;p&#125;$ based on Equation~\ref&#123;eq:sgd5&#125;
+        \ENDFOR
+        \STATE \textbf&#123;return&#125; $U^&#123;p&#125;$, $V^&#123;p&#125;$, $b^&#123;p&#125;$
+    \end&#123;algorithmic&#125;  
+\end&#123;algorithm&#125;
+
+\end&#123;document&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<p>结果如下<br><img src="https://img-blog.csdnimg.cn/20210127224832973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>第二个：algorith2me</p>
+<pre><code>%导包
+\usepackage[ruled]&#123;algorithm2e&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<p>完整代码</p>
+<pre><code class="cpp">\documentclass&#123;article&#125;
+\usepackage[ruled]&#123;algorithm2e&#125;
+
+\begin&#123;document&#125;
+
+\begin&#123;algorithm&#125;[h]
+    
+    \caption&#123;The process of location change of fish&#125;  
+    \label&#123;alg:1&#125;
+    \KwIn&#123;$\rho(x,y,0),\beta,v_&#123;max&#125;,u_&#123;min&#125;,u_&#123;max&#125;$&#125;
+    \KwOut&#123;$\rho(x,y,50)$&#125;  
+    
+    \For&#123;t=1 to 50&#125;&#123;
+        The random distractor $\epsilon_t$ can be get in the process of identification of variance \newline
+        The dispersed $u(x, y, t)$ can be predicted based on the model ARIMA(1,1,0) and the $u(x, y, t 1)$ \newline
+        The continuous $u(x, y, t)$ can be get based on the linear interposition of value of the dispersed $u(x, y, t)$\newline
+        The continuous $\nabla u$ can be identified based on the equation (11) \newline
+        The continuous $v(x, y, t)$ can be calculated based on the equation (12) \newline
+        The location change of each fish can be calculated based on equation (7) \newline
+        The $\rho_t(x, y)$ of each fish can be refreshed based on the equation (8) \newline
+    &#125;
+\end&#123;algorithm&#125;  
+
+\end&#123;document&#125;  
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>结果如下<br><img src="https://img-blog.csdnimg.cn/20210127225255881.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>关于 <strong>algorithm2e</strong>的补充</p>
+<pre><code>\usepackage[ruled,linesnumbered]&#123;algorithm2e&#125;
+</code></pre>
+<ul>
+<li><code>ruled</code> 让标题显示在上方，否则将显示在下方</li>
+<li><code>linesnumbered</code> 在算法流程图内显示行号</li>
+<li>可添加 <code>boxed</code>，让算法排版时插入在一个盒子里</li>
+</ul>
+<p> 展示效果如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210127230434622.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>另外补充：</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\;</td>
+<td>在行末添加分号，并自动换行</td>
+</tr>
+</tbody></table>
+<p>| \caption{}|插入标题<br>\KwIn{输入消息}|效果为：“input:输入消息”<br>KwOut{输出消息}|效果为：“Out:输出消息”<br>KwData{输入消息}|效果为：“Data:输入消息”<br>KwResult{输出消息}|效果为：“Result:输出消息”<br>\For{条件}{循环语句}|for 条件 do 循环语句 end<br>\If{条件}{肯定语句}|if 条件 then 肯定语句 end<br>|While{条件}{循环语句}|while 条件 then 循环语句 end<br>\tcc{注释}|/*注释*/<br>\tcp{注释}|//注释<br>\elf{条件}{肯定语句}{否定语句}|if 条件 then 肯定语句 else 否定语句 end</p>
+<p>如果有问题，欢迎给我留言</p>
 
                 
             </div>
@@ -503,7 +600,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gtyingzi.github.io/2021/060616107.html">https://gtyingzi.github.io/2021/060616107.html</a>
+                    <a href="https://gtyingzi.github.io/2021/060658338.html">https://gtyingzi.github.io/2021/060658338.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -540,7 +637,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Latex/">
+                                    <span class="chip bg-color">-Latex</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -709,7 +810,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-06T12-37-43',
+        id: '2021-06-06T14-35-39',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -739,13 +840,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/060658338.html">
+                <a href="/2021/060615907.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Latex——伪代码算法">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Latex——从基础表到进阶表的讲述">
                         
-                        <span class="card-title">Latex——伪代码算法</span>
+                        <span class="card-title">Latex——从基础表到进阶表的讲述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -760,23 +861,11 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Latex/" class="post-category">
-                                    Latex
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            影子
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Latex/">
-                        <span class="chip bg-color">-Latex</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -788,13 +877,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/060656548.html">
+                <a href="/2021/060616107.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Latex——图片基本插入及多图并排">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">Latex——图片基本插入及多图并排</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -809,23 +898,11 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Latex/" class="post-category">
-                                    Latex
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            影子
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Latex/">
-                        <span class="chip bg-color">Latex</span>
-                    </a>
-                    
                 </div>
                 
             </div>
