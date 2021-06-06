@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="测试, 影子的成长">
+    <meta name="keywords" content="Latex——图片基本插入及多图并排, 影子的成长">
     <meta name="description" content="The harder you work, the luckier you are">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>测试 | 影子的成长</title>
+    <title>Latex——图片基本插入及多图并排 | 影子的成长</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">测试</h1>
+                    <h1 class="description center-align post-title">Latex——图片基本插入及多图并排</h1>
                 </div>
             </div>
         </div>
@@ -431,14 +431,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B5%8B%E8%AF%95/">
-                                <span class="chip bg-color">测试</span>
+                            <a href="/tags/Latex/">
+                                <span class="chip bg-color">Latex</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Latex/" class="post-category">
+                                Latex
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -447,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-05
+                    2021-06-06
                 </div>
                 
 
@@ -468,7 +477,111 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这是一个测试</p>
+                <p>[TOC]</p>
+<h1 id="Latex的基本插图"><a href="#Latex的基本插图" class="headerlink" title="Latex的基本插图"></a>Latex的基本插图</h1><p>插图功能不是有Latex的内核直接提供的，而是需要由宏包graphicx提供的。因此要使用宏包的话，我们就需要在引言区插入我们的宏包。</p>
+<p>注:插图的宏包还可使用graphics，两个宏包在功能上几乎无差别，只是graphicx宏包支持&lt;项目&gt;=&lt;值&gt;的语法，使用起来更方便。</p>
+<p>导入宏包之后我们就可以使用\includegraphics命令进行插图。</p>
+<pre><code class="cpp">\documentclass&#123;article&#125;
+
+\usepackage&#123;graphicx&#125;
+
+\begin&#123;document&#125;
+    \includegraphics[scale=0.4]&#123;lufei1&#125;
+\end&#123;document&#125;
+</code></pre>
+<p>在文本相同路径下放置一张名叫lufei1的图片，后面的格式是jpg,png可以忽略。我们就可以得到一张插入的图片了。<br><img src="https://img-blog.csdnimg.cn/20210127235732976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>\includegraphics[scale=0.6]&#123;lufei1&#125;
+</code></pre>
+<p>里面有两个参数，第一个参数是可不写，第二个参数是指定图片。</p>
+<p><strong>有关第一个参数：</strong> 为更加符合文档的要求，我们需要对所插的图片进行适当的调整</p>
+<pre><code>width=3cm[缩放因子]                     指定宽度为3cm
+height=8cm[缩放因子]                    指定高度为8cm
+scale=0.4[缩放因子]                  按0.4的比例缩小
+</code></pre>
+<p><strong>有关第二个参数：</strong> 插入图片时，忽略后缀jpg或者png。<br>我们在写论文的时候，一般如果图片比较多我们一般会选择把图片统一的放到和源文件一个路径下的某个目录里，这个时候我们要成功的加载图片我们就可以使用相对路径或绝对路径来加载。<br><code>相对路径</code> ：例如，我将图片都放在一个figs的文件夹下面，<br><img src="https://img-blog.csdnimg.cn/20210128001342882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>相对路径的代码如下：</p>
+<pre><code class="cpp">\documentclass&#123;article&#125;
+\usepackage&#123;graphicx&#125;
+
+\begin&#123;document&#125;
+    \includegraphics[scale=0.4]&#123;figs/lufei2&#125;
+\end&#123;document&#125;
+</code></pre>
+<p>结果：<br><img src="https://img-blog.csdnimg.cn/20210128001842497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>绝对路径</code>：参照上例，只需改一行为</p>
+<pre><code class="cpp">\includegraphics[scale=0.4]&#123;C:/Latex排版/figs/lufei2&#125;
+</code></pre>
+<h1 id="浮动体"><a href="#浮动体" class="headerlink" title="浮动体"></a>浮动体</h1><p>接下来，让我们引进另一个概念——浮动体，一般情况下我们很少会把图片直接插入到我们的文本当中，而是会给它放置在一个叫做浮动体（float）的东西中。这样图片可以有一些相对位置的变换，不会造成分页困难等问题。</p>
+<p>图片的浮动环境是figure</p>
+<pre><code class="cpp">    \begin&#123;figure&#125;[htbp]
+        \centering
+    \includegraphics[scale=0.4]&#123;lufei1&#125;
+    \caption&#123;Dream of being a pirate king&#125;
+    \label&#123;fig:1&#125;
+    \end&#123;figure&#125;
+</code></pre>
+<p>结果：<br><img src="https://img-blog.csdnimg.cn/20210128003317537.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>请忽略哪些英文，是我随便写，放进去的。现在来研究figure里面用到的参数<br><code>[htbp]</code>:控制图片在文档中的位置，按照从左到右的顺序，可以更改为[hptb]等等。</p>
+<pre><code> h(here)    此处
+ t(top)     页顶
+ b(bottom)  页底
+ p(page)    独立一页
+</code></pre>
+<p>图片为了更好的插入文档呢，因为图片占文档大小的关系，由[htbp]会依次类推至放的进的地方，当然，大多所时候我们需要用的是h（here）,即插入我在文档里规定的位置，如果插不进去，我们需要修改图片的宽高.参照上面对图片大小的设置。</p>
+<p><code>centering</code>：使图片居中<br><code>caption</code>：对图片命名<br><code>label</code>：给图片规定一个标签，方便用 \eqref{}语句进行跳转。<br><img src="https://img-blog.csdnimg.cn/20210128144947737.png" alt="在这里插入图片描述"></p>
+<h1 id="多图并列"><a href="#多图并列" class="headerlink" title="多图并列"></a>多图并列</h1><p>通过前面的引导，我相信大家已经基本掌握图片是如何插入的了，但我们在论文排版时，经常会遇到需要将多个图片放置在一起进行比较，这时就需要实现多张图片并排~<br>接下来，我们讲讲怎么实现图片的并排效果<br>Latex提高了<strong>subfigure</strong>宏包进行多图排版。所以现在我们现在需要多添加一个宏包</p>
+<pre><code>\usepackage&#123;graphicx&#125;
+\usepackage&#123;subfigure&#125;
+</code></pre>
+<p>首先我们来实现4个图片在同一行的情况<br>代码如下：</p>
+<pre><code>\documentclass&#123;article&#125;
+\usepackage&#123;graphicx&#125;
+\usepackage&#123;subfigure&#125;
+
+\begin&#123;document&#125;
+
+    \begin&#123;figure&#125;[htbp]
+        \center
+        \subfigure[lufei-1]&#123;\label&#123;fig:1a&#125;
+        \includegraphics[width=0.15\linewidth]&#123;lufei1&#125;&#125;
+        \subfigure[lufei-2]&#123;\label&#123;fig:1b&#125;
+        \includegraphics[width=0.15\linewidth]&#123;lufei2&#125;&#125;
+        \subfigure[lufei-3]&#123;\label&#123;fig:1c&#125;
+        \includegraphics[width=0.15\linewidth]&#123;lufei3&#125;&#125;
+        \subfigure[lufei-4]&#123;\label&#123;fig:1c&#125;
+        \includegraphics[width=0.15\linewidth]&#123;lufei4&#125;&#125;
+        
+    \caption&#123;Dream of being a pirate king&#125;
+    \label&#123;fig:1&#125;
+    \end&#123;figure&#125;
+
+\end&#123;document&#125;
+</code></pre>
+<p>效果如下<br><img src="https://img-blog.csdnimg.cn/20210128145558188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>已经实现4张图片的插入了，注意控制图片的宽度，在此，我们设定的图片宽度为：width=0.15\linewidth]  每张图片设定占置文档的0.15倍</p>
+<p>如果我们需要把它变成2行2列的形式。在latex代码中每隔两个subfigure打一个回车键，奇妙的事情就发生了！<br>代码如下：</p>
+<pre><code class="bash">![\documentclass&#123;article&#125;
+\usepackage&#123;graphicx&#125;
+\usepackage&#123;subfigure&#125;
+
+\begin&#123;document&#125;
+
+    \begin&#123;figure&#125;[htbp]
+        \center
+        \subfigure[lufei-1]&#123;\label&#123;fig:1a&#125;
+        \includegraphics[width=0.15\linewidth]&#123;lufei1&#125;&#125;
+        \subfigure[lufei-2]&#123;\label&#123;fig:1b&#125;
+        \includegraphics[width=0.15\linewidth]&#123;lufei2&#125;&#125;
+    
+        \subfigure[lufei-3]&#123;\label&#123;fig:1c&#125;
+        \includegraphics[width=0.15\linewidth]&#123;lufei3&#125;&#125;
+        \subfigure[lufei-4]&#123;\label&#123;fig:1c&#125;
+        \includegraphics[width=0.15\linewidth]&#123;lufei4&#125;&#125;
+        
+    \caption&#123;Dream of being a pirate king&#125;
+    \label&#123;fig:1&#125;
+    \end&#123;figure&#125;
+
+\end&#123;document&#125;]
+</code></pre>
+<p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128152325912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>好啦~ 看到这里，我相信大家都已经基本掌握怎么在Latex使用图片了。</p>
 
                 
             </div>
@@ -495,7 +608,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gtyingzi.github.io/post/37773.html">https://gtyingzi.github.io/post/37773.html</a>
+                    <a href="https://gtyingzi.github.io/2021/060656548.html">https://gtyingzi.github.io/2021/060656548.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -533,8 +646,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B5%8B%E8%AF%95/">
-                                    <span class="chip bg-color">测试</span>
+                                <a href="/tags/Latex/">
+                                    <span class="chip bg-color">Latex</span>
                                 </a>
                             
                         </div>
@@ -705,7 +818,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-05T20-50-44',
+        id: '2021-06-06T11-02-55',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -735,13 +848,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/post/56548.html">
+                <a href="/2021/060616107.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Latex——图片基本插入及多图并排">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">Latex——图片基本插入及多图并排</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -756,23 +869,11 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Latex/" class="post-category">
-                                    Latex
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            影子
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Latex/">
-                        <span class="chip bg-color">Latex</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -781,10 +882,10 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/37773.html">
+                <a href="/2021/060537773.html">
                     <div class="card-image">
                         
                         
@@ -811,7 +912,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
