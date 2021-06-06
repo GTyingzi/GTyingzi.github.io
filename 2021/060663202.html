@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python实现聚类 KMeans算法, 影子的成长">
+    <meta name="keywords" content="应用Python绘制雷达图时遇到的坑, 影子的成长">
     <meta name="description" content="The harder you work, the luckier you are">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python实现聚类 KMeans算法 | 影子的成长</title>
+    <title>应用Python绘制雷达图时遇到的坑 | 影子的成长</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python实现聚类 KMeans算法</h1>
+                    <h1 class="description center-align post-title">应用Python绘制雷达图时遇到的坑</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/machine-learning-Python/">
-                                <span class="chip bg-color">machine learning,Python</span>
+                            <a href="/tags/%E9%9B%B7%E8%BE%BE%E5%9B%BE/">
+                                <span class="chip bg-color">雷达图</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/machine-learning/" class="post-category">
-                                machine learning
+                            <a href="/categories/Python/" class="post-category">
+                                Python
                             </a>
                         
                     </div>
@@ -477,93 +477,81 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code class="python">#-*- coding: utf-8 -*-
-&#39;&#39;&#39;
-# author： 影子
-# datetime： 2021-05-18 12:10 
-# ide： PyCharm
-target : 完成一个简单的KMeans聚类算法
-&#39;&#39;&#39;
-from numpy import *
+                <p>ValueError: The number of FixedLocator locations (9), usually from a call to set_ticks, does not match the number of ticklabels (8).</p>
+<p>运行书中例题时发现了这个错误，<br>原代码如上：</p>
+<pre><code class="c">import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
 
-# 欧式距离函数
-def Euclidean_Distance(vecA,vecB):
-    return sqrt(sum(power(vecA-vecB,2)))
+matplotlib.rcParams[&#39;font.family&#39;]=&#39;simhei&#39;
+# 某学生的课程与成绩
+courses = np.array([&#39;C++&#39;,&#39;Python&#39;,&#39;高数&#39;,&#39;大学英语&#39;,&#39;软件工程&#39;,
+           &#39;组成原理&#39;,&#39;数字图像处理&#39;,&#39;计算机图形学&#39;])
+scores=np.array([80,95,78,85,45,65,80,60])
 
-# 随机设置k个质心
-def Rand_Cent(DataSet,k):
-    n = shape(DataSet)[1]     # 获取数据集的维度
-    centroids = mat(zeros([k,n]))  # 初始化一个k行n列的二维数组，数组初始值全部为0，然后用mat函数将其转化为矩阵
-    for j in range(n):
-        minj = min(DataSet[:,j])
-        rangej = float(max(DataSet[:,j])-minj)
-        centroids[:,j] = mat(minj+rangej*random.rand(k,1)) # 随机生成一个范围在[min_j,max_j]的数据
-    return centroids   # 返回k个初始质心
+datalength = len(scores)     #数据长度
 
-# k-Means算法实现
-def kMeans(DataSet,k,Dist=Euclidean_Distance,set_cent=Rand_Cent):
-    &#39;&#39;&#39;
-    :param DataSet: 需要聚类的数据集
-    :param k: 聚类数目
-    :param Dist: 距离函数,此处调用了欧式距离函数
-    :param set_cent: 初始质心函数，此处调用随机生成的质心函数
-    :return: 质心点；数据对应的聚类簇
-    &#39;&#39;&#39;
-    m = shape(DataSet)[0]   # 获取样本个数
-    centoids = set_cent(DataSet,k)  # 初始化质心
-    clusterAssment = mat(zeros((m,2))) # 第一列存放每个样本的聚类簇，第二列存放对该样本到该聚类中心的距离
-    clusterChanged = True
-    while clusterChanged:
-        clusterChanged = False
-        for i in range(m):   # 遍历所有样本
-            minDist = inf # 初始设定最小距离为无穷大
-            minIdex = -1 # 初始设定样本聚类簇为 -1
-            for j in range(k): # 对每个样本，计算到其他k个聚类中心的距离
-                DistJI = Dist(centoids[j,:],DataSet[i,:])
-                if minDist &gt; DistJI:  # 该样本到最小距离的聚类中心记录下来,此样本记录为该簇
-                    minDist = DistJI
-                    minIdex = j
-            if clusterAssment[i,0] != minIdex: # 判断样本所属簇是否更新，若更新则记为True
-                clusterChanged = True
-            clusterAssment[i,:]=minIdex,minDist # 将样本的聚类簇和到该聚类簇中心的距离记录下来
-        for cent_i in range(k):
-            cluster = DataSet[nonzero(clusterAssment[:,0].A==cent_i)[0]]
-            &#39;&#39;&#39;
-            clusterAssment[:,0]：记录每个样本的聚类簇
-            clusterAssment[:,0].A：将其转化为行矩阵
-            nonzero(clusterAssment[:,0].A==cent_i)[0]：获得元素为Ture的样本下标
-            整句含义：获得数据集中聚类簇为cent_i的样本
-            &#39;&#39;&#39;
-            centoids[cent_i,:] = mean(cluster,axis=0) # 按行取均值
-    return centoids,clusterAssment # 返回质心点；每个样本的(聚类簇+最短距离)
+# angles数组把圆周等分为dataLength份
+angles = np.linspace(0,         #数组第一个数据
+                    2*np.pi,    #数组最后一个暑假
+                    datalength, #数组中的数据量
+                    endpoint=False) #不包含终点
 
-# 画图
-def show(DataSet,k,centroids,clusterAssment):
-    from matplotlib import pyplot as plt
-    m,n = DataSet.shape
-    mark = [&#39;or&#39;, &#39;ob&#39;, &#39;og&#39;, &#39;ok&#39;, &#39;^r&#39;, &#39;+r&#39;, &#39;sr&#39;, &#39;dr&#39;, &#39;&lt;r&#39;, &#39;pr&#39;] # 样本集的样式
-    for i in range(m):
-        markIdex = int(clusterAssment[i,0])
-        plt.plot(DataSet[i,0],DataSet[i,1],mark[markIdex])
-    mark= [&#39;Dr&#39;, &#39;Db&#39;, &#39;Dg&#39;, &#39;Dk&#39;, &#39;^b&#39;, &#39;+b&#39;, &#39;sb&#39;, &#39;db&#39;, &#39;&lt;b&#39;, &#39;pb&#39;] # 质点的样式
-    for i in range(k):
-        plt.plot(centroids[i,0],centroids[i,1],mark[i],markersize=20)
-    plt.show()
+scores = np.concatenate((scores,[scores[0]]))
+angles = np.concatenate((angles,[angles[0]]))
 
+# 绘制雷达图
+print(angles)
+print(&#39;=&#39;*20)
+print(scores)
+plt.polar(angles,
+          scores,
+          &#39;rv--&#39;,
+          linewidth=2)
+# 设置角度网络标签
+plt.thetagrids(angles*180/np.pi,courses)
+# 填充雷达图内部
+plt.fill(angles,scores,facecolor=&#39;r&#39;,alpha=0.6)
 
-def main():
-    DataSet = random.rand(100,2) # 随机生成100行2列的数据
-    DataSet = mat(DataSet) # 转化为矩阵
-    k=4 # 设置聚类簇
-    myCentroids,clustAssing = kMeans(DataSet,k) # 调用kMeans算法
-    print(&#39;聚类的质心为&#39;)
-    print(myCentroids)
-    show(DataSet,k,myCentroids,clustAssing)  # 画图
-
-if __name__ == &#39;__main__&#39;:
-    main()
+plt.show()
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20210518134759975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210417214433910.png" alt="在这里插入图片描述"><br>自己搜查资料后，了解到，只对socres，和angles做闭合还是不够</p>
+<p>需要再对courses进行闭合</p>
+<pre><code>courses = np.concatenate((courses,[courses[0]]))
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210417214555187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>此时就能正确运行出来。</p>
+<hr>
+<p>这里在附上霍兰德人格分析代码：</p>
+<pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams[&#39;font.family&#39;]=&quot;SimHei&quot;
+radar_labels = np.array([&#39;研究型（I）&#39;,&#39;艺术型（A）&#39;,&#39;社会型（S）&#39;,\
+                        &#39;企业型（E）&#39;,&#39;常规型（C）&#39;,&#39;现实型（R）&#39;])
+data = np.array([[0.40, 0.32, 0.35, 0.30, 0.30, 0.88],
+                 [0.85, 0.35, 0.30, 0.40, 0.40, 0.30],
+                 [0.43, 0.89, 0.30, 0.28, 0.22, 0.30],
+                 [0.30, 0.25, 0.48, 0.85, 0.45, 0.40],
+                 [0.20, 0.38, 0.87, 0.45, 0.32, 0.28],
+                 [0.34, 0.31, 0.38, 0.40, 0.92, 0.28]])
+data_labels =(&#39;艺术家&#39;,&#39;实验员&#39;,&#39;工程师&#39;,&#39;推销员&#39;,&#39;社会工作者&#39;,&#39;记事员&#39;)
+
+
+angles = np.linspace(0, 2*np.pi, 6, endpoint=False)
+fig = plt.figure(facecolor = &quot;white&quot;)
+plt.subplot(111, polar = True)
+plt.plot(angles, data,&#39;o-&#39;,linewidth=1, alpha=0.2)
+plt.fill(angles, data, alpha=0.25)
+plt.thetagrids(angles*180/np.pi, radar_labels)
+plt.figtext(0.52, 0.95, &#39;霍兰德人格分析&#39;, ha=&#39;center&#39;, size=20)
+legend = plt.legend(data_labels, loc = (0.94, 0.80), labelspacing = 0.1)
+plt.setp(legend.get_texts(), fontsize=&#39;large&#39;)
+plt.grid(True)
+plt.savefig(&#39;holland_radar.jpg&#39;)
+plt.show()
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210417214755175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
                 
             </div>
@@ -590,7 +578,7 @@ if __name__ == &#39;__main__&#39;:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gtyingzi.github.io/2021/060642162.html">https://gtyingzi.github.io/2021/060642162.html</a>
+                    <a href="https://gtyingzi.github.io/2021/060663202.html">https://gtyingzi.github.io/2021/060663202.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,8 +616,8 @@ if __name__ == &#39;__main__&#39;:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/machine-learning-Python/">
-                                    <span class="chip bg-color">machine learning,Python</span>
+                                <a href="/tags/%E9%9B%B7%E8%BE%BE%E5%9B%BE/">
+                                    <span class="chip bg-color">雷达图</span>
                                 </a>
                             
                         </div>
@@ -800,7 +788,7 @@ if __name__ == &#39;__main__&#39;:
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-06T15-03-55',
+        id: '2021-06-06T15-41-23',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -830,13 +818,13 @@ if __name__ == &#39;__main__&#39;:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/060650172.html">
+                <a href="/2021/060659375.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="标准BP算法matlab实现,简单易懂">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="复杂网络——多元时间序列转化网络">
                         
-                        <span class="card-title">标准BP算法matlab实现,简单易懂</span>
+                        <span class="card-title">复杂网络——多元时间序列转化网络</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -853,8 +841,8 @@ if __name__ == &#39;__main__&#39;:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/machine-learning/" class="post-category">
-                                    machine learning
+                            <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E7%A0%94%E7%A9%B6/" class="post-category">
+                                    复杂网络研究
                                 </a>
                             
                             
@@ -864,8 +852,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/machine-learning-Matlab/">
-                        <span class="chip bg-color">machine learning,Matlab</span>
+                    <a href="/tags/%E5%A4%9A%E5%85%83%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">多元时间序列转化为网络</span>
                     </a>
                     
                 </div>
@@ -879,13 +867,13 @@ if __name__ == &#39;__main__&#39;:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/060615907.html">
+                <a href="/2021/060649492.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Latex——从基础表到进阶表的讲述">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MySQL镜像下载及启动">
                         
-                        <span class="card-title">Latex——从基础表到进阶表的讲述</span>
+                        <span class="card-title">MySQL镜像下载及启动</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -902,8 +890,8 @@ if __name__ == &#39;__main__&#39;:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Latex/" class="post-category">
-                                    Latex
+                            <a href="/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="post-category">
+                                    安装教程
                                 </a>
                             
                             
@@ -913,8 +901,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Latex/">
-                        <span class="chip bg-color">Latex</span>
+                    <a href="/tags/MySQL%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%90%AF%E5%8A%A8/">
+                        <span class="chip bg-color">MySQL的安装及启动</span>
                     </a>
                     
                 </div>

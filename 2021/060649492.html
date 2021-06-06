@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python实现聚类 KMeans算法, 影子的成长">
+    <meta name="keywords" content="MySQL镜像下载及启动, 影子的成长">
     <meta name="description" content="The harder you work, the luckier you are">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python实现聚类 KMeans算法 | 影子的成长</title>
+    <title>MySQL镜像下载及启动 | 影子的成长</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python实现聚类 KMeans算法</h1>
+                    <h1 class="description center-align post-title">MySQL镜像下载及启动</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/machine-learning-Python/">
-                                <span class="chip bg-color">machine learning,Python</span>
+                            <a href="/tags/MySQL%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%90%AF%E5%8A%A8/">
+                                <span class="chip bg-color">MySQL的安装及启动</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/machine-learning/" class="post-category">
-                                machine learning
+                            <a href="/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="post-category">
+                                安装教程
                             </a>
                         
                     </div>
@@ -477,94 +477,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code class="python">#-*- coding: utf-8 -*-
-&#39;&#39;&#39;
-# author： 影子
-# datetime： 2021-05-18 12:10 
-# ide： PyCharm
-target : 完成一个简单的KMeans聚类算法
-&#39;&#39;&#39;
-from numpy import *
-
-# 欧式距离函数
-def Euclidean_Distance(vecA,vecB):
-    return sqrt(sum(power(vecA-vecB,2)))
-
-# 随机设置k个质心
-def Rand_Cent(DataSet,k):
-    n = shape(DataSet)[1]     # 获取数据集的维度
-    centroids = mat(zeros([k,n]))  # 初始化一个k行n列的二维数组，数组初始值全部为0，然后用mat函数将其转化为矩阵
-    for j in range(n):
-        minj = min(DataSet[:,j])
-        rangej = float(max(DataSet[:,j])-minj)
-        centroids[:,j] = mat(minj+rangej*random.rand(k,1)) # 随机生成一个范围在[min_j,max_j]的数据
-    return centroids   # 返回k个初始质心
-
-# k-Means算法实现
-def kMeans(DataSet,k,Dist=Euclidean_Distance,set_cent=Rand_Cent):
-    &#39;&#39;&#39;
-    :param DataSet: 需要聚类的数据集
-    :param k: 聚类数目
-    :param Dist: 距离函数,此处调用了欧式距离函数
-    :param set_cent: 初始质心函数，此处调用随机生成的质心函数
-    :return: 质心点；数据对应的聚类簇
-    &#39;&#39;&#39;
-    m = shape(DataSet)[0]   # 获取样本个数
-    centoids = set_cent(DataSet,k)  # 初始化质心
-    clusterAssment = mat(zeros((m,2))) # 第一列存放每个样本的聚类簇，第二列存放对该样本到该聚类中心的距离
-    clusterChanged = True
-    while clusterChanged:
-        clusterChanged = False
-        for i in range(m):   # 遍历所有样本
-            minDist = inf # 初始设定最小距离为无穷大
-            minIdex = -1 # 初始设定样本聚类簇为 -1
-            for j in range(k): # 对每个样本，计算到其他k个聚类中心的距离
-                DistJI = Dist(centoids[j,:],DataSet[i,:])
-                if minDist &gt; DistJI:  # 该样本到最小距离的聚类中心记录下来,此样本记录为该簇
-                    minDist = DistJI
-                    minIdex = j
-            if clusterAssment[i,0] != minIdex: # 判断样本所属簇是否更新，若更新则记为True
-                clusterChanged = True
-            clusterAssment[i,:]=minIdex,minDist # 将样本的聚类簇和到该聚类簇中心的距离记录下来
-        for cent_i in range(k):
-            cluster = DataSet[nonzero(clusterAssment[:,0].A==cent_i)[0]]
-            &#39;&#39;&#39;
-            clusterAssment[:,0]：记录每个样本的聚类簇
-            clusterAssment[:,0].A：将其转化为行矩阵
-            nonzero(clusterAssment[:,0].A==cent_i)[0]：获得元素为Ture的样本下标
-            整句含义：获得数据集中聚类簇为cent_i的样本
-            &#39;&#39;&#39;
-            centoids[cent_i,:] = mean(cluster,axis=0) # 按行取均值
-    return centoids,clusterAssment # 返回质心点；每个样本的(聚类簇+最短距离)
-
-# 画图
-def show(DataSet,k,centroids,clusterAssment):
-    from matplotlib import pyplot as plt
-    m,n = DataSet.shape
-    mark = [&#39;or&#39;, &#39;ob&#39;, &#39;og&#39;, &#39;ok&#39;, &#39;^r&#39;, &#39;+r&#39;, &#39;sr&#39;, &#39;dr&#39;, &#39;&lt;r&#39;, &#39;pr&#39;] # 样本集的样式
-    for i in range(m):
-        markIdex = int(clusterAssment[i,0])
-        plt.plot(DataSet[i,0],DataSet[i,1],mark[markIdex])
-    mark= [&#39;Dr&#39;, &#39;Db&#39;, &#39;Dg&#39;, &#39;Dk&#39;, &#39;^b&#39;, &#39;+b&#39;, &#39;sb&#39;, &#39;db&#39;, &#39;&lt;b&#39;, &#39;pb&#39;] # 质点的样式
-    for i in range(k):
-        plt.plot(centroids[i,0],centroids[i,1],mark[i],markersize=20)
-    plt.show()
-
-
-def main():
-    DataSet = random.rand(100,2) # 随机生成100行2列的数据
-    DataSet = mat(DataSet) # 转化为矩阵
-    k=4 # 设置聚类簇
-    myCentroids,clustAssing = kMeans(DataSet,k) # 调用kMeans算法
-    print(&#39;聚类的质心为&#39;)
-    print(myCentroids)
-    show(DataSet,k,myCentroids,clustAssing)  # 画图
-
-if __name__ == &#39;__main__&#39;:
-    main()
+                <h1 id="1-MySQL安装"><a href="#1-MySQL安装" class="headerlink" title="1.MySQL安装"></a>1.MySQL安装</h1><p>官网下载的MySQL实在太慢了， 这里添上<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-8.0/">清华大学的MySQL镜像网址</a><br><code>Ctrl+F</code>根据自己电脑版本搜索，这里我是windows64位的<br><img src="https://img-blog.csdnimg.cn/20210523194538248.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210523200201261.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>用管理员身份启动命令行窗口<br><img src="https://img-blog.csdnimg.cn/20210523213330890.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我把MySQL安装在了E:\mysql-8.0.23-winx64，在命令行窗口进入MySQL安装目录的bin子目录下</p>
+<p><img src="https://img-blog.csdnimg.cn/20210523213622701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>输入<code>mysqld --initialize</code><br><img src="https://img-blog.csdnimg.cn/2021052321375539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>执行成功后,MySQ安装目录下多出一个data子目录（用于存放数据库），data子目录下找到.err文件<br><img src="https://img-blog.csdnimg.cn/20210523214021759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>A temporary password is generated for root@localhost：密码</code><br>此时可看出,root的临时密码是：N-a3gSyj:tC;</p>
+<p>输入<code>net start mysql</code>启动MySQL服务器<br><img src="https://img-blog.csdnimg.cn/20210523214353681.png" alt="在这里插入图片描述"><br>输入<code>mysqladmin -u root -p password</code>命令确认root用户和root用户的密码。或确认root用户，并修改root用户的密码<br><img src="https://img-blog.csdnimg.cn/20210523214654129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Enter password：N-a3gSyj:tC;<br>另外，自己可以另外设置新的密码了。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210523214943303.jpg#pic_center" alt="在这里插入图片描述"></p>
+<h1 id="2-启动MySQL"><a href="#2-启动MySQL" class="headerlink" title="2.启动MySQL"></a>2.启动MySQL</h1><p>现在，我们来启动MySQL命令行客户端。<br>在MySQL安装目录下的bin子目录，cmd打开新的命令行窗口(不必管理员身份啦)，输入<code>mysql -u root -p</code><br>在输入密码后即进进入mysql<br><img src="https://img-blog.csdnimg.cn/20210523215236723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>现在，我们来进行一些基本的数据库操作！！！</p>
+<p>创建数据库<code>create database bookDatabase</code><br><img src="https://img-blog.csdnimg.cn/20210523215628634.png" alt="在这里插入图片描述"><br>如果数据库已经存在,将提示数据库已经存在，不再创建数据库，否则将创建数据库，如果删除已有数据库，例如bookDatabase；执行语句<code>drop database bookDatabase;</code></p>
+<p>在数据库内建表<br>命令格式为：use 数据库名;<br>分号此时可加可不加<br><img src="https://img-blog.csdnimg.cn/20210523220118361.png" alt="在这里插入图片描述"><br>下面在数据库bookDatabase建立一个名字为bookList表<br>输入</p>
+<pre><code>create table bookList(
+ISBN varchar(100) not null,
+name varchar(100) character set gb2312,
+price float,
+publishData date,
+primary key(ISBN)
+);
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/20210518134759975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
+<p><img src="https://img-blog.csdnimg.cn/20210523220450893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>将数据插入表格中.</p>
+<pre><code>insert into bookList values(&#39;7302014655&#39;,&#39;高等数学&#39;,28.67,&#39;2020-12-10&#39;),
+(&#39;7352014658&#39;,&#39;大学英语&#39;,58.5,&#39;1999-9-10&#39;),
+(&#39;7987302464259&#39;,&#39;Java2实用教材第5版&#39;,59.5,&#39;2017-5-1&#39;);
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210523220811987.png" alt="在这里插入图片描述"><br>查询bookList表中的所有记录</p>
+<pre><code>select * from bookList;
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210523220914974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="3-安装时遇到的问题（已解决）"><a href="#3-安装时遇到的问题（已解决）" class="headerlink" title="3.安装时遇到的问题（已解决）"></a>3.安装时遇到的问题（已解决）</h1><h2 id="3-1Mysql安装时mysqld-exe报应用程序无法正常启动-0xc000007b-的问题"><a href="#3-1Mysql安装时mysqld-exe报应用程序无法正常启动-0xc000007b-的问题" class="headerlink" title="3.1Mysql安装时mysqld.exe报应用程序无法正常启动(0xc000007b)的问题"></a>3.1<a target="_blank" rel="noopener" href="https://blog.csdn.net/mynameisgt/article/details/117201946">Mysql安装时mysqld.exe报<code>应用程序无法正常启动(0xc000007b)</code>的问题</a></h2><h2 id="3-2cmd无法启动mysql-cmd-显示服务名无效"><a href="#3-2cmd无法启动mysql-cmd-显示服务名无效" class="headerlink" title="3.2cmd无法启动mysql cmd 显示服务名无效"></a>3.2<a target="_blank" rel="noopener" href="https://blog.csdn.net/mynameisgt/article/details/117201836">cmd无法启动mysql cmd 显示服务名无效</a></h2>
                 
             </div>
             <hr/>
@@ -590,7 +528,7 @@ if __name__ == &#39;__main__&#39;:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gtyingzi.github.io/2021/060642162.html">https://gtyingzi.github.io/2021/060642162.html</a>
+                    <a href="https://gtyingzi.github.io/2021/060649492.html">https://gtyingzi.github.io/2021/060649492.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,8 +566,8 @@ if __name__ == &#39;__main__&#39;:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/machine-learning-Python/">
-                                    <span class="chip bg-color">machine learning,Python</span>
+                                <a href="/tags/MySQL%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%90%AF%E5%8A%A8/">
+                                    <span class="chip bg-color">MySQL的安装及启动</span>
                                 </a>
                             
                         </div>
@@ -800,7 +738,7 @@ if __name__ == &#39;__main__&#39;:
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-06T15-03-55',
+        id: '2021-06-06T15-28-51',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -830,13 +768,13 @@ if __name__ == &#39;__main__&#39;:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/060650172.html">
+                <a href="/2021/060663202.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="标准BP算法matlab实现,简单易懂">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="应用Python绘制雷达图时遇到的坑">
                         
-                        <span class="card-title">标准BP算法matlab实现,简单易懂</span>
+                        <span class="card-title">应用Python绘制雷达图时遇到的坑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -853,8 +791,8 @@ if __name__ == &#39;__main__&#39;:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/machine-learning/" class="post-category">
-                                    machine learning
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
@@ -864,8 +802,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/machine-learning-Matlab/">
-                        <span class="chip bg-color">machine learning,Matlab</span>
+                    <a href="/tags/%E9%9B%B7%E8%BE%BE%E5%9B%BE/">
+                        <span class="chip bg-color">雷达图</span>
                     </a>
                     
                 </div>
@@ -879,13 +817,13 @@ if __name__ == &#39;__main__&#39;:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/060615907.html">
+                <a href="/2021/060627056.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Latex——从基础表到进阶表的讲述">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="如何用Git向GitHub上传送文件(从注册GitHub到用Git上传的每一步)">
                         
-                        <span class="card-title">Latex——从基础表到进阶表的讲述</span>
+                        <span class="card-title">如何用Git向GitHub上传送文件(从注册GitHub到用Git上传的每一步)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -902,8 +840,8 @@ if __name__ == &#39;__main__&#39;:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Latex/" class="post-category">
-                                    Latex
+                            <a href="/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="post-category">
+                                    安装教程
                                 </a>
                             
                             
@@ -913,8 +851,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Latex/">
-                        <span class="chip bg-color">Latex</span>
+                    <a href="/tags/Github%E7%9A%84%E5%BA%94%E7%94%A8/">
+                        <span class="chip bg-color">Github的应用</span>
                     </a>
                     
                 </div>

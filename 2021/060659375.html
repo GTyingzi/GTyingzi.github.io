@@ -1,0 +1,2500 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="复杂网络——多元时间序列转化网络, 影子的成长">
+    <meta name="description" content="The harder you work, the luckier you are">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>复杂网络——多元时间序列转化网络 | 影子的成长</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">影子的成长</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">影子的成长</div>
+        <div class="logo-desc">
+            
+            The harder you work, the luckier you are
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">复杂网络——多元时间序列转化网络</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A4%9A%E5%85%83%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">多元时间序列转化为网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E7%A0%94%E7%A9%B6/" class="post-category">
+                                复杂网络研究
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-06
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>已经学习了一段时间有关复杂网络方面的资料。接下来想记录下自己一些心得体会。OK，let’go!</p>
+<hr>
+<p>谈到复杂网络，首先不得避免谈到汪小凡的著作《2006_复杂网络理论及其应用 - 汪小帆》，这时一篇入门的为数不多的中文著作。这里给附上资源：<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1p2VDdAgV29xgbqaenUBQ4A">https://pan.baidu.com/s/1p2VDdAgV29xgbqaenUBQ4A</a><br>提取码：2ass </p>
+<p>OK，来简单讲述下自己最近所浏览的一篇论文《constructing ordinal partition transition networks from multivariate time series》中译为《从多元时间序列构造有序划分转换网络》<br>中英文PDF版资源如下：<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1in4q7KQIhsUkUCwWzm3cGw">https://pan.baidu.com/s/1in4q7KQIhsUkUCwWzm3cGw</a><br>提取码：ecqi </p>
+<hr>
+<pre><code>接下来，让我们对照中文版的谈谈一些体会，在相应位置，有自己编写好的算法供大家参考
+</code></pre>
+<p>page one</p>
+<p><strong>已经提出了越来越多的算法来将标量时间序列映射到顺序分区转换网络中。 但是，经验科学中大多数可观察到的现象具有多元性质。 我们构建多元时间序列的序数分区转换网络。</strong><br><strong>这种方法产生了加权有向网络，该网络代表了速度空间中时间序列的模式转换特性，因此可以动态地了解下层系统。 此外，我们提出了一种熵的度量来表征有序分区过渡动力学，它对捕获相空间轨迹的可能局部几何变化很敏感。 我们证明了模式转换网络可用于捕获非相干转换的相位相干性，并表征相同步的路径。 因此，我们得出结论，有序分区过渡网络方法为非线性多元时间序列的传统符号分析提供了补充的见解</strong>。</p>
+<p>​        非线性时间序列分析和复杂网络理论被广泛认为是与非线性动力学和统计物理学紧密联系的复杂系统科学领域。 越来越多的文献旨在利用复杂的网络方法来表征基于时间序列的动态系统。 有多种方法可以将给定的时间序列转换为网络表示形式，然后进行网络分析。 这里我们举几个典型的例子。 递归网络方法比较了相空间中时间点的接近性，这些时间点已应用于气候数据分析 **[1、2]**，混沌电化学振荡器 **[3]**，分数布朗运动4和油水两相过渡流动行为 **[5-7]**。<br>在音乐数据 <strong>[8]</strong> 中已经识别出一些基本的网络主题结构，其特征还在于修订的递归方法 **[9]**。 已经提出了一系列可见度图算法及其变体 **[10-12]**，以通过计算两个采样点的每对之间的所谓线性可见度条件来转换给定的时间序列，这些条件已成功应用于美国的飓风数据 <strong>[13]</strong>  ，金融市场 **[14]**，黑子时间序列 **[15、16]**，相关随机 <strong>[17]</strong> 和多重分形随机过程 **[18]**，从复杂的系统角度提供了新颖的见解。 参考文献 <strong>[18、19和20]</strong> 中讨论了其他几种方法。例如，提出了循环网络的概念，用于将时间序列映射到网络 **[21]**。表征图案的顺序有助于区分高维混沌和低维混沌 **[22]**。此外，可以通过将时间序列的各段映射到可见性图并将连续状态链接到状态网络 <strong>[23、24]</strong> 来监视时间序列的演化行为。</p>
+<p>​        最近，越来越多的工作通过时间序列的有序划分将时间序列转换为网络 **[25、26]**。在不规则采样的时间序列中进行了一系列有序方法的系统研究 <strong>[27-29]</strong> ，这显示了研究 来自气候科学的实验观测数据 <strong>[30]</strong> 。 在这种方法中，第一步是通过使用传统时延嵌入技术将一维时间序列嵌入相空间。 相空间中的十个嵌入式点被映射到网络空间中的节点，并且基于轨迹上的时间顺序在节点之间分配链接。 结果网络是相空间中时间序列的马尔可夫链表示。 网络分析的有趣之处在于，相当简单的网络测度（甚至包括平均度）也可以跟踪与最大Lyapunov指数相当的动态转变 <strong>[25]</strong> 。</p>
+<hr>
+<p>page two</p>
+<p>​        序数分区网络方法的基本思想可以追溯到识别时间序列 <strong>[31、32]</strong> 的序数模式。考虑一维时间序列{x（t）} t = 1，…，L包含来自a的L个点 动力学系统中，原始相空间可以通过时延嵌入x（t）= [x（t），x（t + τ），…，x（t +（Dx-1）τ）]来重建 Dx <strong>[33，34]</strong> .下一步是基于相对振幅计算x（t），x（t + τ），…，x（t +（Dx-1）τ）的等级顺序，方便地用 一个符号πx（t）。 当在嵌入空间中将窗口从t = 1滑动到N = L-（Dx-1）T时，会生成轨迹πx（t）的符号表示。 一种遵循符号表示法的传统方法是，基于阶数模式的频率图来计算置换熵，从而在非线性时间序列分析中产生非常完善的统计量 <strong>[31]</strong> 。 在最近的几十年中，时间序列的序数符号表示已在科学和工程中发现了许多有趣的应用，例如，生物医学记录 <strong>[35]</strong> ，金融 <strong>[36]</strong> ，气候科学 <strong>[37]</strong> 。 参考文献中对近期的一些进展进行了全面的回顾。  <strong>[35]</strong>.但是，序数模式之间的过渡行为在很大程度上仍然不清楚。 最近的序数分区网络表示法捕获了序数模式的演化行为 <strong>[25、26]</strong> ，这为时间序列的标准序数符号分析提供了新颖的见解。</p>
+<p>​        对于给定的嵌入尺寸Dx，总共有Dx！ 可能会在时间序列中出现的唯一序数模式，而忽略了相等性。 平稳增量的随机过程满足P（xt = x.t + τ）= 0，因此具有联系xt = x.t + τ的概率为零。 对于经验时间序列，我们可以通过添加连续分布的微小白噪声来避免联系 <strong>[38]</strong> 。 因此，原始相空间将分解为Dx！ 等效分区 <strong>[31]</strong> 。 所有Dx都很直观！ 在N→∞的随机过程所产生的时间序列中，模式几乎以相等的频率出现。 但是，在确定性动力学产生的时间序列中，可能永远不会出现一组模式。 因此，可以通过对禁止模式进行计数来量化时间序列数据中的确定性。 然而，复杂性在实时分析中出现。 例如，缺失的序数模式可能与观察期间的有限时间长度以及相关的随机过程有关，这要求在相对较短的嘈杂数据中使用某些修订的方法来确定性的检测 <strong>[39-43]</strong> 。 从常规分区网络的角度来看，顺序模式的频率和不同模式之间的过渡都是不均匀的。 因此，如此获得的网络特性对不同的系统动力学很敏感，这可以成功地根据EEG数据 <strong>[25、26]</strong> 来表征健康与患者之间的差异。</p>
+<p>​        最近的大多数工作都只关注单变量时间序列{x（t）}。 嵌入维数Dx和时间延迟T是构建有序分区网络的两个重要参数，尤其是对禁止顺序模式的出现具有关键影响 <strong>[27-29]</strong> 。 但是，对多元时间序列的泛化仍大体未触及 <strong>[5，44]</strong> 。经验科学中的大多数可观察到的现象都是多元性质的。 例如，同时观察股票市场中的资产，并分析其共同发展以更好地了解趋势。 在气候科学中，多种观测（温度，压力，降水，人类活动等，来自不同位置）是对未来气候状况进行可靠预测的基础。 我们建议从多元数据构建有序分区转换网络。</p>
+<p><strong>Results</strong><br><img src="https://img-blog.csdnimg.cn/20210129162825766.png" alt="在这里插入图片描述"></p>
+<p><strong><u>顺序模式定义<u></strong>  给定由确定性动态系统生成的标量时间序列{x（t）}，时间序列的顺序结构取决于嵌入维Dx和时间延迟τ **[33、34]**。<br>让我们从Dx = 2开始。 忽略相等，我们在x（t）和x（t +τ）之间有两个关系，即代表顺序模式πx的两个符号序列：<br><img src="https://img-blog.csdnimg.cn/20210129131845629.jpg#pic_center" alt="在这里插入图片描述"></p>
+<p>对于具有连续分布值的动力系统，我们可以忽略相等性，因为Lebesgue对关系的测度为零 <strong>[31]</strong> 。 此外，大量的数值模拟表明结果不会发生质的变化，并且我们对x（t）&lt;x（t +τ）或x（t）≤x（t +τ）**[38.45]** 进行计数都无关紧要,在实际应用中，我们可以轻松测试&lt;和≤。 在此之前，我们按照参考文献中的建议执行例程。  **[45]**，不要单独考虑平等。 在这项工作中，时间延迟τ被选为1。 通过这种选择，顺序模式πx1分别捕获上升趋势，而πx0对应于时间序列的下降趋势。  定义等效于通过原始序列的一阶差分来考虑增量Δx（t）= x（t + 1）-x（t）的符号。 换句话说，相关的顺序模式捕获x（t）在其速度空间中的变化，从而直接基于位移显示动态信息而非静态信息</p>
+<p>​        当将上述思想推广到二维时间序列（x（t），y（t））时，我们将讨论局限于将Dx = Dy = 2嵌入到单个变量中。 因此，根据递增符号（Δx（t），Δy（t））（表<strong>1</strong>），我们有四种不同的顺序模式组合：在（x（t），y（t））的相空间中，我们 具有阶式Π（t）∈（π1，π2，π3，π4）捕获了递增或递减的行为。 图 <strong>1（a，c）</strong> 的示例显示了二维序列（x（t），y（t））的有序模式的构造。 完全类推，基于增量（Δx（t），Δy（t），Δz（t）），序数模式TT（t）属于（Π1，…，Πi）i = 1，…，8 表 <strong>[2]</strong> 列举了三维时间序列（x（t），y（t），z（t））的坐标，并在图<strong>1（b，d）</strong>中将其可视化。 因此，n维时间序列（{x1}（t），…，{xn}（t））的阶模Π（t）的维数为D = 2 ^ n，因为每个分量要么增加要么降低在时间t下降趋势。</p>
+<hr>
+<p>page three</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129131953764.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>图1.（a）二维序列（x（t），y（t））和（c）增量序列（Δx（t），Δy（t））的阶序模式定义。  （b）树的维数级数（x（t），y（t），z（t））和（d）相应的增量级数（Δx（t），Δy（t），Δy（t））。  （c，d）分别表示增量级数和序号的符号</p>
+<hr>
+<p>提供代码如下：</p>
+<pre><code class="bash">%% 二维时间序列模式
+clear;clc
+%初始数据
+n=10;                   %%时间序列长度为10
+m=20;                   %%大小设定为20之内
+x=m*rand(1,n);          %%随机生成长度为10的x的时间序列，大小在0~20
+y=m*rand(1,n);          %%随机生成长度为10的y的时间序列，大小在0~20
+delta_x=diff(x);        %%求x的差分，此时周期为1
+delta_y=diff(y);        %%求y的差分，此时周期为1
+m=length(delta_x);      %%获得差分长度
+%--------------------------------------------------------------------------
+%记录π序数
+pai_xushu=cell(1,m);
+for i=1:m            %%得到m个π序数
+    if delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π1&#39;;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π2&#39;;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π3&#39;;
+    else
+        pai_xushu&#123;i&#125;=&#39;π4&#39;;
+    end
+end
+
+%绘图区
+i=1:n;      %%画生成x,y图对应需要
+j=1:n-1;    %%画差分增量模式图需要
+figure(1);
+subplot(2,1,1);
+plot(i,x,&#39;o-&#39;);hold on;plot(i,y,&#39;b*-&#39;);hold off;
+ylabel(&#39;x,y&#39;);
+h1=legend(&#39;x&#39;,&#39;y&#39;);                  %%设置图例
+set(h1,&#39;Orientation&#39;,&#39;horizon&#39;);     
+set(h1,&#39;Box&#39;,&#39;off&#39;);
+
+subplot(2,1,2);
+plot(j,delta_x,&#39;o-&#39;);hold on;plot(j,delta_y,&#39;b*-&#39;);hold off;
+line([0,n],[0,0],&#39;linestyle&#39;,&#39;--&#39;);   %%添加横坐标0-n，纵坐标0-0的虚线
+for i=1:n-1
+    text(i,0,pai_xushu(i));           %%显示对应结果的π模式
+end
+xlabel(&#39;t&#39;);
+ylabel(&#39;Δx,Δy&#39;);
+h2=legend(&#39;Δx&#39;,&#39;Δy&#39;);               %%设置图例
+set(h2,&#39;Orientation&#39;,&#39;horizon&#39;);
+set(h2,&#39;Box&#39;,&#39;off&#39;);
+
+%%  三维时间序列
+clear;clc
+%初始数据
+n=10;             %%时间序列长度为10
+m=20;             %%大小设定为20之内
+x=m*rand(1,n);    %%随机生成长度为10的x的时间序列，大小在0~20
+y=m*rand(1,n);    %%随机生成长度为10的y的时间序列，大小在0~20
+z=m*rand(1,n);    %%随机生成长度为10的z的时间序列，大小在0~20
+delta_x=diff(x);  %%求x的差分
+delta_y=diff(y);  %%求y的差分
+delta_z=diff(z);  %%求z的差分
+m=length(delta_x);
+
+%记录π序数
+pai_xushu=cell(1,m);
+for i=1:m                    %%得到n-1个π序数
+    if delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π1&#39;;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π2&#39;;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π3&#39;;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π4&#39;;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π5&#39;;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π6&#39;;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π7&#39;;
+    else
+        pai_xushu&#123;i&#125;=&#39;π8&#39;;
+    end
+end
+
+%绘图区
+i=1:n;          %%画生成x,y图对应需要
+j=1:n-1;        %%画差分增量模式图需要
+figure(1);
+subplot(2,1,1);
+plot(i,x,&#39;o-&#39;);hold on;plot(i,y,&#39;b*-&#39;);hold on;plot(i,z,&#39;m^-&#39;);hold off;
+ylabel(&#39;x,y,z&#39;);
+h1=legend(&#39;x&#39;,&#39;y&#39;,&#39;z&#39;);        %%设置图例
+set(h1,&#39;Orientation&#39;,&#39;horizon&#39;);
+set(h1,&#39;Box&#39;,&#39;off&#39;);
+
+subplot(2,1,2);
+plot(j,delta_x,&#39;o-&#39;);hold on;plot(j,delta_y,&#39;b*-&#39;);hold on;plot(j,delta_z,&#39;m^-&#39;);hold off;
+line([0,n],[0,0],&#39;linestyle&#39;,&#39;--&#39;);   %%添加横坐标0-n，纵坐标0-0的虚线
+for i=1:n-1
+    text(i,0,pai_xushu(i));           %%显示对应结果的π模式
+end
+xlabel(&#39;t&#39;);
+ylabel(&#39;Δx,Δy,Δz&#39;);
+h2=legend(&#39;Δx&#39;,&#39;Δy&#39;,&#39;Δz&#39;);         %%设置图例
+set(h2,&#39;Orientation&#39;,&#39;horizon&#39;);
+set(h2,&#39;Box&#39;,&#39;off&#39;)
+</code></pre>
+<p>运行结果为：<br><img src="https://img-blog.csdnimg.cn/20210129163902782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>因为我是随机生成的时间序列，所以图片会有差异，但已基本实现要求</p>
+<hr>
+<p><img src="https://img-blog.csdnimg.cn/20210129132027259.jpg#pic_center" alt="在这里插入图片描述"></p>
+<p>​        注意，在这项工作中，我们没有应用时间延迟嵌入技术来从一个单变量时间序列获得多维相空间。 相反，在给定多元时间序列的情况下，我们考虑在多重测量空间中每个测量的两个连续时间点之间的增量。 换句话说，我们的方法在与其相关的速度空间（差异空间）中捕获了多元时间序列的动态特性。 因此，顺序模式定义（公式 <strong>（1）</strong> ）中的时间延迟τ与嵌入中经常使用的时间延迟具有不同的解释。 传统上，一个适当地选一个嵌入丁维和时间延迟来重建相空间从一个给定的单变量的时间序列。 我们当然可以将讨论推广到以下情况：时间延迟大于1（即τ&gt; 1），并且对于每个变量（度量）都嵌入维度Dx&gt; 2，但是我们认为对于多变量而言，动力学方面的物理意义变得模棱两可 时间序列。</p>
+<p><strong><u>顺序分区转换网络。</u></strong> 给定一个多元时间序列，例如（x（t），y（t））的二维情况，我们将第i个模式πi的频率表示为p（πi） 时间间隔t = 1，…，N。 一个重要的特性是确定性过程中的序数模式具有不同的频率p（πi）。 然后引入置换熵HO来表征序数模式的不均匀外观，如下所示<br><img src="https://img-blog.csdnimg.cn/20210129132054830.jpg#pic_center" alt="在这里插入图片描述"></p>
+<p>其中总和遍历所有D = 2 ^ n个排列。 我们使用log2，因此HO的单位是位。 对于一个n维独立的相同分布式随机过程，由于每个D = 2 ^ n序数模式都具有相同的频率，因此可以获得最大的熵HO = n。</p>
+<p>​        我们通过使用图2中的三维相同的独立周期序列的玩具模型来说明上述算法.3D周期序列的周期的不同组合会产生置换熵HO的不同值。 此外，广泛观察到有限数量的可能的序数模式（禁止的模式），从而影响了该系列的确定性。</p>
+<p>​        当前的大多数研究都集中在考虑顺序模式的频率来计算置换熵HO上，该方法并未揭示顺序模式之间的过渡行为。 因此，HO是静态的。 例如，仅在HO值为1.92的情况下，图 <strong>2（b，c）</strong> 中的动力学细节仍然不清楚，因为HO并未公开（c）中图 <strong>2（b）</strong> 的独特过渡特性。 从可视化的角度来看，图 <strong>3（a，b）</strong> 中方便地显示了阶跃模式之间的过渡差异。</p>
+<hr>
+<p>page four</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129132127902.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>图2.周期性3D序列（x（t），y（t），z（t））的玩具模型及其相关的订购模式直方图。<br>（a）x（t），y（t）和z（t）的周期为2。（b）x（t）和y（t）的周期为2，而z（t）的周期为3。  c）x（t）的周期为2，y（t）和z（t）的周期为3。（d）x（t），y（t）和z（t）的周期为3。各自的频率曲线 时间序列下方显示了序数模式的变化，图例中显示了熵值HO</p>
+<hr>
+<p>提供代码如下：</p>
+<pre><code class="bash">clear;clc
+%a组初始数据,x,y,z周期为2
+% x=[1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1];
+% y=[-2 2 -2 2 -2 2 -2 2 -2 2 -2 2 -2 2 -2 2 -2 2 -2 2 -2];
+% z=[3 -3 3 -3 3 -3 3 -3 3 -3 3 -3 3 -3 3 -3 3 -3 3 -3 3];
+
+%b组初始数据，x,y周期为2，z周期为3 
+% x=[1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1];
+% y=[2.5 -2.5 2.5 -2.5 2.5 -2.5 2.5 -2.5 2.5 -2.5 2.5 -2.5 2.5 -2.5 2.5 -2.5 2.5 -2.5 2.5 -2.5 2.5];
+% z=[-3 3 1 -3 3 1 -3 3 1 -3 3 1 -3 3 1 -3 3 1 -3 3 1];
+
+% %c组初始数据，x周期为2，y、z周期为3 
+% x=[1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1 -1 1];
+% y=[-2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1];
+% z=[3 0.5 1 3 0.5 1 3 0.5 1 3 0.5 1 3 0.5 1 3 0.5 1 3 0.5 1];
+
+% %d组初始数据，x、y、z周期为3 
+% x=[-1 -0.5 1 -1 -0.5 1 -1 -0.5 1 -1 -0.5 1 -1 -0.5 1 -1 -0.5 1 -1 -0.5 1];
+% y=[-2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1 -2.5 2.5 1];
+% z=[3 0.5 1 3 0.5 1 3 0.5 1 3 0.5 1 3 0.5 1 3 0.5 1 3 0.5 1];
+
+n=length(x);         %%获取原始时间序列的长度
+delta_x=diff(x);     %%求x的差分
+delta_y=diff(y);     %%求y的差分
+delta_z=diff(z);     %%求z的差分
+m=length(delta_x);   %%获得差分长度
+
+%--------------------------------------------------------------------------
+%记录π序数
+pai_xushu=cell(1,m);      %%直观显示对应的π模式
+digit_xushu=zeros(1,m);   %%编程序简易，以1-&gt;π1,2-&gt;π2，…，n-&gt;πn
+for i=1:m            %%得到m个π序数
+    if delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π1&#39;;
+        digit_xushu(i)=1;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π2&#39;;
+        digit_xushu(i)=2;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π3&#39;;
+        digit_xushu(i)=3;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π4&#39;;
+        digit_xushu(i)=4;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π5&#39;;
+        digit_xushu(i)=5;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π6&#39;;
+        digit_xushu(i)=6;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π7&#39;;
+        digit_xushu(i)=7;
+    else
+        pai_xushu&#123;i&#125;=&#39;π8&#39;;
+        digit_xushu(i)=8;
+    end
+end
+
+%记录π模式概率p(πi)及其相应的熵值Ho
+pai_count=zeros(1,8);
+for i=1:m
+    for j=1:8
+    if digit_xushu(i)==j
+        pai_count(j)=pai_count(j)+1;      %%记录对应的πi出现的个数
+    end    
+    end
+end
+
+P=pai_count/sum(pai_count);               %%获得每个πi占总体的比例
+Ho=0;
+
+for j=1:8
+    if P(j)~=0
+    Ho=Ho-P(j)*log2(P(j));
+    end
+end
+
+%绘图区
+i=1:n;        %%画生成x、y、z图对应需要x轴
+j=1:m;        %%画差分增量模式图需要x轴
+figure(1);
+subplot(2,1,1);
+plot(i,x,&#39;-&#39;);hold on;plot(i,y,&#39;m-&#39;);hold on;plot(i,z,&#39;b-&#39;);hold off;
+xlabel(&#39;t&#39;);ylabel(&#39;x,y,z&#39;);
+
+subplot(2,1,2);
+bar(P);         %%画直方图
+xlabel(&#39;π_i&#39;);ylabel(&#39;p(π_i)&#39;);
+text(4,0.2,[&#39;H_o=&#39; num2str(Ho)]);      %%在图形对应位置上显示πi
+</code></pre>
+<p>结果如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129165132229.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>基本达到了要求</p>
+<hr>
+<p>与3维不相关的独立相同的分布随机均匀噪声相比，有序分区网络是一个完整的连接图（图<strong>3（c）</strong>）。 另外，在序列的时间迭代之后，我们通过其过渡频率wij = p（πi→πj）指示每个有向链路。 最后，我们得出一个加权有向网络，其特征在于加权邻接矩阵W = {wij}，i，j∈[1，2 ^ n]。 矩阵W满足归一化∑ i，j-&gt; 2 ^ n wij = 1。 在此，基于W，通过香农熵HT量化有序模式转换特性的规律性，即</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129132229502.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-D1g81NJU-1611895510083)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110145254332.png)]"></p>
+<p>总和遍及所有可能的2 ^ 2n转换。 完全类似于HO，对于一个n维独立的相同分布随机过程，可以获得最大熵HT = 2n。</p>
+<p>​        对于由随机过程产生的时间序列，计算HT相当简单。 但是，我们需要注意连续系统的情况，该系统在生成的网络中会产生较大比例的自环，如下所示。 这里我们以混沌的Rössler系统为例</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129132245786.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Lp6vRcwq-1611895510083)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110145447416.png)]"></p>
+<p>其中a = 0.165，ω= 1.0。 公式 <strong>（4）</strong> 通过四阶Runge Kutta方法进行数值积分，积分步骤h = 0.01。 丢弃前10000个瞬态数据点，并分析由N = 500000个数据点组成的时间序列。 时间序列的短段（x，y，z）如图 <strong>4（a）</strong> 所示。 由于系统的连续性，在某些时间间隔内有许多高原会影响顺序模式的不变性（图 <strong>4（b）</strong> ）。 这些高原通过最终的过渡网络中的自环来完成（图 <strong>4（c）</strong> ）。 在现有的大多数复杂网络研究中，由于计算简单和理论上的考虑，都避免了自环 <strong>[46]</strong> 。 在Rössler系统的情况下，大约有99％的自环，而只有大约1％的非自环（如图 <strong>4（c）</strong> 中的箭头所示）。</p>
+<hr>
+<p>page five</p>
+<p><img src="https://img-blog.csdnimg.cn/2021012913232112.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-I4ADa7cL-1611895510084)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110145850164.png)]"></p>
+<p>图3.（a）分别用于图 <strong>2（b）</strong> 的周期性过程的序数分区过渡网络，（b）用于图 <strong>2（c）</strong> 。 面板（c）对应于3D独立的相同分布随机均匀噪声，其中链接箭头（双向）被抑制以便于可视化。</p>
+<hr>
+<p><img src="https://img-blog.csdnimg.cn/20210129132353688.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Ifr78ft4-1611895510084)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110145938048.png)]"></p>
+<p>图4.混沌Rössler系统（a = 0.165）：（a）时间序列的短段（x，y，z），（b）与（a，c）顺序模式的特定时间窗口相对应的顺序模式的时间变化 有自环的跃迁网络，HO = 2.283，（d）没有自环的跃迁网络，HT = 2.585，其中观察到过渡路径π1→π5→π6→π8→π4→π3→π1。 链接上的值表示顺序模式的相应转换频率。 注意，在获得（c，d）中使用了N ＝ 500000个数据点。</p>
+<hr>
+<p>提供代码如下：</p>
+<pre><code class="bash">%%混Rossler系统-公式,四阶Runge Kutta方法  历时 16.848760 秒。
+%初始数据
+clear;clc
+tic
+global w         %%定义全局变量w
+global a;        %%定义全局变量a
+N=500000;h=0.01;  %%迭代N次，步长h；
+w=1.0;a=0.165;   %%设定w,a
+x=zeros(1,N);y=zeros(1,N);z=zeros(1,N);   %%提前分配内存空间
+x(1)=0;y(1)=8;z(1)=0.5;  %%设定初始点
+
+%四阶Runge-Kutta算法
+for i=1:N
+    x_k1=f_dx(y(i),z(i));       %%调用自编写f_dx函数
+    y_k1=f_dy(x(i),y(i));       %%调用自编写f_dy函数
+    z_k1=f_dz(x(i),z(i));       %%调用自编写f_dz函数
+    
+    x_k2=f_dx(y(i)+h/2*y_k1,z(i)+h/2*z_k1);
+    y_k2=f_dy(x(i)+h/2*x_k1,y(i)+h/2*y_k1);
+    z_k2=f_dz(x(i)+h/2*x_k1,z(i)+h/2*z_k1);
+    
+    x_k3=f_dx(y(i)+h/2*y_k2,z(i)+h/2*z_k2);
+    y_k3=f_dy(x(i)+h/2*x_k2,y(i)+h/2*y_k2);
+    z_k3=f_dz(x(i)+h/2*x_k1,z(i)+h/2*z_k2);
+    
+    x_k4=f_dx(y(i)+h*y_k3,z(i)+h*z_k3);
+    y_k4=f_dy(x(i)+h*x_k3,y(i)+h*y_k3);
+    z_k4=f_dz(x(i)+h*x_k3,z(i)+h*z_k3);
+    
+    x(i+1)=x(i)+h/6*(x_k1+2*x_k2+2*x_k3+x_k4);
+    y(i+1)=y(i)+h/6*(y_k1+2*y_k2+2*y_k3+y_k4);
+    z(i+1)=z(i)+h/6*(z_k1+2*z_k2+2*z_k3+z_k4);
+end
+
+%获得x,y,z序列后进行差分
+delta_x=diff(x);      %%对余下的x序列进行差分       
+delta_y=diff(y);      %%对余下的y序列进行差分
+delta_z=diff(z);      %%对余下的z序列进行差分
+m=length(delta_x);    %%获取余下的x序列长度
+
+%记录π序数
+pai_xushu=cell(1,m);        %%直观显示对应的π模式
+digit_xushu=zeros(1,m);     %%编程序简易，以1-&gt;π1,2-&gt;π2，…，n-&gt;πn
+for i=1:m                   %%得到m个π序数
+    if delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π1&#39;;
+        digit_xushu(i)=1;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π2&#39;;
+        digit_xushu(i)=2;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π3&#39;;
+        digit_xushu(i)=3;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π4&#39;;
+        digit_xushu(i)=4;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π5&#39;;
+        digit_xushu(i)=5;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π6&#39;;
+        digit_xushu(i)=6;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π7&#39;;
+        digit_xushu(i)=7;
+    else
+        pai_xushu&#123;i&#125;=&#39;π8&#39;;
+        digit_xushu(i)=8;
+    end
+end
+
+%丢失前clear_N个数据点
+clear_N=10000;             %%设定丢弃数据点
+x_clear=x(1:clear_N);x(1:clear_N)=[];   %%x前clear_N个数据点存入x_clear     
+y_clear=y(1:clear_N);y(1:clear_N)=[];   %%y前clear_N个数据点存入y_clear
+z_clear=z(1:clear_N);z(1:clear_N)=[];   %%z前clear_N个数据点存入z_clear
+digit_xushu_clear_N=digit_xushu(1:clear_N);digit_xushu(1:clear_N)=[];
+m=length(digit_xushu);
+
+%计算记录π模式概率p(πi)及其相应的熵值Ho
+pai_count=zeros(1,8);
+for i=1:m
+    for j=1:8
+    if digit_xushu(i) == j
+        pai_count(j)=pai_count(j)+1;   %%记录对应πi出现的个数
+    end    
+    end
+end
+
+P=pai_count/sum(pai_count);      %%获得每个πi占总体的比例
+Ho=0;
+P(find(P==0))=1;       %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+for j=1:8
+    Ho=Ho-P(j)*log2(P(j));
+end
+P(find(P==1))=0;       %%复原
+
+disp(&#39;π模式出现的概率及其对应的熵Ho&#39;);
+for i=1:8
+    if P(i)~=0
+        disp([&#39;π&#39; num2str(i) &#39; is &#39; num2str(P(i))]);    %%控制台上显示单个πi对应的概率
+    end
+end
+Ho
+disp(&#39;---------------------------------------------&#39;);
+
+%计算π模式的转化概率以及HT
+pai_ij_count=zeros(8,8);
+for k=1:m-1
+    for i=1:8
+        for j=1:8
+            if digit_xushu(k) == i &amp;&amp; digit_xushu(k+1) == j    %%如果第k个π模式为πi,第k+1个π模式为πj
+                pai_ij_count(i,j)=pai_ij_count(i,j)+1;         %%则在第i行第j列+1。最后可得到转移数量矩阵。
+            end
+        end
+    end
+end
+
+P_ij=pai_ij_count/sum(sum(pai_ij_count));               %%获得每个πi-&gt;πj的转移概率
+P_ij(find(P_ij==0))=1;           %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+HT=0;
+for i=1:8
+    for j=1:8
+        HT=HT-P_ij(i,j)*log2(P_ij(i,j));
+    end
+end
+P_ij(find(P_ij==1))=0;     %%复原
+
+disp(&quot;π模式传递概率及相应的HT&quot;)
+for i=1:8
+    for j=1:8
+        if P_ij(i,j)~=0
+            disp([&#39;π&#39; num2str(i) &#39;-&gt;&#39; &#39;π&#39; num2str(j) &#39; is &#39; num2str(P_ij(i,j))] )  %%在控制台显示πi-&gt;πj的转移概率
+        end
+    end
+end
+HT
+disp(&#39;---------------------------------------------------------------------&#39;)
+
+%去除自环后的概率及Ht
+pai_ij_count_2=pai_ij_count-diag(diag(pai_ij_count));   %%对角线置0，去除自环现象
+P_ij_2=pai_ij_count_2/sum(sum(pai_ij_count_2));         %%余下进行归一化得其转移概率
+P_ij_2(find(P_ij_2==0))=1;     %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+HT_2=0;
+for i=1:8
+    for j=1:8
+        HT_2=HT_2-P_ij_2(i,j)*log2(P_ij_2(i,j));
+    end
+end
+P_ij_2(find(P_ij_2==1))=0;     %%复原
+
+disp(&quot;去除自环后，π模式传递概率及相应的HT_2&quot;)
+for i=1:8
+    for j=1:8
+        if P_ij_2(i,j)~=0
+            disp([&#39;π&#39; num2str(i) &#39;-&gt;&#39; &#39;π&#39; num2str(j) &#39; is &#39; num2str(P_ij_2(i,j))] ) %%在控制台显示πi-&gt;πj（i~=j）的转移概率
+        end
+    end
+end
+HT_2
+
+
+%%绘图区
+figure(1);
+n=3000;     %%短段，长度为n
+i=1:n;      %%画图所需对应x轴
+subplot(2,1,1);
+plot(i,x_clear(i),&#39;-&#39;);hold on;plot(i,y_clear(i),&#39;m-&#39;);hold on;plot(i,z_clear(i),&#39;b-&#39;);hold off;
+ylabel(&#39;x,y,z&#39;);title(&#39;(a)&#39;);
+h1=legend(&#39;x&#39;,&#39;y&#39;,&#39;z&#39;);           %%设置图例
+set(h1,&#39;Orientation&#39;,&#39;horizon&#39;);
+set(h1,&#39;Box&#39;,&#39;off&#39;);
+
+subplot(2,1,2);
+i=1:n;
+plot(i,digit_xushu_clear_N(i),&#39;-&#39;);
+xlabel(&#39;t&#39;);ylabel(&#39;π&#39;);title(&#39;(b)&#39;);
+  
+figure(2)
+for i=1:8
+    L(i)=length(find(digit_xushu==i));      %%得到出现πi的个数
+end
+for i=1:8
+    index(i,1:L(i))=find(digit_xushu==i);   %%πi对应在序列中的位置，方便作图
+end
+
+plot3(x(index(1,1:L(1))),y(index(1,1:L(1))),z(index(1,1:L(1))),&#39;c*&#39;);hold on;
+plot3(x(index(2,1:L(2))),y(index(2,1:L(2))),z(index(2,1:L(2))),&#39;r*&#39;);hold on;
+plot3(x(index(3,1:L(3))),y(index(3,1:L(3))),z(index(3,1:L(3))),&#39;y*&#39;);hold on;
+plot3(x(index(4,1:L(4))),y(index(4,1:L(4))),z(index(4,1:L(4))),&#39;k*&#39;);hold on;
+plot3(x(index(5,1:L(5))),y(index(5,1:L(5))),z(index(5,1:L(5))),&#39;m*&#39;);hold on;
+plot3(x(index(6,1:L(6))),y(index(6,1:L(6))),z(index(6,1:L(6))),&#39;b*&#39;);hold on;
+plot3(x(index(7,1:L(7))),y(index(7,1:L(7))),z(index(7,1:L(7))),&#39;k*&#39;);hold on;
+plot3(x(index(8,1:L(8))),y(index(8,1:L(8))),z(index(8,1:L(8))),&#39;g*&#39;);hold off;
+
+h1=legend(&#39;π_1&#39;,&#39;π2&#39;,&#39;π_3&#39;,&#39;π_4&#39;,&#39;π_5&#39;,&#39;π_6&#39;,&#39;π_8&#39;);    %%设置图例
+set(h1,&#39;Box&#39;,&#39;off&#39;);
+
+toc
+
+%由公式4所得函数
+function f=f_dx(y,z)     %%dx/dt
+global w
+f=-w*y-z;
+end
+
+function f=f_dy(x,y)     %%dy/dt
+global w
+global a
+f=w*x+a*y;
+end
+
+function f=f_dz(x,z)     %%dz/dt
+f=0.4+z*(x-8.5);
+end
+</code></pre>
+<p>结果如下：<br><img src="https://img-blog.csdnimg.cn/20210129165812844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210129165832638.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>基本达到了原文献的要求~   上面的代码也会顺应求出图六的图形，图四、六用的都是同一个混沌Rossler系统</p>
+<hr>
+<p>page six</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129161856402.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-mVGpa661-1611895510085)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110150315091.png)]"></p>
+<p>图5.Hénon映射：（a）吸引子，（b）时间序列的分段，（c）顺序模式的直方图导致HO =1.5和（d）顺序模式转换网络去除了自环，从而产生HT = 1.76。</p>
+<hr>
+<p>提供代码如下：</p>
+<pre><code class="bash">%初始数据
+clear;clc
+n=30;                      %%设定时间序列长度
+x=zeros(1,n);y=zeros(1,n);
+x(1)=0.76;y(1)=0;           %%设定初值
+
+for i=2:n                   %%迭代得到完整的序列值
+    x(i)=y(i-1)+1-1.4*x(i-1)^2;
+    y(i)=0.3*x(i-1);
+end
+
+delta_x=diff(x);          %%求x的差分
+delta_y=diff(y);          %%求y的差分
+m=length(delta_x);        %%获取差分长度
+
+%记录π序数
+pai_xushu=cell(1,m);       %%直观显示对应的π模式
+digit_xushu=zeros(1,m);    %%编程序简易，以1-&gt;π1,2-&gt;π2，…，n-&gt;πn
+for i=1:m                  %%得到m个π序数
+    if delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π1&#39;;
+        digit_xushu(i)=1;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π2&#39;;
+        digit_xushu(i)=2;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π3&#39;;
+        digit_xushu(i)=3;
+    else
+        pai_xushu&#123;i&#125;=&#39;π4&#39;;
+        digit_xushu(i)=4;
+    end
+end
+
+pai_count=zeros(1,4);
+for i=1:m
+    for j=1:4
+    if digit_xushu(i)==j
+        pai_count(j)=pai_count(j)+1;    %%记录对应πi出现的个数
+    end    
+    end
+end
+
+P=pai_count/sum(pai_count);             %%获得每个πi占总体的比例
+Ho=0;
+P(find(P==0))=1;     %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+for j=1:4
+    Ho=Ho-P(j)*log2(P(j));
+end
+P(find(P==1))=0;     %%复原
+
+%计算π模式转移概率
+pai_ij_count=zeros(4,4);
+for k=1:m-1
+    for i=1:4
+        for j=1:4
+            if digit_xushu(k) == i &amp;&amp; digit_xushu(k+1) == j    %%如果第k个π模式为πi,第k+1个π模式为πj
+                pai_ij_count(i,j)=pai_ij_count(i,j)+1;         %%则在i行j列+1。最后可得到转移数量矩阵。
+            end
+        end
+    end
+end
+
+P_ij=pai_ij_count/sum(sum(pai_ij_count));  %%获得每个πi-&gt;πj的转移概率    
+P_ij(find(P_ij==0))=1;           %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+HT=0;
+for i=1:4
+    for j=1:4
+        HT=HT-P_ij(i,j)*log2(P_ij(i,j));
+    end
+end
+P_ij(find(P_ij==1))=0;     %%复原
+disp(&quot;未去除自环时的概率矩阵P_ij及相应的HT&quot;)
+P_ij,HT
+
+for i=1:4
+    for j=1:4
+        if P_ij(i,j)~=0
+            disp([&#39;π&#39; num2str(i) &#39;-&gt;&#39; &#39;π&#39; num2str(j) &#39; is &#39; num2str(P_ij(i,j))] )  %%在控制台显示
+        end
+    end
+end
+disp(&#39;---------------------------------------------------------------------&#39;)
+
+%去除自环后的概率pai_ij_count_2及Ht_2
+pai_ij_count_2=pai_ij_count-diag(diag(pai_ij_count));   %%对角线置0，去除自环现象
+P_ij_2=pai_ij_count_2/sum(sum(pai_ij_count_2));         %%余下进行归一化得其转移概率
+P_ij_2(find(P_ij_2==0))=1;        %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+HT_2=0;
+for i=1:4
+    for j=1:4
+        HT_2=HT_2-P_ij_2(i,j)*log2(P_ij_2(i,j));
+    end
+end
+P_ij_2(find(P_ij_2==1))=0;     %复原
+disp(&quot;去除自环时的概率矩阵P_ij_2及相应的HT_2&quot;)
+P_ij_2,HT_2
+
+for i=1:4
+    for j=1:4
+        if P_ij_2(i,j)~=0
+            disp([&#39;π&#39; num2str(i) &#39;-&gt;&#39; &#39;π&#39; num2str(j) &#39; is &#39; num2str(P_ij_2(i,j))] )  %%在控制台显示
+        end
+    end
+end
+
+%%绘图区
+
+figure(1);
+%图a
+subplot(2,2,1);
+x1=-1.5:0.01:1.5;y1=1.4*x1.^2+x1-1;          %%L1
+x2=-1.5:0.01:1.5;y2=0.3*x2;                  %%L2
+plot(x1,y1,&#39;m-&#39;);hold on;plot(x2,y2,&#39;m-&#39;);hold on;
+xlabel(&#39;x&#39;);ylabel(&#39;y&#39;);
+title(&#39;(a)&#39;)
+
+for i=1:4
+    L(i)=length(find(digit_xushu==i));
+end
+for i=1:4
+    index(i,1:L(i))=find(digit_xushu==i);
+end
+
+plot(x(index(1,1:L(1))),y(index(1,1:L(1))),&#39;b*&#39;);hold on;plot(x(index(2,1:L(2))),y(index(2,1:L(2))),&#39;r*&#39;);hold on;
+plot(x(index(3,1:L(3))),y(index(3,1:L(3))),&#39;*&#39;);hold on;plot(x(index(4,1:L(4))),y(index(4,1:L(4))),&#39;m*&#39;);hold off;
+
+%图b
+subplot(2,2,2);
+i=1:n;      %%画生成x、y对应的图需x轴
+plot(i,x,&#39;-&#39;);hold on;plot(i,y,&#39;m-&#39;);hold on;hold off;
+xlabel(&#39;t&#39;);ylabel(&#39;x,y&#39;);
+title(&#39;b&#39;);
+h1=legend(&#39;x&#39;,&#39;y&#39;);              %%设置图例格式
+set(h1,&#39;Orientation&#39;,&#39;horizon&#39;);
+set(h1,&#39;Box&#39;,&#39;off&#39;);
+
+%图c
+subplot(2,2,3);
+bar(P);
+xlabel(&#39;π_i&#39;);ylabel(&#39;p(π_i)&#39;);
+title(&#39;c&#39;);
+text(3.3,0.3,[&#39;H_o=&#39; num2str(Ho)]);      %%在图形对应位置上显示H_o
+</code></pre>
+<p>结果如下：<br><img src="https://img-blog.csdnimg.cn/202101291708078.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210129170832777.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我选取的时间序列长度为30，基本达到了文献要求的结果</p>
+<hr>
+<p>加权邻接矩阵W可以分为对角和非对角项。 考虑到数值观察结果，W（自环）的对角元素远大于非对角元素Eq（3）简化为</p>
+<p><img src="https://img-blog.csdnimg.cn/2021012916194967.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-nK73LROL-1611895510085)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110150555636.png)]"></p>
+<p>因此，当考虑到自环时，我们得到一个连续系统的HT≈HO。 在这种情况下，HT很难捕获不同顺序模式之间的过渡。</p>
+<p>​        为了强调序数模式之间非自我过渡的重要性，我们通过将W中的对角线值设置为0来移除如图 <strong>4（d）</strong> 所示的自环。这是大多数关于复数的研究工作的典型 网络 <strong>[46]</strong> 。 此外，我们在计算加权矩阵W之前删除自环，以保持标准化∑i，j-&gt; 2 ^ n wij = 1。 请注意，在随机过程中不应期望大量的自循环</p>
+<p><strong><u>相空间的序数模式分区。</u></strong> 顺序模式转换网络为我们提供了相空间分区的替代方案，该方案利用了系统的零线。 在这里，我们显示了两个涉及离散和连续动力系统的示例。<br>示例（1）：Hénon地图</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162002910.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-TVZddflM-1611895510087)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110151006366.png)]"></p>
+<p>选择作为一个混沌二维地图的示例。 吸引子的顺序模式分区如图 <strong>5（a）</strong> 所示，按不同的顺序模式进行颜色编码。 时间序列的一部分如图 <strong>5（b）</strong> 所示。阶数模式的直方图（图 <strong>5（c）</strong> ）发现π4是系统的禁止模式，其HO = 1.50。 相应的序数分区过渡网络如图 <strong>5（d）</strong> 所示，每条链路的频率以雾度表示，得出HT = 1.76。</p>
+<hr>
+<p>page seven</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162026572.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ucepVri1-1611895510087)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110151431695.png)]"></p>
+<p>图6.（a）相序颜色编码的相空间中的Rössler吸引子（a = 0.165），由图例表示。 没有观察到模式π2和π7。  （b）上图是变量x，y和z之间的激活-抑制关系，其中激活用普通箭头表示，而抑制用禁止箭头47表示； 下面板代表系统所有允许的（不一定要观察到的）模式转换。 相应的顺序分区转换网络如图4<strong>（d）</strong>所示。 面板（c）与（a）的a = 0.26相同，其中突出显示了大量π2模式，（d）是有序分区转换网络（不包括自环），其中从π4进行了替代转换 →观察到π2→π1</p>
+<hr>
+<p>代码见图4那里，这里附上跑出来的图<br>a=0.165时<br><img src="https://img-blog.csdnimg.cn/20210129170226706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>a=0.26时<br><img src="https://img-blog.csdnimg.cn/20210129170404500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>达到了文献的效果</p>
+<hr>
+<p>​        根据表<strong>1</strong>中的顺序模式定义，Hénon映射的相空间分区被nullclines占用，如下所示：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162042315.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-6EchqpRp-1611895510088)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110151911251.png)]"></p>
+<p>这两条线如图 <strong>5（a）</strong> 所示，无论迭代步骤如何，我们都没有发现吸引子的点位于有序模式π4的区域中。  π4模式的消失表明，除了（0.63，0.19）的不稳定固定点（L1和L2的交点）之外，π4分区与吸引子之间没有交集。</p>
+<p>​        示例（2）：Rössler系统，选择公式 <strong>4</strong> 作为连续动力系统。 当参数a = 0.165时，吸引子如图 <strong>6（a）</strong> 所示，相空间点由序号模式进一步进行颜色编码。 每个分区的边界由相应的零线确定，即dx / dt = 0，dy / dt = 0和dz / dt = 0。 顺序模式转换网络如图 <strong>4（d）</strong> 所示。 在这种情况下，π2和π7均不出现，解释如下 <strong>[47]</strong> 。 当将相空间转换为序数分区转换网络时，我们将每个状态（x，y，z）与诸如（+，-，+）之类的顺序模式相关联（如表 <strong>2</strong> 所示）。 此三维顺序模式描述了（x，y，z）的哪些变量在给定时间增加和减少。以变量x为例，由于雅可比行列式中的负号（-ω和-1），y和z都是x的抑制器。 但是，x是变量y的激活器，因为雅可比矩阵的元素在相空间中的每个地方都是ω为正。  Rössler系统的激活和抑制方案如图<strong>6（b）</strong>所示。</p>
+<hr>
+<p>page eight</p>
+<p>​        轨迹可以越过零线的条件意味着从增加到减少（反之亦然）相当于确定局部最大值或最小值。 由于系统的连续性，我们具有以下规则以具有最大值或最小值 <strong>[47]</strong> ：（i）如果变量的所有阻遏物都减少而其所有激活物都增加，则变量不能具有最大值；  （ii）如果变量的所有阻遏物都在增加而其所有的激活物都在减少，则变量不能具有最小值。 这两个规则产生了不同顺序模式之间的所有可能过渡，如图 <strong>6（b）</strong> 所示。 然而，在相空间中的典型轨迹观察到的过渡网络由给定的参数a和ω集合确定。 对于a = 0.165和ω= 1的情况，我们仅找到过渡路径π1→π5→π6→π8→π4→π3→π1（如图<strong>4（d）</strong> 所示），同时π2和π7是禁止的模式。 将a的值增加到0.26，Rössler系统呈现出具有不规则突跳的螺旋型混沌振荡，如图 <strong>6（c）</strong> 所示，产生了从π4→π2→π1的替代跃迁。 在此之前，我们观察到模式从π4到π1的两条过渡路径（图 <strong>6（d）</strong> ），而π7仍然不存在。 换句话说，π2图案的出现表明有序图案的变化对吸引子的几何变化敏感。</p>
+<p><strong><u>识别动态过渡。</u></strong> 我们使用序数分区过渡网络来识别两种不同情况下的动态过渡：（i）相干到非相干过渡，这是一个弱混沌-混沌过渡，（ii）到相同步过渡的路径。 在两个示例中，我们都显示了有序模式（无自环）的频率图，HO（有自环）和HT（无自环）的复杂度熵度量。此外，我们将情况（i）与相干性进行了比较 指数（CI）和情况（ii）表示每个振荡器的平均旋转频率Ωi。</p>
+<p>​        例（1）显示了混沌Rössler系统（公式<strong>（4）</strong>）中的相干到非相干转变，其中参数a在[0.15，0.25]范围内系统地变化。 正如参考文献中系统显示的那样。 如图<strong>48</strong>所示，该参数范围包括不同的动力学，包括周期性窗口，相位相干混沌（在相空间中存在明确定义的旋转中心）以及非相位相干混沌振荡（缺少明显的旋转中心）。 相位相干和非相位相干混沌之间的过渡出现在ac≈0.206。 更具体地说，对于&lt;ac，混沌吸引子始终是相干的，而对于a&gt; ac，它们是非相干的。 我们推荐读者参考。  <strong>[48]</strong> 进一步讨论了各种检测此混沌-混沌过渡的方法以及周期性窗口，这些方法包括传统的相干因子，相扩散系数，基于递归量化的鉴别器和基于递归网络的度量。 在这项工作中，为了避免重复，我们仅讨论序数模式变化以及熵HO和HT通过与相干指数的度量进行比较来检测从相干混沌到非相干混沌的过渡的能力（请参见方法）。</p>
+<p>​        图<strong>7</strong>显示了更改参数a时的分叉图。 首先，当a ＜ac时，有序模式π2的频率为零（f（π2）＝ 0），而当a＞ ac时，其频率为正。 相反，当a&gt; ac时，f（π3）减小（图 <strong>7（a）</strong> ）。 对于其他顺序模式π1，π4，π5，π6和π8，观察到的变化要小得多。 模式π7不会出现在a的整个间隔中。 顺序模式π2和π3对吸引子的几何变化敏感，捕获从相干相态到非相干态的过渡。</p>
+<p>​        此外，当a &lt;ac时，HO的变化很小，而HT为常数（图 <strong>7（b）</strong> ）。  HO和HT的行为已被相干指数（参见方法）证实，如图 <strong>7（c）</strong> 所示。 同时，当控制参数a向相干和非相干状态之间的过渡点增加时，我们发现这些措施存在一些差异。 特别是，HO和相干指数在过渡点ac之前都略有增加，而HT在ac处急剧增加，如图 <strong>7</strong> 中的垂直虚线所示，这是由于原点处的同斜点。 当控制参数a在相干状态下增加时，吸引子会连续增长并最终延伸到原点附近，然后过渡到漏斗状态，在漏斗状态中轨迹的唯一旋转中心会丢失。 每当轨迹接近均斜点时，（x，y）平面中的动力学就会变得非常慢。 结果，在原点附近的轨迹上存在高密度的采样点。 同时，这些到原点的重新注入和从原点的弹出都是相当不规则的事件，这在HO和相干指数的计算中引入了波动。 相反，在计算HT时，局部速度仅在过渡到非相干相干状态后才从增加到减少（反之亦然）改变方向。 因此，当控制参数a经过从相干相态到非相干态的过渡时，HT对局部速度空间的变化表现出良好的敏感性，如图 <strong>7</strong> 所示。</p>
+<p>​        注意，HO，HT和相干指数的所有度量在周期性窗口中（例如，在a = 0.227和a = 0.245时）都显示出明显的局部最大值 <strong>48</strong> 。<br>例（2）显示了相位同步的路径，这由三个扩散耦合的Rössler系统通过x组件 <strong>49</strong> 演示。  方程阅读</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162109468.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-nXl5CsjJ-1611895510090)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110153836221.png)]"></p>
+<p>其中k = 1、2、3和κ是耦合强度。 我们通过选择ω1= 0.98，ω2= 1.02，ω3= 1.06来考虑不同的振荡器。 参数a选择为0.165，以使子系统处于相干状态（图 <strong>6（a）</strong> ）。 振荡器k = 2双向耦合到k = 1和k = 3，而在k = 1和k = 3之间没有直接耦合。 公式 <strong>（8）</strong> 通过四阶Runge Kutta方法进行数值积分，积分步骤h = 0.01。 丢弃前10000个瞬态数据点，并分析由150000个数据点组成的时间序列。 我们按照表 <strong>2</strong> 中所示的相同模式定义，从xk分量（即（x1，x2，x3））构造有序模式转换网络。</p>
+<hr>
+<p>page nine</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162122704.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-UOMxtKVG-1611895510092)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110154159840.png)]"></p>
+<p>图7.Rössler系统的相干相干到非相干相干转变作为参数a的函数（误差线表示从系统的100个独立实现中为a的每个值获得的标准偏差：（a）每个序数模式的频率 f（πi），其中π1，π4，π5，π6和π8在a的整个范围内重叠。（b）熵值HO和HT，（c）相干指数（CI）。 垂直虚线突出显示了相干。</p>
+<hr>
+<p>此处的关键是如何算CI（相干指数），通过了解公式（9）（10）（12）以及文献 **[48]**，我对CI的求法有了一定认识。首先获取得到一串π模式的时间序列，对其进行扩充到复平面的操作（希尔伯特变换），matlab自带了hilbert函数，可帮助扩充到复平面.随后可得到φ(t)，对φ(t)进行一阶差分，即Z=diff(φ)，H（-）为heavisde函数，当括号内的数值大于0时记为1，否则记0.对Z使用heavisde函数后进行求均值即得到CI。<br>代码如下：</p>
+<pre><code class="bash">%初始数据，历时 452.128370 秒。
+clear;clc
+tic
+global w          %%定义全局变量w
+global a;         %%定义全局变量a
+N=150000;h=0.01;  %%迭代N次，步长h；
+w=1.0;
+
+iter=1;
+for a=0.15:0.001:0.25   %对a，间隔0.001进行迭代
+    
+x=zeros(1,N);y=zeros(1,N);z=zeros(1,N);   %%提前分配内存空间
+x(1)=rand;y(1)=10*rand;z(1)=rand;  %设定初始点
+    
+%四阶Runge-Kutta算法
+for i=1:N
+    x_k1=f_dx(y(i),z(i));
+    y_k1=f_dy(x(i),y(i));
+    z_k1=f_dz(x(i),z(i));
+    
+    x_k2=f_dx(y(i)+h/2*y_k1,z(i)+h/2*z_k1);
+    y_k2=f_dy(x(i)+h/2*x_k1,y(i)+h/2*y_k1);
+    z_k2=f_dz(x(i)+h/2*x_k1,z(i)+h/2*z_k1);
+    
+    x_k3=f_dx(y(i)+h/2*y_k2,z(i)+h/2*z_k2);
+    y_k3=f_dy(x(i)+h/2*x_k2,y(i)+h/2*y_k2);
+    z_k3=f_dz(x(i)+h/2*x_k1,z(i)+h/2*z_k2);
+    
+    x_k4=f_dx(y(i)+h*y_k3,z(i)+h*z_k3);
+    y_k4=f_dy(x(i)+h*x_k3,y(i)+h*y_k3);
+    z_k4=f_dz(x(i)+h*x_k3,z(i)+h*z_k3);
+    
+    x(i+1)=x(i)+h/6*(x_k1+2*x_k2+2*x_k3+x_k4);
+    y(i+1)=y(i)+h/6*(y_k1+2*y_k2+2*y_k3+y_k4);
+    z(i+1)=z(i)+h/6*(z_k1+2*z_k2+2*z_k3+z_k4);
+end
+
+%丢弃前clear_N个数据点后进行差分
+clear_N=10000;
+x(1:clear_N)=[];y(1:clear_N)=[];z(1:clear_N)=[];
+delta_x=diff(x);delta_y=diff(y);delta_z=diff(z);
+m=length(delta_x);
+
+%记录π序数
+pai_xushu=cell(1,m);              %%直观显示对应的π模式
+digit_xushu=zeros(1,m);           %%编程序简易，以1-&gt;π1,2-&gt;π2，…，n-&gt;πn
+for i=1:m                         %%得到m个π序数
+    if delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π1&#39;;
+        digit_xushu(i)=1;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π2&#39;;
+        digit_xushu(i)=2;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π3&#39;;
+        digit_xushu(i)=3;
+    elseif delta_x(i)&gt;=0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π4&#39;;
+        digit_xushu(i)=4;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π5&#39;;
+        digit_xushu(i)=5;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&gt;=0 &amp;&amp; delta_z(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π6&#39;;
+        digit_xushu(i)=6;
+    elseif delta_x(i)&lt;0 &amp;&amp; delta_y(i)&lt;0 &amp;&amp; delta_z(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π7&#39;;
+        digit_xushu(i)=7;
+    else
+        pai_xushu&#123;i&#125;=&#39;π8&#39;;
+        digit_xushu(i)=8;
+    end
+end
+
+%计算记录π模式概率p(πi)及其相应的熵值Ho
+pai_count=zeros(1,8);
+for i=1:m
+    for j=1:8
+    if digit_xushu(i) == j
+        pai_count(j)=pai_count(j)+1;   %%记录对应πi出现的个数
+    end    
+    end
+end
+
+P(:,iter)=pai_count/sum(pai_count);   %%获得每个πi占总体的比例
+P(find(P(:,iter)==0),iter)=1;     %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+Ho(iter)=0;
+for j=1:8
+    Ho(iter)=Ho(iter)-P(j,iter)*log2(P(j,iter));
+end
+P(find(P(:,iter)==1),iter)=0;     %%复原
+
+%计算π模式的转化概率以及HT
+pai_ij_count=zeros(8,8);
+for k=1:m-1
+    for i=1:8
+        for j=1:8
+            if digit_xushu(k) == i &amp;&amp; digit_xushu(k+1) == j  %%如果第k个π模式为πi,第k+1个π模式为πj
+                pai_ij_count(i,j)=pai_ij_count(i,j)+1;       %%则在第i行第j列+1。最后可得到转移数量矩阵。
+            end
+        end
+    end
+end
+P_ij=pai_ij_count/sum(sum(pai_ij_count));          %%获得每个πi-&gt;πj的转移概率
+P_ij(find(P_ij==0))=1;               %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+HT(iter)=0;
+for i=1:8
+    for j=1:8
+        HT(iter)=HT(iter)-P_ij(i,j)*log2(P_ij(i,j));
+    end
+end
+P_ij(find(P_ij==1))=0;     %%复原
+
+%去除自环后的概率及Ht
+pai_ij_count_2=pai_ij_count-diag(diag(pai_ij_count));   %%对角线置0，去除自环现象
+P_ij_2=pai_ij_count_2/sum(sum(pai_ij_count_2));         %%余下进行归一化得其转移概率
+P_ij_2(find(P_ij_2==0))=1;            %%消除概率为0取歧义对数的情况，log2(1)=0,不影响最后熵值结果
+HT_2(iter)=0;
+for i=1:8
+    for j=1:8
+        HT_2(iter)=HT_2(iter)-P_ij_2(i,j)*log2(P_ij_2(i,j));
+    end
+end
+P_ij_2(find(P_ij_2==1))=0;     %%复原
+
+%记录相干指数
+XX=digit_xushu;
+YY=hilbert(XX);
+YY=imag(YY);
+z=atan(XX./YY);
+Dz=diff(z);
+CI(iter)=sum(Dz&lt;0)/length(Dz);
+
+iter=iter+1;
+end
+
+%%绘图区
+figure(1)
+
+mm=0.15:0.001:0.25;    %%画图所需对应x轴
+subplot(3,1,1);
+plot(mm,P(1,:),&#39;b*-&#39;);hold on;
+plot(mm,P(2,:),&#39;g*-&#39;);hold on;
+plot(mm,P(3,:),&#39;r*-&#39;);hold on;
+plot(mm,P(4,:),&#39;c*-&#39;);hold on;
+plot(mm,P(5,:),&#39;m*-&#39;);hold on;
+plot(mm,P(6,:),&#39;y*-&#39;);hold on;
+plot(mm,P(7,:),&#39;k*-&#39;);hold on;
+plot(mm,P(8,:),&#39;w*-&#39;);hold off;
+ylabel(&#39;f(π_i)&#39;);
+% h1=legend(&#39;π_1&#39;,&#39;π_2&#39;,&#39;π_3&#39;,&#39;π_4&#39;,&#39;π_5&#39;,&#39;π_6&#39;,&#39;π_7&#39;,&#39;π_8&#39;);
+% set(h1,&#39;Orientation&#39;,&#39;horizon&#39;);
+% set(h1,&#39;Box&#39;,&#39;off&#39;);
+
+subplot(3,1,2);
+[AX,H1,H2]=plotyy(mm,Ho,mm,HT,&#39;plot&#39;);    %%设置双坐标
+HH1=get(AX(1),&#39;Ylabel&#39;);                  %%设置图例
+set(HH1,&#39;String&#39;,&#39;H_o&#39;);                  %%设置图例
+HH2=get(AX(2),&#39;Ylabel&#39;);
+set(HH2,&#39;String&#39;,&#39;H_T&#39;);
+
+subplot(3,1,3)
+plot(mm,CI,&#39;-&#39;);
+ylabel(&#39;CI&#39;);
+
+toc
+
+%由公式4所得函数
+function f=f_dx(y,z)      %%dx/dt
+global w
+f=-w*y-z;
+end
+
+function f=f_dy(x,y)      %%dy/dt
+global w
+global a
+f=w*x+a*y;
+end
+
+function f=f_dz(x,z)      %%dz/dt
+f=0.4+z*(x-8.5);
+end
+</code></pre>
+<p>结果如下：<br><img src="https://img-blog.csdnimg.cn/2021012917183523.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现此图与文献中的图有些许差异，首先体现在f($π_i$)上,我认为出现这类现象的原因或许是初始点的选取，导致π模式概率和文献有所差异，Ho和HT有和文献中同样的性质，在a=0.206从相干到非相干，a=0.226和a=0.245都出现了局部最大值。这里性质和文献符合。</p>
+<hr>
+<p>​        我们使用公式 <strong>（8）</strong> 的动机是研究相位同步路径上序数模式的变化，重点是具有不同同步机制的过渡网络的演化过程，这比单个Rössler系统的情况更为复杂。 结果如图 <strong>8</strong> 所示。此外，当对等式进行积分时，图片 <strong>8</strong> 的结果已在50个随机初始条件下取平均值由公式 <strong>（8）</strong> 。 </p>
+<p>​        在不同步状态下（κ&lt;κc1= 0.036），三个振荡器几乎独立地演化，因此所有序数模式的频率相同，均为0.125。 仅当κ接近κc1时，梯度变化很小（图 <strong>8（a）</strong> ）。 熵值HT对这些逐渐变化更敏感，表现出明显的下降趋势，而HO似乎是一个常数（图 <strong>8（b）</strong> ）。 每个振荡器的平均旋转频率Ωk（请参见方法）显示在（图 <strong>8（c）</strong> ）中，这在这种耦合方式下没有同步性。</p>
+<p>​        在振荡器k = 1和k = 2之间出现相位同步但在k = 3时不出现相位同步的情况下（κ∈[kc1，kc2] = [0.036，0.077]），我们观察到阶模π1，π2的单调增长趋势 ，π7和π8（图 <strong>8（a）</strong> ）。 此外，我们发现π4和π5模式的增长趋势相对较慢。 相反，发现π3和π6有一些单调递减趋势。 熵值HO和HT都记录了阶次模式的频率变化，显示出逐渐减小的趋势（图 <strong>8（b）</strong> ）。 平均旋转频率Ωk在图 <strong>8（c）</strong> 中显示，其中k = 1和k = 2锁相到相同的旋转频率，但k = 3则不。</p>
+<p>​        在所有振荡器都处于相位同步状态（κ&gt;κc2= 0.077）的状态下，我们发现模式π1，π2，π4，π5，π7，π8的频率收敛到相同的值f（πi）= 1/6，而π3 和π6不存在（图 <strong>8（a）</strong> ）。 换句话说，如果所有振荡器都同步，则会观察到π3和π6的禁止模式。 熵HO显示出类似抛物线的趋势（先增大然后缓慢减小），但是HT为2.585的常数（图 <strong>8（b）</strong> ）。 由于三个振荡器是锁相的，所以所有平均旋转频率都收敛到相同的值（图 <strong>8（c）</strong> ）。</p>
+<p>​        从耦合振荡器的高维系统的观点来看，在从非同步到相位同步的过程中，我们发现过渡网络经历了所有可能的有序模式之间的相当随机的过渡，变成了有限数量的有序模式之间的过渡状态。 如图<strong>9</strong> 所示。此外，如果所有三个振荡器都同步，我们发现π3和π6是禁止模式</p>
+<hr>
+<p>page ten</p>
+<p><img src="https://img-blog.csdnimg.cn/2021012916214370.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cM7lIlLi-1611895510093)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110161456240.png)]"></p>
+<p>图 <strong>8</strong> .三个耦合的Rössler系统的相位同步转换。  （a）每个顺序模式的频率f（πi），（b）熵值HO和HT，（c）每个振荡器的平均旋转频率Ωi。 子系统k1和k2在κc1= 0.036处同步，而k3仅在更强的耦合强度κc2= 0.077时才加入同步。 两个临界耦合值都由垂直虚线突出显示。</p>
+<hr>
+<p>图8讨论多路径情况下的振荡频率的关系，首先我们需要理解公式8的含义。其中有一句话：振荡器k = 2双向耦合到k = 1和k = 3，而在k = 1和k = 3之间没有直接耦合。对此，在我的理解中当k=1或3时，$\sum k_{k,l}$只有一项这一项中的是$k_{1,2}$或者$k_{3,2}$对此，使用四阶Runge Kutta方法会复杂点。<br>提供代码如下：</p>
+<pre><code class="bash">%%公式（8）历时 1855.851394 秒。
+%初始数据
+clear;clc
+tic
+global w1
+global w2
+global w3
+global a
+global KL
+N=150000;h=0.01;  %迭代N次，步长h
+w1=0.98;w2=1.02;w3=1.06;a=0.165;      %振荡器w，参数a
+
+iter=1;
+for KL=0:0.001:0.1
+%四阶Runge-Kutta算法
+
+x1=zeros(1,N);y1=zeros(1,N);z1=zeros(1,N);
+x2=zeros(1,N);y2=zeros(1,N);z2=zeros(1,N);
+x3=zeros(1,N);y3=zeros(1,N);z3=zeros(1,N);
+
+x1(1)=rand;y1(1)=10*rand;z1(1)=rand;  %设定第一组初始点
+x2(1)=rand;y2(1)=10*rand;z2(1)=rand;  %设定第二组初始点
+x3(1)=rand;y3(1)=10*rand;z3(1)=rand;  %设定第三组初始点
+
+for i=1:N
+    %算k1
+    x1_k1=f_dx1(x1(i),y1(i),z1(i),x2(i));
+    y1_k1=f_dy1(x1(i),y1(i));
+    z1_k1=f_dz(x1(i),z1(i));
+    
+    x2_k1=f_dx2(x2(i),y2(i),z2(i),x1(i)+x3(i));
+    y2_k1=f_dy2(x2(i),y2(i));
+    z2_k1=f_dz(x2(i),z2(i));
+    
+    x3_k1=f_dx3(x3(i),y3(i),z3(i),x2(i));
+    y3_k1=f_dy3(x3(i),y3(i));
+    z3_k1=f_dz(x3(i),z3(i));
+    
+    %算k2
+    x1_k2=f_dx1(x1(i)+h/2*x1_k1,y1(i)+h/2*y1_k1,z1(i)+h/2*z1_k1,x2(i)+h/2*x2_k1);
+    y1_k2=f_dy1(x1(i)+h/2*x1_k1,y1(i)+h/2*y1_k1);
+    z1_k2=f_dz(x1(i)+h/2*x1_k1,z1(i)+h/2*z1_k1);
+    
+    x2_k2=f_dx2(x2(i)+h/2*x2_k1,y2(i)+h/2*y2_k1,z2(i)+h/2*z2_k1,x1(i)+h/2*x1_k1+x3(i)+h/2*x3_k1);
+    y2_k2=f_dy2(x2(i)+h/2*x2_k1,y2(i)+h/2*y2_k1);
+    z2_k2=f_dz(x2(i)+h/2*x2_k1,z2(i)+h/2*z2_k1);
+    
+    x3_k2=f_dx3(x3(i)+h/2*x3_k1,y1(i)+h/2*y3_k1,z3(i)+h/2*z3_k1,x2(i)+h/2*x2_k1);
+    y3_k2=f_dy3(x3(i)+h/2*x3_k1,y1(i)+h/2*y3_k1);
+    z3_k2=f_dz(x3(i)+h/2*x3_k1,z1(i)+h/2*z3_k1);
+    
+    %算k3
+    x1_k3=f_dx1(x1(i)+h/2*x1_k2,y1(i)+h/2*y1_k2,z1(i)+h/2*z1_k2,x2(i)+h/2*x2_k2);
+    y1_k3=f_dy1(x1(i)+h/2*x1_k2,y1(i)+h/2*y1_k2);
+    z1_k3=f_dz(x1(i)+h/2*x1_k2,z1(i)+h/2*z1_k2);
+    
+    x2_k3=f_dx2(x2(i)+h/2*x2_k2,y2(i)+h/2*y2_k2,z2(i)+h/2*z2_k2,x1(i)+h/2*x1_k2+x3(i)+h/2*x3_k2);
+    y2_k3=f_dy2(x2(i)+h/2*x2_k2,y2(i)+h/2*y2_k2);
+    z2_k3=f_dz(x2(i)+h/2*x2_k2,z2(i)+h/2*z2_k2);
+    
+    x3_k3=f_dx3(x3(i)+h/2*x3_k2,y3(i)+h/2*y3_k2,z3(i)+h/2*z3_k2,x2(i)+h/2*x2_k2);
+    y3_k3=f_dy3(x3(i)+h/2*x3_k2,y3(i)+h/2*y3_k2);
+    z3_k3=f_dz(x3(i)+h/2*x3_k2,z3(i)+h/2*z3_k2);
+    
+    %算k4
+    x1_k4=f_dx1(x1(i)+h*x1_k3,y1(i)+h*y1_k3,z1(i)+h*z1_k3,x2(i)+h/2*x2_k3);
+    y1_k4=f_dy1(x1(i)+h*x1_k3,y1(i)+h*y1_k3);
+    z1_k4=f_dz(x1(i)+h*x1_k3,z1(i)+h*z1_k3);
+    
+    x2_k4=f_dx2(x2(i)+h*x2_k3,y2(i)+h*y2_k3,z2(i)+h*z2_k3,x1(i)+h*x1_k3+x3(i)+h*x3_k3);
+    y2_k4=f_dy2(x2(i)+h*x2_k3,y2(i)+h*y2_k3);
+    z2_k4=f_dz(x2(i)+h*x2_k3,z2(i)+h*z2_k3);
+    
+    x3_k4=f_dx3(x3(i)+h*x3_k3,y3(i)+h*y3_k3,z3(i)+h*z3_k3,x2(i)+h*x2_k3);
+    y3_k4=f_dy3(x3(i)+h*x3_k3,y3(i)+h*y3_k3);
+    z3_k4=f_dz(x3(i)+h*x3_k3,z3(i)+h*z3_k3);
+    
+    %计算下一时刻
+    x1(i+1)=x1(i)+h/6*(x1_k1+2*x1_k2+2*x1_k3+x1_k4);
+    y1(i+1)=y1(i)+h/6*(y1_k1+2*y1_k2+2*y1_k3+y1_k4);
+    z1(i+1)=z1(i)+h/6*(z1_k1+2*z1_k2+2*z1_k3+z1_k4);
+    
+    x2(i+1)=x2(i)+h/6*(x2_k1+2*x2_k2+2*x2_k3+x2_k4);
+    y2(i+1)=y2(i)+h/6*(y2_k1+2*y2_k2+2*y2_k3+y2_k4);
+    z2(i+1)=z2(i)+h/6*(z2_k1+2*z2_k2+2*z2_k3+z2_k4);
+    
+    x3(i+1)=x3(i)+h/6*(x3_k1+2*x3_k2+2*x3_k3+x3_k4);
+    y3(i+1)=y3(i)+h/6*(y3_k1+2*y3_k2+2*y3_k3+y3_k4);
+    z3(i+1)=z3(i)+h/6*(z3_k1+2*z3_k2+2*z3_k3+z3_k4);
+end
+%丢弃前clear_N个数据点
+clear_N=10000;
+x1(1:clear_N)=[];x2(1:clear_N)=[];x3(1:clear_N)=[];
+y1(1:clear_N)=[];y2(1:clear_N)=[];y3(1:clear_N)=[];
+z1(1:clear_N)=[];z2(1:clear_N)=[];z3(1:clear_N)=[];
+
+%--------------------------------------------------------------------------
+delta_x1=diff(x1);delta_x2=diff(x2);delta_x3=diff(x3);    %%由题目要求，设定xk（k=1,2,3）的时间序列
+m=length(delta_x1);
+%记录π序数
+pai_xushu=cell(1,m);
+digit_xushu=zeros(1,m);
+for i=1:m            %%得到m个π序数
+    if delta_x1(i)&gt;=0 &amp;&amp; delta_x2(i)&gt;=0 &amp;&amp; delta_x3(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π1&#39;;
+        digit_xushu(i)=1;
+    elseif delta_x1(i)&gt;=0 &amp;&amp; delta_x2(i)&gt;=0 &amp;&amp; delta_x3(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π2&#39;;
+        digit_xushu(i)=2;
+    elseif delta_x1(i)&gt;=0 &amp;&amp; delta_x2(i)&lt;0 &amp;&amp; delta_x3(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π3&#39;;
+        digit_xushu(i)=3;
+    elseif delta_x1(i)&gt;=0 &amp;&amp; delta_x2(i)&lt;0 &amp;&amp; delta_x3(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π4&#39;;
+        digit_xushu(i)=4;
+    elseif delta_x1(i)&lt;0 &amp;&amp; delta_x2(i)&gt;=0 &amp;&amp; delta_x3(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π5&#39;;
+        digit_xushu(i)=5;
+    elseif delta_x1(i)&lt;0 &amp;&amp; delta_x2(i)&gt;=0 &amp;&amp; delta_x3(i)&lt;0
+        pai_xushu&#123;i&#125;=&#39;π6&#39;;
+        digit_xushu(i)=6;
+    elseif delta_x1(i)&lt;0 &amp;&amp; delta_x2(i)&lt;0 &amp;&amp; delta_x3(i)&gt;=0
+        pai_xushu&#123;i&#125;=&#39;π7&#39;;
+        digit_xushu(i)=7;
+    else
+        pai_xushu&#123;i&#125;=&#39;π8&#39;;
+        digit_xushu(i)=8;
+    end
+end
+
+%--------------------------------------------------------------------------
+delta_x1=diff(x1);delta_y1=diff(y1);delta_z1=diff(z1);   %%x1,y1,z1序列,用来获取Ω1
+m=length(delta_x1);
+
+%记录π序数
+digit_xushu1=zeros(1,m);
+for i=1:m            %%得到m个π序数
+    if delta_x1(i)&gt;=0 &amp;&amp; delta_y1(i)&gt;=0 &amp;&amp; delta_z1(i)&gt;=0
+        digit_xushu1(i)=1;
+    elseif delta_x1(i)&gt;=0 &amp;&amp; delta_y1(i)&gt;=0 &amp;&amp; delta_z1(i)&lt;0
+        digit_xushu1(i)=2;
+    elseif delta_x1(i)&gt;=0 &amp;&amp; delta_y1(i)&lt;0 &amp;&amp; delta_z1(i)&gt;=0
+        digit_xushu1(i)=3;
+    elseif delta_x1(i)&gt;=0 &amp;&amp; delta_y1(i)&lt;0 &amp;&amp; delta_z1(i)&lt;0
+        digit_xushu1(i)=4;
+    elseif delta_x1(i)&lt;0 &amp;&amp; delta_y1(i)&gt;=0 &amp;&amp; delta_z1(i)&gt;=0
+        digit_xushu1(i)=5;
+    elseif delta_x1(i)&lt;0 &amp;&amp; delta_y1(i)&gt;=0 &amp;&amp; delta_z1(i)&lt;0
+        digit_xushu1(i)=6;
+    elseif delta_x1(i)&lt;0 &amp;&amp; delta_y1(i)&lt;0 &amp;&amp; delta_z1(i)&gt;=0
+        digit_xushu1(i)=7;
+    else
+        digit_xushu1(i)=8;
+    end
+end
+
+%-----------------------------------------------------------------------------------------------------
+delta_x2=diff(x2);delta_y2=diff(y2);delta_z2=diff(z2);      %%x2,y2,z2序列，用来获取Ω2
+m=length(delta_x2);
+
+%记录π序数
+digit_xushu2=zeros(1,m);
+for i=1:m            %%得到m个π序数
+    if delta_x2(i)&gt;=0 &amp;&amp; delta_y2(i)&gt;=0 &amp;&amp; delta_z2(i)&gt;=0
+        digit_xushu2(i)=1;
+    elseif delta_x2(i)&gt;=0 &amp;&amp; delta_y2(i)&gt;=0 &amp;&amp; delta_z2(i)&lt;0
+        digit_xushu2(i)=2;
+    elseif delta_x2(i)&gt;=0 &amp;&amp; delta_y2(i)&lt;0 &amp;&amp; delta_z2(i)&gt;=0
+        digit_xushu2(i)=3;
+    elseif delta_x2(i)&gt;=0 &amp;&amp; delta_y2(i)&lt;0 &amp;&amp; delta_z2(i)&lt;0
+        digit_xushu2(i)=4;
+    elseif delta_x2(i)&lt;0 &amp;&amp; delta_y2(i)&gt;=0 &amp;&amp; delta_z2(i)&gt;=0
+        digit_xushu2(i)=5;
+    elseif delta_x2(i)&lt;0 &amp;&amp; delta_y2(i)&gt;=0 &amp;&amp; delta_z2(i)&lt;0
+        digit_xushu2(i)=6;
+    elseif delta_x2(i)&lt;0 &amp;&amp; delta_y2(i)&lt;0 &amp;&amp; delta_z2(i)&gt;=0
+        digit_xushu2(i)=7;
+    else
+        digit_xushu2(i)=8;
+    end
+end
+
+%------------------------------------------------------------------------------------------------------
+delta_x3=diff(x3);delta_y3=diff(y3);delta_z3=diff(z3);      %%x3,y3,z3序列,用来获取Ω3
+m=length(delta_x3);
+
+%记录π序数
+digit_xushu3=zeros(1,m);
+for i=1:m            %%得到m个π序数
+    if delta_x3(i)&gt;=0 &amp;&amp; delta_y3(i)&gt;=0 &amp;&amp; delta_z3(i)&gt;=0
+        digit_xushu3(i)=1;
+    elseif delta_x2(i)&gt;=0 &amp;&amp; delta_y2(i)&gt;=0 &amp;&amp; delta_z2(i)&lt;0
+        digit_xushu3(i)=2;
+    elseif delta_x3(i)&gt;=0 &amp;&amp; delta_y3(i)&lt;0 &amp;&amp; delta_z3(i)&gt;=0
+        digit_xushu3(i)=3;
+    elseif delta_x3(i)&gt;=0 &amp;&amp; delta_y3(i)&lt;0 &amp;&amp; delta_z3(i)&lt;0
+        digit_xushu3(i)=4;
+    elseif delta_x3(i)&lt;0 &amp;&amp; delta_y3(i)&gt;=0 &amp;&amp; delta_z3(i)&gt;=0
+        digit_xushu3(i)=5;
+    elseif delta_x3(i)&lt;0 &amp;&amp; delta_y3(i)&gt;=0 &amp;&amp; delta_z3(i)&lt;0
+        digit_xushu3(i)=6;
+    elseif delta_x3(i)&lt;0 &amp;&amp; delta_y3(i)&lt;0 &amp;&amp; delta_z3(i)&gt;=0
+        digit_xushu3(i)=7;
+    else
+        digit_xushu3(i)=8;
+    end
+end
+
+%----------------------------------------------------------------------------------------------------
+%计算记录π模式概率p(πi)及其相应的熵值Ho
+pai_count=zeros(1,8);
+for i=1:m
+    for j=1:8
+    if digit_xushu(i) == j
+        pai_count(j)=pai_count(j)+1;        %%记录对应πi出现的个数
+    end    
+    end
+end
+
+P(:,iter)=pai_count/sum(pai_count);          %%获得每个πi占总体的比例
+Ho(iter)=0;
+for j=1:8
+    if P(j)~=0
+    Ho(iter)=Ho(iter)-P(j,iter)*log2(P(j,iter));
+    end
+end
+
+%计算π模式的转化概率以及HT
+pai_ij_count=zeros(8,8);
+for k=1:m-1
+    for i=1:8
+        for j=1:8
+            if digit_xushu(k) == i &amp;&amp; digit_xushu(k+1) == j    %%如果第k个π模式为πi,第k+1个π模式为πj
+                pai_ij_count(i,j)=pai_ij_count(i,j)+1;         %%则在第i行第j列+1。最后可得到转移数量矩阵。
+            end
+        end
+    end
+end
+P_ij=pai_ij_count/sum(sum(pai_ij_count));               %%获得每个πi-&gt;πj的转移概率
+HT(iter)=0;
+for i=1:8
+    for j=1:8
+        if P_ij(i,j)~=0
+            HT(iter)=HT(iter)-P_ij(i,j)*log2(P_ij(i,j));
+        end
+    end
+end
+
+%去除自环后的概率及Ht
+pai_ij_count_2=pai_ij_count-diag(diag(pai_ij_count));   %%对角线置0，去除自环现象
+P_ij_2=pai_ij_count_2/sum(sum(pai_ij_count_2));         %%余下进行归一化得其转移概率
+HT_2(iter)=0;
+for i=1:8
+    for j=1:8
+        if P_ij_2(i,j)~=0
+            HT_2(iter)=HT_2(iter)-P_ij_2(i,j)*log2(P_ij_2(i,j));
+        end
+    end
+end
+
+
+%------------------以下是获得Ωi------------------------
+%得Ω1
+XX1=digit_xushu1;
+YY1=hilbert(XX1);
+YY1=imag(YY1);
+z1=atan(XX1./YY1);
+Dz1=diff(z1);
+OM1(iter)=mean(Dz1)/(2*pi);
+
+%得Ω2
+XX2=digit_xushu2;
+YY2=hilbert(XX2);
+YY2=imag(YY2);
+z2=atan(XX2./YY2);
+Dz2=diff(z2);
+OM2(iter)=mean(Dz2)/(2*pi);
+
+%得Ω3
+XX3=digit_xushu3;
+YY3=hilbert(XX3);
+YY3=imag(YY3);
+z3=atan(XX3./YY3);
+Dz3=diff(z3);
+OM3(iter)=mean(Dz3)/(2*pi);
+
+iter=iter+1;
+end
+
+%%绘图区
+figure(1)
+
+mm=0:0.001:0.1;         %%画图所需对应x轴
+subplot(3,1,1);
+plot(mm,P(1,:),&#39;b*-&#39;);hold on;
+plot(mm,P(2,:),&#39;g*-&#39;);hold on;
+plot(mm,P(3,:),&#39;r*-&#39;);hold on;
+plot(mm,P(4,:),&#39;c*-&#39;);hold on;
+plot(mm,P(5,:),&#39;m*-&#39;);hold on;
+plot(mm,P(6,:),&#39;y*-&#39;);hold on;
+plot(mm,P(7,:),&#39;k*-&#39;);hold on;
+plot(mm,P(8,:),&#39;w*-&#39;);hold off;
+ylabel(&#39;f(π_i)&#39;);
+% h1=legend(&#39;π_1&#39;,&#39;π_2&#39;,&#39;π_3&#39;,&#39;π_4&#39;,&#39;π_5&#39;,&#39;π_6&#39;,&#39;π_7&#39;,&#39;π_8&#39;);
+% set(h1,&#39;Orientation&#39;,&#39;horizon&#39;);
+% set(h1,&#39;Box&#39;,&#39;off&#39;);
+
+subplot(3,1,2);
+[AX,H1,H2]=plotyy(mm,Ho,mm,HT,&#39;plot&#39;);     %%设置双坐标
+HH1=get(AX(1),&#39;Ylabel&#39;);
+set(HH1,&#39;String&#39;,&#39;H_o&#39;);
+HH2=get(AX(2),&#39;Ylabel&#39;);
+set(HH2,&#39;String&#39;,&#39;H_T&#39;);
+
+subplot(3,1,3)
+plot(mm,OM1,&#39;r&#39;);hold on;
+plot(mm,OM2,&#39;b&#39;);hold on;
+plot(mm,OM3,&#39;g&#39;);hold on;
+xlabel(&#39;k&#39;);ylabel(&#39;Ω_i&#39;);
+
+toc
+
+%由公式（8）所得函数
+
+
+function f=f_dx1(x,y,z,xx)    %%对dx1/dt,
+global w1
+global KL
+f=-w1*y-z+KL*(xx-x);
+end
+
+function f=f_dx3(x,y,z,xx)     %%dx3/dt
+global w3
+global KL
+f=-w3*y-z+KL*(xx-x);
+end
+
+function f=f_dx2(x,y,z,xx)       %%dx2/dt
+global w2
+global KL
+f=-w2*y-z+KL*(xx-2*x);
+end
+
+function f=f_dy1(x,y)            %%dy1/dt
+global w1
+global a
+f=w1*x+a*y;
+end
+
+function f=f_dy2(x,y)           %%dy2/dt
+global w2
+global a
+f=w2*x+a*y;
+end
+
+function f=f_dy3(x,y)           %%dy3/dt
+global w3
+global a
+f=w3*x+a*y;
+end
+
+function f=f_dz(x,z)            %%dz/dt
+f=0.4+z*(x-8.5);
+end
+</code></pre>
+<p>结果如下：</p>
+<p>与原文献有较大的差异，或许是此处的代码编写有误。</p>
+<hr>
+<p><strong><u>结论</u></strong></p>
+<p>在这项工作中，我们提出了从多元时间序列构建有序分区转换网络，这有助于我们分析不同组件之间的交互模式。 基本思想是捕获相关速度空间中变化的方向，从而在原始相空间中产生动态信息，而不是静态信息。 所得的有序分区转换网络是加权有向网络，从根本上来说，它们与递归网络 <strong>[19]</strong> 和可见性图 <strong>[10]</strong>  不同。 对于来自离散和连续动力系统的时间序列，我们发现观察到的序数模式的频率是不均匀的，这由熵HO来量化。 另外，不同序数模式之间的过渡频率也是不均匀的，其特征在于熵HT。 请注意，对于离散系统，HO和HT之间不会有本质区别，但是对于连续系统，HT是表征有序分区转换网络的更好方法，因为HO受自环的影响更大，如图 <strong>[4]</strong> 所示。</p>
+<p>​        顺序分区转换网络利用零折线生成分区，从而在相空间中生成时间序列的马尔可夫链表示。 两个序数模式之间的过渡取决于变量增量的符号变化。 正如我们在混沌Rössler系统中所证明的那样，此定义对于捕获相空间的几何变化非常敏感，例如从相干到非相干过渡。</p>
+<p>​        请注意，我们的序数分区过渡网络生成算法与最近构建时空网络以捕获内存效应的工作不同 <strong>[50]</strong> 。 通过顺序分区转换网络来表征存储效应将是未来的课题。 另外，我们集中于每个变量的嵌入维Dx = 2和延迟τ= 1，它捕获了不同空间中时间序列的上升或下降趋势。 可以肯定地将算法推广到更高的Dx和τ值，但是，对计算的要求更高。 例如，在n维多元序列[{x1}（t），…，{xn}（t）]中，如果D. {x1} = … =，则有（3！）^ n个序数模式。  D. {xn} = 3。 另外，转移矩阵W的尺寸为（3！）^n× （3！）^n。 同时，尺寸Dx的增加需要更长的时间序列，以便更可靠地估计顺序图案的转变频率。 从算法的角度来看，通过使用较大的时间延迟τ&gt; 1不会引入任何计算复杂性，但是，对于变量的速度缺乏适当的解释。 从短时间序列可靠地估计序数分区转换矩阵存在一个未解决的问题，尤其是在噪声起重要作用的情况下。</p>
+<hr>
+<p>page eleven</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162200657.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-RhROZXUy-1611895510094)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110163324877.png)]"></p>
+<p>图9.公式 <strong>（8）</strong> 的相位同步路径上的顺序转换网络，为三种典型的耦合强度。  （a）非同步状态下κ= 0.02 &lt;κc1的随机跃迁，（b）主导结构出现在振荡器k = 1和k = 2是相位同步的状态下，但不与k = 3，κ= 0.06  ∈[κc1，κc2]，（c）当所有三个振荡器都被锁相时，仅观察到一种序数模式的跃迁路径，κ= 0.08&gt;κc2。<br>链接的粗细由过渡网络中的相关频率确定，并且消除了自环。 在（a，b）中，为便于可视化，链接箭头被抑制。</p>
+<p>………………………………………………………………………………………………………………………………………</p>
+<p>我们已经应用了序数分区过渡网络来研究相位同步的路径，表明当耦合强度随着不同的同步过渡机制而增加时，网络中会出现主导过渡路径。 随着同步程度的提高，耦合系统的动力学特性被锁定到同步歧管，从而在最终的顺序分区网络中产生主导过渡路径。 在出现同步之前，另一项艰巨的任务是区分间接耦合方向和直接耦合方向 <strong>[49、51]</strong> ，这在气候数据分析中非常常见，即从远处的多通道时间序列中提取网络交互模式 <strong>[52]</strong> 。 在我们考虑的三个耦合Rössler子系统的情况下（公式 <strong>（8）</strong> ），振荡器k = 2双向耦合到k = 1和k = 3，而在k = 1和k =3之间没有直接耦合。   可以引入有序递归图 <strong>[45]</strong> 来解决此问题。</p>
+<p>​        传统上，基于时间序列的序数符号表示的置换熵的计算不包括遵循相空间轨迹的模式转换行为。 相反，有序分区过渡网络方法明确考虑了时间演化信息，因此为传统的符号分析提供了很多补充性见解，显示了进行实验时间序列分析的巨大潜力。</p>
+<p><strong><u>方法：相干指数</u></strong></p>
+<p>在这里，我们总结了参考文献中计算相位相干指数的主要步骤。**[48]** .我们在这项工作中的注意力仅限于标准分析信号方法。 在此，使用希尔伯特变换将标量信号x（t）扩展到复平面</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162216703.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-yh0Fs81b-1611895510097)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110164213051.png)]"></p>
+<p>P.V. 表示柯西积分的主值，产生相位</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162228209.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-81yzzRha-1611895510098)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110164255400.png)]"></p>
+<p>上面的定义对于相位相干动力学很简单。 在非相位相干动力学中，基于解析信号53的局部曲率特性，提出了另一种相位定义 <strong>[53]</strong> ，即</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162245465.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cFL41bJh-1611895510099)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110164355843.png)]"></p>
+<p>由于在基于Hilbert变换的标准定义中，相位变量φ（t）不一定会随时间单调增加，因此我们对这种单调性进行了量化，以便获得用于相位相干的简单启发式阶参数，我们将其称为相干 指数</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162302281.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-5MGZpo57-1611895510100)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110164443647.png)]"></p>
+<p>φ（t）=dφ（t）/ dt。 此外，然后将混沌振荡器的瞬时频率定义为相位变量相对于时间的导数。 随时间平均该属性可得出平均频率</p>
+<p><img src="https://img-blog.csdnimg.cn/20210129162317887.jpg#pic_center" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-UwgcEhL2-1611895510101)(C:\Users\Admin\AppData\Roaming\Typora\typora-user-images\image-20210110164619471.png)]"></p>
+<hr>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">影子</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gtyingzi.github.io/2021/060659375.html">https://gtyingzi.github.io/2021/060659375.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">影子</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%A4%9A%E5%85%83%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">多元时间序列转化为网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2021-06-06T15-42-37',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/060664421.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Characterizing stochastic time series with ordinal networks">
+                        
+                        <span class="card-title">Characterizing stochastic time series with ordinal networks</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E7%A0%94%E7%A9%B6/" class="post-category">
+                                    复杂网络研究
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BF%A1%E5%99%AA%E6%AF%94%EF%BC%8C%E5%9F%BA%E5%B0%BC%E6%8C%87%E6%95%B0/">
+                        <span class="chip bg-color">信噪比，基尼指数</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/060663202.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="应用Python绘制雷达图时遇到的坑">
+                        
+                        <span class="card-title">应用Python绘制雷达图时遇到的坑</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9B%B7%E8%BE%BE%E5%9B%BE/">
+                        <span class="chip bg-color">雷达图</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="6789946719"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='none'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">影子</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/GTyingzi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2091945373@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2091945373" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2091945373" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
