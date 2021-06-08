@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>影子的成长</title>
+  
+  <subtitle>影子选手</subtitle>
+  <link href="https://gtyingzi.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://gtyingzi.github.io/"/>
+  <updated>2021-06-06T07:45:45.415Z</updated>
+  <id>https://gtyingzi.github.io/</id>
+  
+  <author>
+    <name>影子</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Characterizing stochastic time series with ordinal networks</title>
+    <link href="https://gtyingzi.github.io/2021/060664421.html"/>
+    <id>https://gtyingzi.github.io/2021/060664421.html</id>
+    <published>2021-06-06T07:42:37.000Z</published>
+    <updated>2021-06-06T07:45:45.415Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近新读了一篇文章《Characterizing stochastic time series with ordinal networks》中译为《用序数网络表征随机时间序列》,将这篇文章涉及到的知识点做个梳理，对其中涉及到的程序图大部分做了实现&lt;br&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="复杂网络研究" scheme="https://gtyingzi.github.io/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E7%A0%94%E7%A9%B6/"/>
+    
+    
+    <category term="信噪比，基尼指数" scheme="https://gtyingzi.github.io/tags/%E4%BF%A1%E5%99%AA%E6%AF%94%EF%BC%8C%E5%9F%BA%E5%B0%BC%E6%8C%87%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>复杂网络——多元时间序列转化网络</title>
+    <link href="https://gtyingzi.github.io/2021/060659375.html"/>
+    <id>https://gtyingzi.github.io/2021/060659375.html</id>
+    <published>2021-06-06T07:42:37.000Z</published>
+    <updated>2021-06-06T07:45:45.416Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;已经学习了一段时间有关复杂网络方面的资料。接下来想记录下自己一些心得体会。OK，let’go!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;谈到复杂网络，首先不得避免谈到汪小凡的著作《2006_复杂网络理论及其应用 -</summary>
+        
+      
+    
+    
+    
+    <category term="复杂网络研究" scheme="https://gtyingzi.github.io/categories/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E7%A0%94%E7%A9%B6/"/>
+    
+    
+    <category term="多元时间序列转化为网络" scheme="https://gtyingzi.github.io/tags/%E5%A4%9A%E5%85%83%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>应用Python绘制雷达图时遇到的坑</title>
+    <link href="https://gtyingzi.github.io/2021/060663202.html"/>
+    <id>https://gtyingzi.github.io/2021/060663202.html</id>
+    <published>2021-06-06T07:41:23.000Z</published>
+    <updated>2021-06-06T07:45:45.414Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;ValueError: The number of FixedLocator locations (9), usually from a call to set_ticks, does not match the number of ticklabels</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="https://gtyingzi.github.io/categories/Python/"/>
+    
+    
+    <category term="雷达图" scheme="https://gtyingzi.github.io/tags/%E9%9B%B7%E8%BE%BE%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL镜像下载及启动</title>
+    <link href="https://gtyingzi.github.io/2021/060649492.html"/>
+    <id>https://gtyingzi.github.io/2021/060649492.html</id>
+    <published>2021-06-06T07:28:51.000Z</published>
+    <updated>2021-06-06T07:45:45.412Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-MySQL安装&quot;&gt;&lt;a href=&quot;#1-MySQL安装&quot; class=&quot;headerlink&quot; title=&quot;1.MySQL安装&quot;&gt;&lt;/a&gt;1.MySQL安装&lt;/h1&gt;&lt;p&gt;官网下载的MySQL实在太慢了， 这里添上&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="安装教程" scheme="https://gtyingzi.github.io/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="MySQL的安装及启动" scheme="https://gtyingzi.github.io/tags/MySQL%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E5%90%AF%E5%8A%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何用Git向GitHub上传送文件(从注册GitHub到用Git上传的每一步)</title>
+    <link href="https://gtyingzi.github.io/2021/060627056.html"/>
+    <id>https://gtyingzi.github.io/2021/060627056.html</id>
+    <published>2021-06-06T07:28:51.000Z</published>
+    <updated>2021-06-06T07:45:45.413Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;1-GitHub&quot;&gt;&lt;a href=&quot;#1-GitHub&quot; class=&quot;headerlink&quot; title=&quot;1.GitHub&quot;&gt;&lt;/a&gt;1.GitHub&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="安装教程" scheme="https://gtyingzi.github.io/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Github的应用" scheme="https://gtyingzi.github.io/tags/Github%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习（周志华）——决策树问题</title>
+    <link href="https://gtyingzi.github.io/2021/06061837.html"/>
+    <id>https://gtyingzi.github.io/2021/06061837.html</id>
+    <published>2021-06-06T07:21:04.000Z</published>
+    <updated>2021-06-06T07:22:00.134Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;matlab算法实现：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c&quot;&gt;clear;clc
+data=[-1 0 0 -1 1 -1 0 0 0 -1 1 1 -1 1 0 1 -1;
+    -1 -1 -1 -1 -1 0 0 0 0 1 1 -1 0 0 0 -1</summary>
+        
+      
+    
+    
+    
+    <category term="machine learning" scheme="https://gtyingzi.github.io/categories/machine-learning/"/>
+    
+    
+    <category term="决策树问题" scheme="https://gtyingzi.github.io/tags/%E5%86%B3%E7%AD%96%E6%A0%91%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习（周志华）——对数几率回归</title>
+    <link href="https://gtyingzi.github.io/2021/060624057.html"/>
+    <id>https://gtyingzi.github.io/2021/060624057.html</id>
+    <published>2021-06-06T07:19:50.000Z</published>
+    <updated>2021-06-06T07:22:00.135Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;课后习题3.3,编程实现对率回归，并给出西瓜数据集3.0$\ a$上的结果&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="machine learning" scheme="https://gtyingzi.github.io/categories/machine-learning/"/>
+    
+    
+    <category term="对数几率回归" scheme="https://gtyingzi.github.io/tags/%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%9B%9E%E5%BD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>聚类性能度量指标及距离计算</title>
+    <link href="https://gtyingzi.github.io/2021/060658520.html"/>
+    <id>https://gtyingzi.github.io/2021/060658520.html</id>
+    <published>2021-06-06T07:17:07.000Z</published>
+    <updated>2021-06-06T07:22:00.136Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-外部指标&quot;&gt;&lt;a href=&quot;#1-外部指标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="machine learning" scheme="https://gtyingzi.github.io/categories/machine-learning/"/>
+    
+    
+    <category term="聚类指标及距离计算" scheme="https://gtyingzi.github.io/tags/%E8%81%9A%E7%B1%BB%E6%8C%87%E6%A0%87%E5%8F%8A%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>标准BP算法matlab实现,简单易懂</title>
+    <link href="https://gtyingzi.github.io/2021/060650172.html"/>
+    <id>https://gtyingzi.github.io/2021/060650172.html</id>
+    <published>2021-06-06T07:11:00.000Z</published>
+    <updated>2021-06-06T07:22:00.136Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;机器学习的实验课要求自编写一份简易的标准BP（神经网络）算法,我用matlab基本实现了，现将自己的思想记录下来，方便自己以后重温.话不多说，让我们进入正题&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="machine learning" scheme="https://gtyingzi.github.io/categories/machine-learning/"/>
+    
+    
+    <category term="machine learning,Matlab" scheme="https://gtyingzi.github.io/tags/machine-learning-Matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>标准BP算法和累积BP算法Python实现</title>
+    <link href="https://gtyingzi.github.io/2021/060633523.html"/>
+    <id>https://gtyingzi.github.io/2021/060633523.html</id>
+    <published>2021-06-06T07:09:22.000Z</published>
+    <updated>2021-06-07T14:07:22.229Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;以下是自己编写的Python的代码,欢迎指正&lt;/p&gt;
+&lt;p&gt;标准BP算法:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c&quot;&gt;import numpy as np
+
+x=np.matrix(np.random.rand(3,2))</summary>
+        
+      
+    
+    
+    
+    <category term="machine learning" scheme="https://gtyingzi.github.io/categories/machine-learning/"/>
+    
+    
+    <category term="machine learning,Python" scheme="https://gtyingzi.github.io/tags/machine-learning-Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python实现聚类 KMeans算法</title>
+    <link href="https://gtyingzi.github.io/2021/060642162.html"/>
+    <id>https://gtyingzi.github.io/2021/060642162.html</id>
+    <published>2021-06-06T07:03:55.000Z</published>
+    <updated>2021-06-06T07:06:41.725Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;#-*- coding: utf-8 -*-
+&amp;#39;&amp;#39;&amp;#39;
+# author： 影子
+# datetime： 2021-05-18 12:10 
+# ide： PyCharm
+target :</summary>
+        
+      
+    
+    
+    
+    <category term="machine learning" scheme="https://gtyingzi.github.io/categories/machine-learning/"/>
+    
+    
+    <category term="machine learning,Python" scheme="https://gtyingzi.github.io/tags/machine-learning-Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Latex——从基础表到进阶表的讲述</title>
+    <link href="https://gtyingzi.github.io/2021/060615907.html"/>
+    <id>https://gtyingzi.github.io/2021/060615907.html</id>
+    <published>2021-06-06T06:38:17.000Z</published>
+    <updated>2021-06-06T06:56:02.814Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Latex" scheme="https://gtyingzi.github.io/categories/Latex/"/>
+    
+    
+    <category term="Latex" scheme="https://gtyingzi.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Latex——伪代码算法</title>
+    <link href="https://gtyingzi.github.io/2021/060658338.html"/>
+    <id>https://gtyingzi.github.io/2021/060658338.html</id>
+    <published>2021-06-06T06:35:39.000Z</published>
+    <updated>2021-06-06T06:58:06.441Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一般在论文的写作中，需要有算法流程图，现讲述两种伪代码算法流程图的实现：algorithm,algorithme2&lt;/p&gt;
+&lt;p&gt;第一个：algorithm&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;%导包
+\usepackage&amp;#123;algorithm&amp;#125;
+\usepa</summary>
+        
+      
+    
+    
+    
+    <category term="Latex" scheme="https://gtyingzi.github.io/categories/Latex/"/>
+    
+    
+    <category term="Latex" scheme="https://gtyingzi.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Latex——图片基本插入及多图并排</title>
+    <link href="https://gtyingzi.github.io/2021/060656548.html"/>
+    <id>https://gtyingzi.github.io/2021/060656548.html</id>
+    <published>2021-06-06T03:02:55.000Z</published>
+    <updated>2021-06-06T05:54:29.713Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Latex的基本插图&quot;&gt;&lt;a href=&quot;#Latex的基本插图&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Latex" scheme="https://gtyingzi.github.io/categories/Latex/"/>
+    
+    
+    <category term="Latex" scheme="https://gtyingzi.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+</feed>
