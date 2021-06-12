@@ -494,199 +494,199 @@
 </ul>
 <p>一般情况下我们都使用c(centering的第一个字母),{对齐方式}-&gt;{ccc}，表示三列的内容都是居中对齐。</p>
 <p>讲个例子：</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-    \begin&#123;tabular&#125;&#123;cccc&#125;
+    \begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>cccc<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-    a11 &amp; a12 &amp; a13  &amp; b1 \\
-    a21 &amp; a22  &amp; a23 &amp; b2  \\ 
-    a31 &amp; a32  &amp; a33 &amp; b3  \\
+    a11 <span class="token operator">&amp;</span> a12 <span class="token operator">&amp;</span> a13  <span class="token operator">&amp;</span> b1 \\
+    a21 <span class="token operator">&amp;</span> a22  <span class="token operator">&amp;</span> a23 <span class="token operator">&amp;</span> b2  \\ 
+    a31 <span class="token operator">&amp;</span> a32  <span class="token operator">&amp;</span> a33 <span class="token operator">&amp;</span> b3  \\
     
-\end&#123;tabular&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/2021012816525360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当然，我们还可以适当的给这个表格添加横、竖线。</p>
 <pre><code>横线：需要在该行添加语句\hline,
 竖线：需要在&#123;对齐方式&#125;这里进行设置，例如&#123;cc|c&#125;，表示在第二三列之间添加竖线
 </code></pre>
 <p>例子如下：</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
-\begin&#123;document&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-    \begin&#123;tabular&#125;&#123;c|c|cc&#125;
+    \begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>c<span class="token operator">|</span>c<span class="token operator">|</span>cc<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     \hline
-    a11 &amp; a12 &amp; a13  &amp; b1 \\
-    a21 &amp; a22  &amp; a23 &amp; b2  \\ 
+    a11 <span class="token operator">&amp;</span> a12 <span class="token operator">&amp;</span> a13  <span class="token operator">&amp;</span> b1 \\
+    a21 <span class="token operator">&amp;</span> a22  <span class="token operator">&amp;</span> a23 <span class="token operator">&amp;</span> b2  \\ 
     \hline
-    a31 &amp; a32  &amp; a33 &amp; b3  \\
+    a31 <span class="token operator">&amp;</span> a32  <span class="token operator">&amp;</span> a33 <span class="token operator">&amp;</span> b3  \\
     
-\end&#123;tabular&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128165834342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h1 id="三线表"><a href="#三线表" class="headerlink" title="三线表"></a>三线表</h1><p>了解前面的语法，接下来便可以做出三线表的效果了。</p>
 <p>例子如下：</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-    \begin&#123;tabular&#125;&#123;ccc&#125;
+    \begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>ccc<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     \hline
-    id &amp; name &amp; sex  \\
+    id <span class="token operator">&amp;</span> name <span class="token operator">&amp;</span> sex  \\
     \hline
-    1 &amp; John  &amp; man  \\ 
-    2 &amp; Jack  &amp; woman \\
+    <span class="token number">1</span> <span class="token operator">&amp;</span> John  <span class="token operator">&amp;</span> man  \\ 
+    <span class="token number">2</span> <span class="token operator">&amp;</span> Jack  <span class="token operator">&amp;</span> woman \\
     \hline
     
-\end&#123;tabular&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128170504295.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>通常情况，为了让表格更具美感，我们希望第一根线和最后一根线比中间那根线更粗点。此时我们需要引入宏包<strong>booktabs</strong>,之后便可以使用\toprule 和 \bottomrule 命令分别画出表格头和表格底的粗横线，而用 \midrule 画出表格中的横线。</p>
 <p>例子如下：</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
-\usepackage&#123;booktabs&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\usepackage<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>booktabs<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-    \begin&#123;tabular&#125;&#123;ccc&#125;
+    \begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>ccc<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     \toprule
-    id &amp; name &amp; sex  \\
+    id <span class="token operator">&amp;</span> name <span class="token operator">&amp;</span> sex  \\
     \midrule
-    1 &amp; John  &amp; man  \\ 
-    2 &amp; Jack  &amp; woman \\
+    <span class="token number">1</span> <span class="token operator">&amp;</span> John  <span class="token operator">&amp;</span> man  \\ 
+    <span class="token number">2</span> <span class="token operator">&amp;</span> Jack  <span class="token operator">&amp;</span> woman \\
     \bottomrule
     
-\end&#123;tabular&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128171050629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h1 id="单元格合并"><a href="#单元格合并" class="headerlink" title="单元格合并"></a>单元格合并</h1><p>在唠唠怎么给他做单元格合并。<br>对于某一行</p>
 <pre><code>\multicolum&#123;行数&#125;&#123;对齐方式&#125;&#123;文本内容&#125;
 </code></pre>
 <p>例子如下：</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-    \begin&#123;tabular&#125;&#123;|c|c|c|&#125;
-    \multicolumn&#123;3&#125;&#123;c&#125;&#123;information&#125; \\
+    \begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    \multicolumn<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">3</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>c<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>information<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> \\
     \hline
-    id &amp; name &amp; sex  \\
+    id <span class="token operator">&amp;</span> name <span class="token operator">&amp;</span> sex  \\
     \hline
-    1 &amp; John  &amp; man  \\ 
+    <span class="token number">1</span> <span class="token operator">&amp;</span> John  <span class="token operator">&amp;</span> man  \\ 
     \hline
-    2 &amp; Jack  &amp; woman \\
+    <span class="token number">2</span> <span class="token operator">&amp;</span> Jack  <span class="token operator">&amp;</span> woman \\
     \hline
     
-\end&#123;tabular&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128171846707.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>对于列的单元格合并，需要导入包</p>
 <pre><code>\usepackage&#123;multirow&#125;
 </code></pre>
 <p>例子如下：</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
-\usepackage&#123;multirow&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\usepackage<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>multirow<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-    \begin&#123;tabular&#125;&#123;|c|c|c|c|&#125;
+    \begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     \hline
-    \multicolumn&#123;4&#125;&#123;|c|&#125;&#123;information&#125; \\
+    \multicolumn<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">4</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">|</span>c<span class="token operator">|</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>information<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> \\
     \hline
-    \multirow&#123;3&#125;*&#123;data&#125;
-   &amp;id &amp; name &amp; sex  \\
-   \cline&#123;2-4&#125;      %%只为第2-4列添加横线
-    &amp;1 &amp; John  &amp; man  \\ 
-    \cline&#123;2-4&#125;      %%只为第2-4列添加横线
-    &amp;2 &amp; Jack  &amp; woman \\
+    \multirow<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">3</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">*</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>data<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+   <span class="token operator">&amp;</span>id <span class="token operator">&amp;</span> name <span class="token operator">&amp;</span> sex  \\
+   \cline<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">4</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>      <span class="token operator">%</span><span class="token operator">%</span>只为第<span class="token number">2</span><span class="token operator">-</span><span class="token number">4</span>列添加横线
+    <span class="token operator">&amp;</span><span class="token number">1</span> <span class="token operator">&amp;</span> John  <span class="token operator">&amp;</span> man  \\ 
+    \cline<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">4</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>      <span class="token operator">%</span><span class="token operator">%</span>只为第<span class="token number">2</span><span class="token operator">-</span><span class="token number">4</span>列添加横线
+    <span class="token operator">&amp;</span><span class="token number">2</span> <span class="token operator">&amp;</span> Jack  <span class="token operator">&amp;</span> woman \\
     \hline
     
-\end&#123;tabular&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128173217649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>现在，我们用上面的合并基础语法，来做一个稍微复杂点的表格<br>例子如下</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
-\usepackage&#123;multirow&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\usepackage<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>multirow<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;tabular&#125;&#123;|c|c|c|c|c|c|c|&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 \hline
-\multicolumn&#123;2&#125;&#123;|c|&#125;&#123; \multirow&#123;2&#125;*&#123;$S_i$&#125; &#125;&amp; \multicolumn&#123;4&#125;&#123;c|&#125;&#123;x&#125; &amp;\multirow&#123;2&#125;*&#123;max&#125;\\
-\cline&#123;3-6&#125;
-\multicolumn&#123;2&#125;&#123;|c|&#125;&#123;&#125;&amp;50&amp;100&amp;150&amp;200&amp;\\
+\multicolumn<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">|</span>c<span class="token operator">|</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> \multirow<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">*</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>$S_i$<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span> \multicolumn<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">4</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>c<span class="token operator">|</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>x<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">&amp;</span>\multirow<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">*</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>max<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>\\
+\cline<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">6</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\multicolumn<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">|</span>c<span class="token operator">|</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span><span class="token number">50</span><span class="token operator">&amp;</span><span class="token number">100</span><span class="token operator">&amp;</span><span class="token number">150</span><span class="token operator">&amp;</span><span class="token number">200</span><span class="token operator">&amp;</span>\\
 \hline
-\multirow&#123;4&#125;*&#123;y&#125;&amp;50&amp;0&amp;100&amp;200&amp;300&amp;300\\
-\cline&#123;2-7&#125;
-&amp;100&amp;100&amp;0&amp;100&amp;200&amp;200\\
-\cline&#123;2-7&#125;
-&amp;150&amp;200&amp;100&amp;0&amp;100&amp;200\\
-\cline&#123;2-7&#125;
-&amp;200&amp;300&amp;200&amp;100&amp;0&amp;300\\
+\multirow<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">4</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">*</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>y<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span><span class="token number">50</span><span class="token operator">&amp;</span><span class="token number">0</span><span class="token operator">&amp;</span><span class="token number">100</span><span class="token operator">&amp;</span><span class="token number">200</span><span class="token operator">&amp;</span><span class="token number">300</span><span class="token operator">&amp;</span><span class="token number">300</span>\\
+\cline<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">7</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span><span class="token number">100</span><span class="token operator">&amp;</span><span class="token number">100</span><span class="token operator">&amp;</span><span class="token number">0</span><span class="token operator">&amp;</span><span class="token number">100</span><span class="token operator">&amp;</span><span class="token number">200</span><span class="token operator">&amp;</span><span class="token number">200</span>\\
+\cline<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">7</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span><span class="token number">150</span><span class="token operator">&amp;</span><span class="token number">200</span><span class="token operator">&amp;</span><span class="token number">100</span><span class="token operator">&amp;</span><span class="token number">0</span><span class="token operator">&amp;</span><span class="token number">100</span><span class="token operator">&amp;</span><span class="token number">200</span>\\
+\cline<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">7</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span><span class="token number">200</span><span class="token operator">&amp;</span><span class="token number">300</span><span class="token operator">&amp;</span><span class="token number">200</span><span class="token operator">&amp;</span><span class="token number">100</span><span class="token operator">&amp;</span><span class="token number">0</span><span class="token operator">&amp;</span><span class="token number">300</span>\\
 \hline
-\end&#123;tabular&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128174024334.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们还可以做一个<strong>斜线表头</strong>，需要导入包</p>
 <pre><code>\usepackage&#123;diagbox&#125;
 </code></pre>
 <p>例子如下</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
-\usepackage&#123;diagbox&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\usepackage<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>diagbox<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;tabular&#125;&#123;|c|c|c|c|&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span>c<span class="token operator">|</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     \hline
-    \diagbox&#123;A&#125;&#123;$\alpha_&#123;i,j&#125;$&#125;&#123;B&#125;&amp;$\beta_1$&amp;$\beta_2$&amp;$\beta_3$\\ %添加斜线表头
+    \diagbox<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>A<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>$\alpha_<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>i<span class="token punctuation">,</span>j<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>$<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>B<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>$\beta_1$<span class="token operator">&amp;</span>$\beta_2$<span class="token operator">&amp;</span>$\beta_3$\\ <span class="token operator">%</span>添加斜线表头
     \hline
-    $\alpha_1$&amp;-4&amp;0&amp;-8\\
+    $\alpha_1$<span class="token operator">&amp;</span><span class="token operator">-</span><span class="token number">4</span><span class="token operator">&amp;</span><span class="token number">0</span><span class="token operator">&amp;</span><span class="token operator">-</span><span class="token number">8</span>\\
     \hline
-    $\alpha_2$&amp;3&amp;2&amp;4\\
+    $\alpha_2$<span class="token operator">&amp;</span><span class="token number">3</span><span class="token operator">&amp;</span><span class="token number">2</span><span class="token operator">&amp;</span><span class="token number">4</span>\\
     \hline
-    $\alpha_3$&amp;16&amp;1&amp;-9\\
+    $\alpha_3$<span class="token operator">&amp;</span><span class="token number">16</span><span class="token operator">&amp;</span><span class="token number">1</span><span class="token operator">&amp;</span><span class="token operator">-</span><span class="token number">9</span>\\
     \hline
-    $\alpha_4$&amp;-1&amp;1&amp;7\\
+    $\alpha_4$<span class="token operator">&amp;</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">&amp;</span><span class="token number">1</span><span class="token operator">&amp;</span><span class="token number">7</span>\\
     \hline
-\end&#123;tabular&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>tabular<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20210128174506264.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果我们需要斜线+单元格并列效果。<br>先简单讲一个例子：</p>
-<pre><code class="bash">\documentclass&#123;article&#125;
-\usepackage&#123;diagbox&#125;
-\usepackage&#123;multirow&#125;
+<pre class=" language-bash"><code class="language-bash">\documentclass<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;article&amp;#125;</span>
+\usepackage<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;diagbox&amp;#125;</span>
+\usepackage<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;multirow&amp;#125;</span>
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;document&amp;#125;</span>
 
-  \begin&#123;tabular&#125;&#123;|c|c|c|c|c|c|c|&#125;
+  \begin<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;tabular&amp;#125;&amp;#123;|c|c|c|c|c|c|c|&amp;#125;</span>
     \hline
-    \multicolumn&#123;2&#125;&#123;|c|&#125;&#123;\multirow&#123;2&#125;*&#123;\diagbox&#123;$S_i$&#125;&#123;$\lambda_i$&#125;&#125;&#125;&amp; \multicolumn&#123;4&#125;&#123;c|&#125;&#123;x&#125; &amp;\multirow&#123;2&#125;*&#123;max&#125;\\
-    \cline&#123;3-6&#125;
-    \multicolumn&#123;2&#125;&#123;|c|&#125;&#123;&#125;&amp;50&amp;100&amp;150&amp;200&amp;\\
+    \multicolumn<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2&amp;#125;&amp;#123;|c|&amp;#125;&amp;#123;\multirow&amp;#123;2&amp;#125;*&amp;#123;\diagbox&amp;#123;$S_i$&amp;#125;&amp;#123;$\lambda_i$&amp;#125;&amp;#125;&amp;#125;&amp; \multicolumn&amp;#123;4&amp;#125;&amp;#123;c|&amp;#125;&amp;#123;x&amp;#125; &amp;\multirow&amp;#123;2&amp;#125;*&amp;#123;max&amp;#125;\\</span>
+    \cline<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;3-6&amp;#125;</span>
+    \multicolumn<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2&amp;#125;&amp;#123;|c|&amp;#125;&amp;#123;&amp;#125;&amp;50&amp;100&amp;150&amp;200&amp;\\</span>
     \hline
-    \multirow&#123;4&#125;*&#123;y&#125;&amp;50&amp;0&amp;100&amp;200&amp;300&amp;300\\
-    \cline&#123;2-7&#125;
-    &amp;100&amp;100&amp;0&amp;100&amp;200&amp;200\\
-    \cline&#123;2-7&#125;
-    &amp;150&amp;200&amp;100&amp;0&amp;100&amp;200\\
-    \cline&#123;2-7&#125;
-    &amp;200&amp;300&amp;200&amp;100&amp;0&amp;300\\
+    \multirow<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;4&amp;#125;*&amp;#123;y&amp;#125;&amp;50&amp;0&amp;100&amp;200&amp;300&amp;300\\</span>
+    \cline<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2-7&amp;#125;</span>
+    <span class="token operator">&amp;</span>100<span class="token operator">&amp;</span>100<span class="token operator">&amp;</span>0<span class="token operator">&amp;</span>100<span class="token operator">&amp;</span>200<span class="token operator">&amp;</span>200\\
+    \cline<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2-7&amp;#125;</span>
+    <span class="token operator">&amp;</span>150<span class="token operator">&amp;</span>200<span class="token operator">&amp;</span>100<span class="token operator">&amp;</span>0<span class="token operator">&amp;</span>100<span class="token operator">&amp;</span>200\\
+    \cline<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;2-7&amp;#125;</span>
+    <span class="token operator">&amp;</span>200<span class="token operator">&amp;</span>300<span class="token operator">&amp;</span>200<span class="token operator">&amp;</span>100<span class="token operator">&amp;</span>0<span class="token operator">&amp;</span>300\\
     \hline
-    \end&#123;tabular&#125;
+    \end<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;tabular&amp;#125;</span>
     
-\end&#123;document&#125;
+\end<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;document&amp;#125;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128174805189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>上述就完成这个要求，注意调节\diagbox[innerwidth=2cm]，如果斜线对不准，请条件这个参数</p>
 <h1 id="table环境"><a href="#table环境" class="headerlink" title="table环境"></a>table环境</h1><p>我们在写论文时，需要将表格插入文档中，表格的环境是table，类似于图片的环境是figure。基本的用法和图片环境figure类似，这里也简单的提一下吧</p>
@@ -706,40 +706,40 @@ b（bottoom）:将表格放在当前页底部
 p（page）:放入下一页
 </code></pre>
 <p>简单讲一个例子：</p>
-<pre><code class="bash">\documentclass&#123;article&#125;
-\begin&#123;document&#125;
+<pre class=" language-bash"><code class="language-bash">\documentclass<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;article&amp;#125;</span>
+\begin<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;document&amp;#125;</span>
     
-    As the favorable food for Scotch, the herring and mackerel bring generous profits to fishing
-    companies. Due to the hotter ocean, more fish move to the north to seek better habitats, laying a
+    As the favorable food <span class="token keyword">for</span> Scotch, the herring and mackerel bring generous profits to fishing
+    companies. Due to the hotter ocean, <span class="token function">more</span> fish move to the north to seek better habitats, laying a
     negative impact on the fishing industry. The aim of this report is to build a migratory prediction
     model to evaluate the influences on the income of fishing companies. We are expected to provide
-    some strategies for fishing companies who can adapt to the migration of fish under the constraints of
+    some strategies <span class="token keyword">for</span> fishing companies <span class="token function">who</span> can adapt to the migration of fish under the constraints of
     various objective conditions and prevent themselves from going bankrupt as much as possible. Three
-    models are established: Model I: Seawater Temperature Prediction Model; Model II: Fish Migration
-    Prediction Model; Model III: Fishing Company Earnings Evaluation Model.
+    models are established: Model I: Seawater Temperature Prediction Model<span class="token punctuation">;</span> Model II: Fish Migration
+    Prediction Model<span class="token punctuation">;</span> Model III: Fishing Company Earnings Evaluation Model.
     
     
-    \begin&#123;table&#125;[htbp]
+    \begin<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;table&amp;#125;[htbp]</span>
         \centering
-        \caption&#123;三线表&#125;
-        \label&#123;tab:1&#125;
-\begin&#123;tabular&#125;&#123;ccc&#125;
+        \caption<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;三线表&amp;#125;</span>
+        \label<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;tab:1&amp;#125;</span>
+\begin<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;tabular&amp;#125;&amp;#123;ccc&amp;#125;</span>
 \hline
-name&amp; id&amp; sex\\
+name<span class="token operator">&amp;</span> <span class="token function">id</span><span class="token operator">&amp;</span> sex\\
 \hline
-Steve Jobs&amp; 001&amp; Male\\
-Bill Gates&amp; 002&amp; Female\\
+Steve Jobs<span class="token operator">&amp;</span> 001<span class="token operator">&amp;</span> Male\\
+Bill Gates<span class="token operator">&amp;</span> 002<span class="token operator">&amp;</span> Female\\
 \hline
-\end&#123;tabular&#125;
-    \end&#123;table&#125;
+\end<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;tabular&amp;#125;</span>
+    \end<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;table&amp;#125;</span>
 
-For Model I, global ocean temperature date monthly from 1960 to 2019 is firstly collected. Then,
+For Model I, global ocean temperature <span class="token function">date</span> monthly from 1960 to 2019 is firstly collected. Then,
 based on the analysis of intrinsic trend of the data and the verification of the stationarity, the validation
 of using ARIMA model to predict temperature is proved. Next, historical data is used to fit the
 parameters of ARIMA, with introduction of k-fold cross validation to identify the final prediction
-model as ARIMA(1,1,0). Finally, according to ARIMA(1,1,0), bootstrap method is used to simulate
-10000 possible prediction cases, which lays a great foundation to predict the migration of fish.
-\end&#123;document&#125;
+model as ARIMA<span class="token punctuation">(</span>1,1,0<span class="token punctuation">)</span>. Finally, according to ARIMA<span class="token punctuation">(</span>1,1,0<span class="token punctuation">)</span>, bootstrap method is used to simulate
+10000 possible prediction cases, <span class="token function">which</span> lays a great foundation to predict the migration of fish.
+\end<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;document&amp;#125;</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128180634725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果你还是不会用，在此给你留个链接<a target="_blank" rel="noopener" href="https://www.tablesgenerator.com/#">Latex表格在线网址</a><br>欢迎有问题给我留言~</p>
 

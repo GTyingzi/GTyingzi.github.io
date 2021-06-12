@@ -157,9 +157,8 @@
         
         
     <summary type="html">&lt;p&gt;matlab算法实现：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;c&quot;&gt;clear;clc
-data=[-1 0 0 -1 1 -1 0 0 0 -1 1 1 -1 1 0 1 -1;
-    -1 -1 -1 -1 -1 0 0 0 0 1 1 -1 0 0 0 -1</summary>
+&lt;pre class=&quot; language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;clear&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;clc
+data&lt;span</summary>
         
       
     

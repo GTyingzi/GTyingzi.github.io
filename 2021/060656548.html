@@ -482,13 +482,13 @@
 <h1 id="Latex的基本插图"><a href="#Latex的基本插图" class="headerlink" title="Latex的基本插图"></a>Latex的基本插图</h1><p>插图功能不是有Latex的内核直接提供的，而是需要由宏包graphicx提供的。因此要使用宏包的话，我们就需要在引言区插入我们的宏包。</p>
 <p>注:插图的宏包还可使用graphics，两个宏包在功能上几乎无差别，只是graphicx宏包支持&lt;项目&gt;=&lt;值&gt;的语法，使用起来更方便。</p>
 <p>导入宏包之后我们就可以使用\includegraphics命令进行插图。</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\usepackage&#123;graphicx&#125;
+\usepackage<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>graphicx<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;document&#125;
-    \includegraphics[scale=0.4]&#123;lufei1&#125;
-\end&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    \includegraphics<span class="token punctuation">[</span>scale<span class="token operator">=</span><span class="token number">0.4</span><span class="token punctuation">]</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>lufei1<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>在文本相同路径下放置一张名叫lufei1的图片，后面的格式是jpg,png可以忽略。我们就可以得到一张插入的图片了。<br><img src="https://img-blog.csdnimg.cn/20210127235732976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <pre><code>\includegraphics[scale=0.6]&#123;lufei1&#125;
@@ -500,24 +500,24 @@ height=8cm[缩放因子]                    指定高度为8cm
 scale=0.4[缩放因子]                  按0.4的比例缩小
 </code></pre>
 <p><strong>有关第二个参数：</strong> 插入图片时，忽略后缀jpg或者png。<br>我们在写论文的时候，一般如果图片比较多我们一般会选择把图片统一的放到和源文件一个路径下的某个目录里，这个时候我们要成功的加载图片我们就可以使用相对路径或绝对路径来加载。<br><code>相对路径</code> ：例如，我将图片都放在一个figs的文件夹下面，<br><img src="https://img-blog.csdnimg.cn/20210128001342882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>相对路径的代码如下：</p>
-<pre><code class="cpp">\documentclass&#123;article&#125;
-\usepackage&#123;graphicx&#125;
+<pre class=" language-cpp"><code class="language-cpp">\documentclass<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>article<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\usepackage<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>graphicx<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-\begin&#123;document&#125;
-    \includegraphics[scale=0.4]&#123;figs/lufei2&#125;
-\end&#123;document&#125;
+\begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    \includegraphics<span class="token punctuation">[</span>scale<span class="token operator">=</span><span class="token number">0.4</span><span class="token punctuation">]</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>figs<span class="token operator">/</span>lufei2<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+\end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>document<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>结果：<br><img src="https://img-blog.csdnimg.cn/20210128001842497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>绝对路径</code>：参照上例，只需改一行为</p>
-<pre><code class="cpp">\includegraphics[scale=0.4]&#123;C:/Latex排版/figs/lufei2&#125;
+<pre class=" language-cpp"><code class="language-cpp">\includegraphics<span class="token punctuation">[</span>scale<span class="token operator">=</span><span class="token number">0.4</span><span class="token punctuation">]</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>C<span class="token operator">:</span><span class="token operator">/</span>Latex排版<span class="token operator">/</span>figs<span class="token operator">/</span>lufei2<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <h1 id="浮动体"><a href="#浮动体" class="headerlink" title="浮动体"></a>浮动体</h1><p>接下来，让我们引进另一个概念——浮动体，一般情况下我们很少会把图片直接插入到我们的文本当中，而是会给它放置在一个叫做浮动体（float）的东西中。这样图片可以有一些相对位置的变换，不会造成分页困难等问题。</p>
 <p>图片的浮动环境是figure</p>
-<pre><code class="cpp">    \begin&#123;figure&#125;[htbp]
+<pre class=" language-cpp"><code class="language-cpp">    \begin<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>figure<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">[</span>htbp<span class="token punctuation">]</span>
         \centering
-    \includegraphics[scale=0.4]&#123;lufei1&#125;
-    \caption&#123;Dream of being a pirate king&#125;
-    \label&#123;fig:1&#125;
-    \end&#123;figure&#125;
+    \includegraphics<span class="token punctuation">[</span>scale<span class="token operator">=</span><span class="token number">0.4</span><span class="token punctuation">]</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>lufei1<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    \caption<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>Dream of being a pirate king<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    \label<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>fig<span class="token operator">:</span><span class="token number">1</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    \end<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>figure<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>结果：<br><img src="https://img-blog.csdnimg.cn/20210128003317537.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>请忽略哪些英文，是我随便写，放进去的。现在来研究figure里面用到的参数<br><code>[htbp]</code>:控制图片在文档中的位置，按照从左到右的顺序，可以更改为[hptb]等等。</p>
 <pre><code> h(here)    此处
@@ -557,29 +557,29 @@ scale=0.4[缩放因子]                  按0.4的比例缩小
 </code></pre>
 <p>效果如下<br><img src="https://img-blog.csdnimg.cn/20210128145558188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>已经实现4张图片的插入了，注意控制图片的宽度，在此，我们设定的图片宽度为：width=0.15\linewidth]  每张图片设定占置文档的0.15倍</p>
 <p>如果我们需要把它变成2行2列的形式。在latex代码中每隔两个subfigure打一个回车键，奇妙的事情就发生了！<br>代码如下：</p>
-<pre><code class="bash">![\documentclass&#123;article&#125;
-\usepackage&#123;graphicx&#125;
-\usepackage&#123;subfigure&#125;
+<pre class=" language-bash"><code class="language-bash"><span class="token operator">!</span><span class="token punctuation">[</span>\documentclass<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;article&amp;#125;</span>
+\usepackage<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;graphicx&amp;#125;</span>
+\usepackage<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;subfigure&amp;#125;</span>
 
-\begin&#123;document&#125;
+\begin<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;document&amp;#125;</span>
 
-    \begin&#123;figure&#125;[htbp]
+    \begin<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;figure&amp;#125;[htbp]</span>
         \center
-        \subfigure[lufei-1]&#123;\label&#123;fig:1a&#125;
-        \includegraphics[width=0.15\linewidth]&#123;lufei1&#125;&#125;
-        \subfigure[lufei-2]&#123;\label&#123;fig:1b&#125;
-        \includegraphics[width=0.15\linewidth]&#123;lufei2&#125;&#125;
+        \subfigure<span class="token punctuation">[</span>lufei-1<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;\label&amp;#123;fig:1a&amp;#125;</span>
+        \includegraphics<span class="token punctuation">[</span>width<span class="token operator">=</span>0.15\linewidth<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;lufei1&amp;#125;&amp;#125;</span>
+        \subfigure<span class="token punctuation">[</span>lufei-2<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;\label&amp;#123;fig:1b&amp;#125;</span>
+        \includegraphics<span class="token punctuation">[</span>width<span class="token operator">=</span>0.15\linewidth<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;lufei2&amp;#125;&amp;#125;</span>
     
-        \subfigure[lufei-3]&#123;\label&#123;fig:1c&#125;
-        \includegraphics[width=0.15\linewidth]&#123;lufei3&#125;&#125;
-        \subfigure[lufei-4]&#123;\label&#123;fig:1c&#125;
-        \includegraphics[width=0.15\linewidth]&#123;lufei4&#125;&#125;
+        \subfigure<span class="token punctuation">[</span>lufei-3<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;\label&amp;#123;fig:1c&amp;#125;</span>
+        \includegraphics<span class="token punctuation">[</span>width<span class="token operator">=</span>0.15\linewidth<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;lufei3&amp;#125;&amp;#125;</span>
+        \subfigure<span class="token punctuation">[</span>lufei-4<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;\label&amp;#123;fig:1c&amp;#125;</span>
+        \includegraphics<span class="token punctuation">[</span>width<span class="token operator">=</span>0.15\linewidth<span class="token punctuation">]</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;lufei4&amp;#125;&amp;#125;</span>
         
-    \caption&#123;Dream of being a pirate king&#125;
-    \label&#123;fig:1&#125;
-    \end&#123;figure&#125;
+    \caption<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;Dream of being a pirate king&amp;#125;</span>
+    \label<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;fig:1&amp;#125;</span>
+    \end<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;figure&amp;#125;</span>
 
-\end&#123;document&#125;]
+\end<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;document&amp;#125;]</span>
 </code></pre>
 <p>效果如下：<br><img src="https://img-blog.csdnimg.cn/20210128152325912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>好啦~ 看到这里，我相信大家都已经基本掌握怎么在Latex使用图片了。</p>

@@ -479,205 +479,205 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>matlab算法实现：</p>
-<pre><code class="c">clear;clc
-data=[-1 0 0 -1 1 -1 0 0 0 -1 1 1 -1 1 0 1 -1;
-    -1 -1 -1 -1 -1 0 0 0 0 1 1 -1 0 0 0 -1 -1;
-    -1 0 -1 0 -1 -1 -1 -1 0 1 1 -1 -1 0 -1 -1 1;
-    -1 -1 -1 -1 -1 -1 0 -1 0 -1 1 1 0 0 -1 1 0;
-    -1 -1 -1 -1 -1 0 0 0 0 1 1 1 -1 -1 0 1 0;
-    -1 -1 -1 -1 -1 1 1 -1 -1 1 -1 1 -1 -1 1 -1 -1]&#39;;
+<pre class=" language-c"><code class="language-c">clear<span class="token punctuation">;</span>clc
+data<span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>'<span class="token punctuation">;</span>
 
 
-y=[1 1 1 1 1 1 1 1 -1 -1 -1 -1 -1 -1 -1 -1 -1]&#39;;
+y<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>'<span class="token punctuation">;</span>
 
-%算法的实例
+<span class="token operator">%</span>算法的实例
 
-[m,n]=size(data);
-for j=1:n
-    %计算根节点的信息熵
-    v_0 = tabulate(y);
-    p1 = v_0(1,end)/100;
-    p2 = v_0(2,end)/100;
-    Ent_D = -(p1*log2(p1)+p2*log2(p2));
+<span class="token punctuation">[</span>m<span class="token punctuation">,</span>n<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>n
+    <span class="token operator">%</span>计算根节点的信息熵
+    v_0 <span class="token operator">=</span> <span class="token function">tabulate</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    p1 <span class="token operator">=</span> <span class="token function">v_0</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">;</span>
+    p2 <span class="token operator">=</span> <span class="token function">v_0</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">;</span>
+    Ent_D <span class="token operator">=</span> <span class="token operator">-</span><span class="token punctuation">(</span>p1<span class="token operator">*</span><span class="token function">log2</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token operator">+</span>p2<span class="token operator">*</span><span class="token function">log2</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    %获取每个属性集的信息增益
-    v_1 = tabulate(data(:,j));
-    [m1,n1] = size(v_1);
-    D_P = v_1(:,end)/100;
-    Ent_D_k=zeros(m1,1);
-    for i=1:m1
-        k = find(data(:,j)==v_1(i,1));
-        P(i) = sum(y(k)==1)/length(k);
-        if P(i)~= 0 &amp;&amp; P(i) ~=1
-            Ent_D_k(i) = -(P(i)*log2(P(i))+(1-P(i))*log2(1-P(i)));
+    <span class="token operator">%</span>获取每个属性集的信息增益
+    v_1 <span class="token operator">=</span> <span class="token function">tabulate</span><span class="token punctuation">(</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">:</span><span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span>m1<span class="token punctuation">,</span>n1<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>v_1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    D_P <span class="token operator">=</span> <span class="token function">v_1</span><span class="token punctuation">(</span><span class="token punctuation">:</span><span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">100</span><span class="token punctuation">;</span>
+    Ent_D_k<span class="token operator">=</span><span class="token function">zeros</span><span class="token punctuation">(</span>m1<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>m1
+        k <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">:</span><span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">==</span><span class="token function">v_1</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token function">y</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">length</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token function">P</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">~</span><span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">P</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">~</span><span class="token operator">=</span><span class="token number">1</span>
+            <span class="token function">Ent_D_k</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token punctuation">(</span><span class="token function">P</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">log2</span><span class="token punctuation">(</span><span class="token function">P</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span><span class="token function">P</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">log2</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span><span class="token function">P</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         end
     end
     
-    Gain_D(j) = Ent_D-D_P&#39;*Ent_D_k;
+    <span class="token function">Gain_D</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">=</span> Ent_D<span class="token operator">-</span>D_P'<span class="token operator">*</span>Ent_D_k<span class="token punctuation">;</span>
 end
 Gain_D
 </code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20210328143151947.png" alt="在这里插入图片描述"><br>划分决策树Python</p>
-<pre><code class="c">###以西瓜书76为例决策树
+<pre class=" language-c"><code class="language-c">###以西瓜书<span class="token number">76</span>为例决策树
 import pandas as pd
 import numpy as np
 import math
 import copy
 
-data = pd.read_excel(&#39;watermelon20.xlsx&#39;)
-#data.isnull().sum()
+data <span class="token operator">=</span> pd<span class="token punctuation">.</span><span class="token function">read_excel</span><span class="token punctuation">(</span><span class="token string">'watermelon20.xlsx'</span><span class="token punctuation">)</span>
+<span class="token macro property">#data.isnull().sum()</span>
 #根节点
-#y = data[&#39;好瓜&#39;].value_counts().shape[0]
+<span class="token macro property">#y = data['好瓜'].value_counts().shape[0]</span>
 #计算信息熵
-def Information_Entropy(plist):
-    ent = 0
-    for p in plist:
-        ent += p*math.log(p,2)
-    ent = -ent
-    return ent
+def <span class="token function">Information_Entropy</span><span class="token punctuation">(</span>plist<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ent <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> p in plist<span class="token punctuation">:</span>
+        ent <span class="token operator">+</span><span class="token operator">=</span> p<span class="token operator">*</span>math<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+    ent <span class="token operator">=</span> <span class="token operator">-</span>ent
+    <span class="token keyword">return</span> ent
 
-def get_p(feature,data):
-    idx = data[feature].value_counts().index.tolist()
-    val = data[feature].value_counts().tolist()
-    sum_val = sum(val)
-    plist = []
-    for i in val:
-        plist.append(i/sum_val)
-    return idx,plist
+def <span class="token function">get_p</span><span class="token punctuation">(</span>feature<span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    idx <span class="token operator">=</span> data<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">value_counts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>index<span class="token punctuation">.</span><span class="token function">tolist</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    val <span class="token operator">=</span> data<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">value_counts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tolist</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sum_val <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+    plist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i in val<span class="token punctuation">:</span>
+        plist<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>i<span class="token operator">/</span>sum_val<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> idx<span class="token punctuation">,</span>plist
 
 
 ####属性的信息增益
 
-def Decision_Tree(data,root_node,old_features_list,entD,flag=0):
-    #data:根节点未划分的数据
-    #root_node:根节点
-    #feature:当前属性集合（分支节点）
-    #entD:根节点的信息熵
-    #example for西瓜数据集2.0:
-    #对于初始时，data为整个数据集，root_node为好瓜，feature为要考察的属性（分支节点）,entD为好瓜坏瓜信息熵
-#        total_num = data.shape[0]##根节点D的样本个数    
-    print(&#39;--------------------------------&#39;)
-    print(&#39;输入根节点:&#39;,root_node)
-    print(&#39;取值:&#39;,data[root_node].values[0])
-    flag +=1
-    if len(old_features_list) == 0:
-        return 
-    if entD==0:
-        print(&#39;结论：坏瓜!&#39;) if data[&#39;好瓜&#39;].values[0]==&#39;否&#39; else print(&#39;结论：好瓜!&#39;)
-        print(&#39;--------------------------------&#39;)
-        return
-    gain_step1 = []
-    ent_whole_step1 = []
-    ent_whole_name = []
+def <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>root_node<span class="token punctuation">,</span>old_features_list<span class="token punctuation">,</span>entD<span class="token punctuation">,</span>flag<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token macro property">#data:根节点未划分的数据</span>
+    <span class="token macro property">#root_node:根节点</span>
+    <span class="token macro property">#feature:当前属性集合（分支节点）</span>
+    <span class="token macro property">#entD:根节点的信息熵</span>
+    <span class="token macro property">#example for西瓜数据集2.0:</span>
+    #对于初始时，data为整个数据集，root_node为好瓜，feature为要考察的属性（分支节点）<span class="token punctuation">,</span>entD为好瓜坏瓜信息熵
+<span class="token macro property">#        total_num = data.shape[0]##根节点D的样本个数    </span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'--------------------------------'</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'输入根节点:'</span><span class="token punctuation">,</span>root_node<span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'取值:'</span><span class="token punctuation">,</span>data<span class="token punctuation">[</span>root_node<span class="token punctuation">]</span><span class="token punctuation">.</span>values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    flag <span class="token operator">+</span><span class="token operator">=</span><span class="token number">1</span>
+    <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>old_features_list<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> 
+    <span class="token keyword">if</span> entD<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'结论：坏瓜!'</span><span class="token punctuation">)</span> <span class="token keyword">if</span> data<span class="token punctuation">[</span><span class="token string">'好瓜'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'否'</span> <span class="token keyword">else</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'结论：好瓜!'</span><span class="token punctuation">)</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'--------------------------------'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+    gain_step1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    ent_whole_step1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    ent_whole_name <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     
-    #注意：如果直接将features_list输出，那么在这个分支remove了这个属性，对于其他分支也无法使用，将产生错误影响!!!!
-    #因此输出和输入不是同一个列表!!!!!    
-    features_list = copy.deepcopy(old_features_list)
-#    features_list = old_features_list
-    for feature in features_list: #对于不同属性
-        grouped = data.groupby(feature)
-        fe = data[feature].value_counts().index.tolist()
-#        print(fe)
-        subclass = []
-        for f in fe:
-            subclass.append(grouped.get_group(f))#按分支节点划分子类
-        idx,plist = [],[]
-        sub_num = []##每个子类的样本个数
-        for sub in subclass:
-            i,p = get_p(&#39;好瓜&#39;,sub) #计算每个子类好坏瓜的概率
-            idx.append(i)
-            plist.append(p)
-            sub_num.append(sub.shape[0])##每个子类的样本个数
+    #注意：如果直接将features_list输出，那么在这个分支remove了这个属性，对于其他分支也无法使用，将产生错误影响<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
+    #因此输出和输入不是同一个列表<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>    
+    features_list <span class="token operator">=</span> copy<span class="token punctuation">.</span><span class="token function">deepcopy</span><span class="token punctuation">(</span>old_features_list<span class="token punctuation">)</span>
+<span class="token macro property">#    features_list = old_features_list</span>
+    <span class="token keyword">for</span> feature in features_list<span class="token punctuation">:</span> #对于不同属性
+        grouped <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">groupby</span><span class="token punctuation">(</span>feature<span class="token punctuation">)</span>
+        fe <span class="token operator">=</span> data<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">value_counts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>index<span class="token punctuation">.</span><span class="token function">tolist</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token macro property">#        print(fe)</span>
+        subclass <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> f in fe<span class="token punctuation">:</span>
+            subclass<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>grouped<span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span>#按分支节点划分子类
+        idx<span class="token punctuation">,</span>plist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        sub_num <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>##每个子类的样本个数
+        <span class="token keyword">for</span> sub in subclass<span class="token punctuation">:</span>
+            i<span class="token punctuation">,</span>p <span class="token operator">=</span> <span class="token function">get_p</span><span class="token punctuation">(</span><span class="token string">'好瓜'</span><span class="token punctuation">,</span>sub<span class="token punctuation">)</span> #计算每个子类好坏瓜的概率
+            idx<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            plist<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+            sub_num<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>sub<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>##每个子类的样本个数
         ##多个分支节点的信息熵
-        ent_whole = []  
-        for per_plist in plist:
-            per_ent = Information_Entropy(per_plist)
-            ent_whole.append(per_ent)
+        ent_whole <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  
+        <span class="token keyword">for</span> per_plist in plist<span class="token punctuation">:</span>
+            per_ent <span class="token operator">=</span> <span class="token function">Information_Entropy</span><span class="token punctuation">(</span>per_plist<span class="token punctuation">)</span>
+            ent_whole<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>per_ent<span class="token punctuation">)</span>
             
-        gain_step1.append(get_Gain(sub_num,ent_whole,entD))  #每个属性的信息增益,每个属性一个数  
-        ent_whole_step1.append(ent_whole)          #这个属性几个子类的信息熵
-        ent_whole_name.append(fe)                  #这个属性几个子类的信息熵对应的名字，如‘清晰’
+        gain_step1<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token function">get_Gain</span><span class="token punctuation">(</span>sub_num<span class="token punctuation">,</span>ent_whole<span class="token punctuation">,</span>entD<span class="token punctuation">)</span><span class="token punctuation">)</span>  #每个属性的信息增益<span class="token punctuation">,</span>每个属性一个数  
+        ent_whole_step1<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>ent_whole<span class="token punctuation">)</span>          #这个属性几个子类的信息熵
+        ent_whole_name<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>fe<span class="token punctuation">)</span>                  #这个属性几个子类的信息熵对应的名字，如‘清晰’
         
-        print(&#39;属性:&#39;,feature,&#39;增益:&#39;,get_Gain(sub_num,ent_whole,entD))
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'属性:'</span><span class="token punctuation">,</span>feature<span class="token punctuation">,</span><span class="token string">'增益:'</span><span class="token punctuation">,</span><span class="token function">get_Gain</span><span class="token punctuation">(</span>sub_num<span class="token punctuation">,</span>ent_whole<span class="token punctuation">,</span>entD<span class="token punctuation">)</span><span class="token punctuation">)</span>
    #####找到信息增益最大的，选为划分属性
-    idmax = gain_step1.index(max(gain_step1))   
-    root_node = features_list[idmax]  ##新的根节点“纹理”  
-    entD = ent_whole_step1[idmax]
-    entD_name = ent_whole_name[idmax]
-    re1 = save_re(features_list,gain_step1)
-    re1.to_excel(str(flag)+&#39;.xlsx&#39;)
-    print(&#39;产生新的节点:&#39;,root_node,&#39;下一阶段可取值:&#39;,entD_name)
-    print(&#39;--------------------------------&#39;)    
-    features_list.remove(root_node)  ##属性中 去除新的根节点
+    idmax <span class="token operator">=</span> gain_step1<span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span><span class="token function">max</span><span class="token punctuation">(</span>gain_step1<span class="token punctuation">)</span><span class="token punctuation">)</span>   
+    root_node <span class="token operator">=</span> features_list<span class="token punctuation">[</span>idmax<span class="token punctuation">]</span>  ##新的根节点“纹理”  
+    entD <span class="token operator">=</span> ent_whole_step1<span class="token punctuation">[</span>idmax<span class="token punctuation">]</span>
+    entD_name <span class="token operator">=</span> ent_whole_name<span class="token punctuation">[</span>idmax<span class="token punctuation">]</span>
+    re1 <span class="token operator">=</span> <span class="token function">save_re</span><span class="token punctuation">(</span>features_list<span class="token punctuation">,</span>gain_step1<span class="token punctuation">)</span>
+    re1<span class="token punctuation">.</span><span class="token function">to_excel</span><span class="token punctuation">(</span><span class="token function">str</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'.xlsx'</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'产生新的节点:'</span><span class="token punctuation">,</span>root_node<span class="token punctuation">,</span><span class="token string">'下一阶段可取值:'</span><span class="token punctuation">,</span>entD_name<span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'--------------------------------'</span><span class="token punctuation">)</span>    
+    features_list<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>root_node<span class="token punctuation">)</span>  ##属性中 去除新的根节点
     
-    die_data = data.groupby(root_node)
+    die_data <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">groupby</span><span class="token punctuation">(</span>root_node<span class="token punctuation">)</span>
     
-#    new_depart = data[root_node].value_counts().index.tolist()
-#    for i in range(len(new_depart)):
-#        print(&#39;根节点:&#39;,root_node,&#39;------------&#39;,&#39;取值:&#39;,new_depart)
-#        Decision_Tree(die_data.get_group(new_depart[i]),root_node,features_list,entD[i],flag)
+<span class="token macro property">#    new_depart = data[root_node].value_counts().index.tolist()</span>
+<span class="token macro property">#    for i in range(len(new_depart)):</span>
+<span class="token macro property">#        print('根节点:',root_node,'------------','取值:',new_depart)</span>
+<span class="token macro property">#        Decision_Tree(die_data.get_group(new_depart[i]),root_node,features_list,entD[i],flag)</span>
 
-    return die_data,root_node,features_list,entD,entD_name
+    <span class="token keyword">return</span> die_data<span class="token punctuation">,</span>root_node<span class="token punctuation">,</span>features_list<span class="token punctuation">,</span>entD<span class="token punctuation">,</span>entD_name
         
-#        ent_whole_2 = ent_whole_step1[idmax]
+<span class="token macro property">#        ent_whole_2 = ent_whole_step1[idmax]</span>
         
-def get_Gain(sub_num,ent_whole,entD):##信息增益
-    add = 0
-    total_num = sum(sub_num)
-    for i in range(len(ent_whole)):
-        add += (sub_num[i]/total_num)*ent_whole[i]
-    return entD - add
-#        Gain = get_Gain(sub_num,ent_whole,entD)
+def <span class="token function">get_Gain</span><span class="token punctuation">(</span>sub_num<span class="token punctuation">,</span>ent_whole<span class="token punctuation">,</span>entD<span class="token punctuation">)</span><span class="token punctuation">:</span>##信息增益
+    add <span class="token operator">=</span> <span class="token number">0</span>
+    total_num <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span>sub_num<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i in <span class="token function">range</span><span class="token punctuation">(</span><span class="token function">len</span><span class="token punctuation">(</span>ent_whole<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        add <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span>sub_num<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">/</span>total_num<span class="token punctuation">)</span><span class="token operator">*</span>ent_whole<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    <span class="token keyword">return</span> entD <span class="token operator">-</span> add
+<span class="token macro property">#        Gain = get_Gain(sub_num,ent_whole,entD)</span>
         
 ##保存每个属性的增益结果
-def save_re(features_list,gain_step):
-    features_listcp,gain_stepcp = features_list.copy(),gain_step.copy()
-    features_listcp = np.array(features_listcp)
-    gain_stepcp = np.array(gain_step)
+def <span class="token function">save_re</span><span class="token punctuation">(</span>features_list<span class="token punctuation">,</span>gain_step<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    features_listcp<span class="token punctuation">,</span>gain_stepcp <span class="token operator">=</span> features_list<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>gain_step<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    features_listcp <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span>features_listcp<span class="token punctuation">)</span>
+    gain_stepcp <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span>gain_step<span class="token punctuation">)</span>
     
-    re = np.hstack((features_listcp.reshape((features_listcp.shape[0],1)),gain_stepcp.reshape((features_listcp.shape[0],1))))
-    return pd.DataFrame(re,columns=[&#39;属性&#39;,&#39;信息增益&#39;])
+    re <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token function">hstack</span><span class="token punctuation">(</span><span class="token punctuation">(</span>features_listcp<span class="token punctuation">.</span><span class="token function">reshape</span><span class="token punctuation">(</span><span class="token punctuation">(</span>features_listcp<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>gain_stepcp<span class="token punctuation">.</span><span class="token function">reshape</span><span class="token punctuation">(</span><span class="token punctuation">(</span>features_listcp<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> pd<span class="token punctuation">.</span><span class="token function">DataFrame</span><span class="token punctuation">(</span>re<span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'属性'</span><span class="token punctuation">,</span><span class="token string">'信息增益'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
         
 ##以好瓜为根节点，计算各个属性的信息增益
-features_list = [&#39;色泽&#39;,&#39;根蒂&#39;,&#39;敲声&#39;,&#39;纹理&#39;,&#39;脐部&#39;,&#39;触感&#39;]
-root_node = &#39;好瓜&#39;
+features_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'色泽'</span><span class="token punctuation">,</span><span class="token string">'根蒂'</span><span class="token punctuation">,</span><span class="token string">'敲声'</span><span class="token punctuation">,</span><span class="token string">'纹理'</span><span class="token punctuation">,</span><span class="token string">'脐部'</span><span class="token punctuation">,</span><span class="token string">'触感'</span><span class="token punctuation">]</span>
+root_node <span class="token operator">=</span> <span class="token string">'好瓜'</span>
 
-idx,plist = get_p(&#39;好瓜&#39;,data)
-entD = Information_Entropy(plist)
+idx<span class="token punctuation">,</span>plist <span class="token operator">=</span> <span class="token function">get_p</span><span class="token punctuation">(</span><span class="token string">'好瓜'</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span>
+entD <span class="token operator">=</span> <span class="token function">Information_Entropy</span><span class="token punctuation">(</span>plist<span class="token punctuation">)</span>
 
 ##############
-print(&#39;第0层&#39;)
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'第0层'</span><span class="token punctuation">)</span>
 ##根节点为好瓜
-die_data,root_node,fl,entD1,entDname1 = Decision_Tree(data,root_node,features_list,entD)
+die_data<span class="token punctuation">,</span>root_node<span class="token punctuation">,</span>fl<span class="token punctuation">,</span>entD1<span class="token punctuation">,</span>entDname1 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>root_node<span class="token punctuation">,</span>features_list<span class="token punctuation">,</span>entD<span class="token punctuation">)</span>
 
 ##############
-#print(&#39;第1层&#39;)
+<span class="token macro property">#print('第1层')</span>
 ##根节点为纹理
-node1 = Decision_Tree(die_data.get_group(entDname1[0]),root_node,fl,entD1[0])
-node2 = Decision_Tree(die_data.get_group(entDname1[1]),root_node,fl,entD1[1])
-node3 = Decision_Tree(die_data.get_group(entDname1[2]),root_node,fl,entD1[2])
+node1 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>die_data<span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>entDname1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>root_node<span class="token punctuation">,</span>fl<span class="token punctuation">,</span>entD1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+node2 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>die_data<span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>entDname1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>root_node<span class="token punctuation">,</span>fl<span class="token punctuation">,</span>entD1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+node3 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>die_data<span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>entDname1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>root_node<span class="token punctuation">,</span>fl<span class="token punctuation">,</span>entD1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 #
 ###############
-print(&#39;第2层&#39;)
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'第2层'</span><span class="token punctuation">)</span>
 #根节点为根蒂
-node11 = Decision_Tree(node1[0].get_group(node1[4][0]),node1[1],node1[2],node1[3][0])
-node12 = Decision_Tree(node1[0].get_group(node1[4][1]),node1[1],node1[2],node1[3][1])
-node13 = Decision_Tree(node1[0].get_group(node1[4][2]),node1[1],node1[2],node1[3][2])
+node11 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node1<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+node12 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node1<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+node13 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node1<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node1<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 #
 #根节点为触感
-node21 = Decision_Tree(node2[0].get_group(node2[4][0]),node2[1],node2[2],node2[3][0])
-node22 = Decision_Tree(node2[0].get_group(node2[4][1]),node2[1],node2[2],node2[3][1])
+node21 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node2<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node2<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node2<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+node22 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node2<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node2<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node2<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 #
 ###############
-print(&#39;第3层&#39;)
-node31 = Decision_Tree(node12[0].get_group(node12[4][0]),node12[1],node12[2],node12[3][0])
-node32 = Decision_Tree(node12[0].get_group(node12[4][1]),node12[1],node12[2],node12[3][1])
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'第3层'</span><span class="token punctuation">)</span>
+node31 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node12<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node12<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node12<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node12<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node12<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+node32 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node12<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node12<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node12<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node12<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node12<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 #
 ###############
-print(&#39;第4层&#39;)
-node41 = Decision_Tree(node31[0].get_group(node31[4][0]),node31[1],node31[2],node31[3][0])
-node41 = Decision_Tree(node31[0].get_group(node31[4][1]),node31[1],node31[2],node31[3][1])
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'第4层'</span><span class="token punctuation">)</span>
+node41 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node31<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node31<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node31<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node31<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node31<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+node41 <span class="token operator">=</span> <span class="token function">Decision_Tree</span><span class="token punctuation">(</span>node31<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">get_group</span><span class="token punctuation">(</span>node31<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>node31<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node31<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>node31<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 #
 </code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20210405155824697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>

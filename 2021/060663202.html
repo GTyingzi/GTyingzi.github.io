@@ -480,41 +480,41 @@
             <div id="articleContent">
                 <p>ValueError: The number of FixedLocator locations (9), usually from a call to set_ticks, does not match the number of ticklabels (8).</p>
 <p>运行书中例题时发现了这个错误，<br>原代码如上：</p>
-<pre><code class="c">import numpy as np
-import matplotlib.pyplot as plt
+<pre class=" language-c"><code class="language-c">import numpy as np
+import matplotlib<span class="token punctuation">.</span>pyplot as plt
 import matplotlib
 
-matplotlib.rcParams[&#39;font.family&#39;]=&#39;simhei&#39;
+matplotlib<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.family'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'simhei'</span>
 # 某学生的课程与成绩
-courses = np.array([&#39;C++&#39;,&#39;Python&#39;,&#39;高数&#39;,&#39;大学英语&#39;,&#39;软件工程&#39;,
-           &#39;组成原理&#39;,&#39;数字图像处理&#39;,&#39;计算机图形学&#39;])
-scores=np.array([80,95,78,85,45,65,80,60])
+courses <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'C++'</span><span class="token punctuation">,</span><span class="token string">'Python'</span><span class="token punctuation">,</span><span class="token string">'高数'</span><span class="token punctuation">,</span><span class="token string">'大学英语'</span><span class="token punctuation">,</span><span class="token string">'软件工程'</span><span class="token punctuation">,</span>
+           <span class="token string">'组成原理'</span><span class="token punctuation">,</span><span class="token string">'数字图像处理'</span><span class="token punctuation">,</span><span class="token string">'计算机图形学'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+scores<span class="token operator">=</span>np<span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token number">95</span><span class="token punctuation">,</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">85</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span><span class="token number">65</span><span class="token punctuation">,</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token number">60</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-datalength = len(scores)     #数据长度
+datalength <span class="token operator">=</span> <span class="token function">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span>     #数据长度
 
-# angles数组把圆周等分为dataLength份
-angles = np.linspace(0,         #数组第一个数据
-                    2*np.pi,    #数组最后一个暑假
-                    datalength, #数组中的数据量
-                    endpoint=False) #不包含终点
+<span class="token macro property"># angles数组把圆周等分为dataLength份</span>
+angles <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token function">linspace</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>         #数组第一个数据
+                    <span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span>    #数组最后一个暑假
+                    datalength<span class="token punctuation">,</span> #数组中的数据量
+                    endpoint<span class="token operator">=</span>False<span class="token punctuation">)</span> #不包含终点
 
-scores = np.concatenate((scores,[scores[0]]))
-angles = np.concatenate((angles,[angles[0]]))
+scores <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token function">concatenate</span><span class="token punctuation">(</span><span class="token punctuation">(</span>scores<span class="token punctuation">,</span><span class="token punctuation">[</span>scores<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+angles <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token function">concatenate</span><span class="token punctuation">(</span><span class="token punctuation">(</span>angles<span class="token punctuation">,</span><span class="token punctuation">[</span>angles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 # 绘制雷达图
-print(angles)
-print(&#39;=&#39;*20)
-print(scores)
-plt.polar(angles,
-          scores,
-          &#39;rv--&#39;,
-          linewidth=2)
+<span class="token function">print</span><span class="token punctuation">(</span>angles<span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'='</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span><span class="token function">polar</span><span class="token punctuation">(</span>angles<span class="token punctuation">,</span>
+          scores<span class="token punctuation">,</span>
+          <span class="token string">'rv--'</span><span class="token punctuation">,</span>
+          linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
 # 设置角度网络标签
-plt.thetagrids(angles*180/np.pi,courses)
+plt<span class="token punctuation">.</span><span class="token function">thetagrids</span><span class="token punctuation">(</span>angles<span class="token operator">*</span><span class="token number">180</span><span class="token operator">/</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span>courses<span class="token punctuation">)</span>
 # 填充雷达图内部
-plt.fill(angles,scores,facecolor=&#39;r&#39;,alpha=0.6)
+plt<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span>angles<span class="token punctuation">,</span>scores<span class="token punctuation">,</span>facecolor<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span>alpha<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">)</span>
 
-plt.show()
+plt<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20210417214433910.png" alt="在这里插入图片描述"><br>自己搜查资料后，了解到，只对socres，和angles做闭合还是不够</p>
 <p>需要再对courses进行闭合</p>
@@ -523,34 +523,34 @@ plt.show()
 <p><img src="https://img-blog.csdnimg.cn/20210417214555187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>此时就能正确运行出来。</p>
 <hr>
 <p>这里在附上霍兰德人格分析代码：</p>
-<pre><code class="python">import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> matplotlib
 
-matplotlib.rcParams[&#39;font.family&#39;]=&quot;SimHei&quot;
-radar_labels = np.array([&#39;研究型（I）&#39;,&#39;艺术型（A）&#39;,&#39;社会型（S）&#39;,\
-                        &#39;企业型（E）&#39;,&#39;常规型（C）&#39;,&#39;现实型（R）&#39;])
-data = np.array([[0.40, 0.32, 0.35, 0.30, 0.30, 0.88],
-                 [0.85, 0.35, 0.30, 0.40, 0.40, 0.30],
-                 [0.43, 0.89, 0.30, 0.28, 0.22, 0.30],
-                 [0.30, 0.25, 0.48, 0.85, 0.45, 0.40],
-                 [0.20, 0.38, 0.87, 0.45, 0.32, 0.28],
-                 [0.34, 0.31, 0.38, 0.40, 0.92, 0.28]])
-data_labels =(&#39;艺术家&#39;,&#39;实验员&#39;,&#39;工程师&#39;,&#39;推销员&#39;,&#39;社会工作者&#39;,&#39;记事员&#39;)
+matplotlib<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.family'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"SimHei"</span>
+radar_labels <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'研究型（I）'</span><span class="token punctuation">,</span><span class="token string">'艺术型（A）'</span><span class="token punctuation">,</span><span class="token string">'社会型（S）'</span><span class="token punctuation">,</span>\
+                        <span class="token string">'企业型（E）'</span><span class="token punctuation">,</span><span class="token string">'常规型（C）'</span><span class="token punctuation">,</span><span class="token string">'现实型（R）'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+data <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0.40</span><span class="token punctuation">,</span> <span class="token number">0.32</span><span class="token punctuation">,</span> <span class="token number">0.35</span><span class="token punctuation">,</span> <span class="token number">0.30</span><span class="token punctuation">,</span> <span class="token number">0.30</span><span class="token punctuation">,</span> <span class="token number">0.88</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token punctuation">[</span><span class="token number">0.85</span><span class="token punctuation">,</span> <span class="token number">0.35</span><span class="token punctuation">,</span> <span class="token number">0.30</span><span class="token punctuation">,</span> <span class="token number">0.40</span><span class="token punctuation">,</span> <span class="token number">0.40</span><span class="token punctuation">,</span> <span class="token number">0.30</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token punctuation">[</span><span class="token number">0.43</span><span class="token punctuation">,</span> <span class="token number">0.89</span><span class="token punctuation">,</span> <span class="token number">0.30</span><span class="token punctuation">,</span> <span class="token number">0.28</span><span class="token punctuation">,</span> <span class="token number">0.22</span><span class="token punctuation">,</span> <span class="token number">0.30</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token punctuation">[</span><span class="token number">0.30</span><span class="token punctuation">,</span> <span class="token number">0.25</span><span class="token punctuation">,</span> <span class="token number">0.48</span><span class="token punctuation">,</span> <span class="token number">0.85</span><span class="token punctuation">,</span> <span class="token number">0.45</span><span class="token punctuation">,</span> <span class="token number">0.40</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token punctuation">[</span><span class="token number">0.20</span><span class="token punctuation">,</span> <span class="token number">0.38</span><span class="token punctuation">,</span> <span class="token number">0.87</span><span class="token punctuation">,</span> <span class="token number">0.45</span><span class="token punctuation">,</span> <span class="token number">0.32</span><span class="token punctuation">,</span> <span class="token number">0.28</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token punctuation">[</span><span class="token number">0.34</span><span class="token punctuation">,</span> <span class="token number">0.31</span><span class="token punctuation">,</span> <span class="token number">0.38</span><span class="token punctuation">,</span> <span class="token number">0.40</span><span class="token punctuation">,</span> <span class="token number">0.92</span><span class="token punctuation">,</span> <span class="token number">0.28</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+data_labels <span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'艺术家'</span><span class="token punctuation">,</span><span class="token string">'实验员'</span><span class="token punctuation">,</span><span class="token string">'工程师'</span><span class="token punctuation">,</span><span class="token string">'推销员'</span><span class="token punctuation">,</span><span class="token string">'社会工作者'</span><span class="token punctuation">,</span><span class="token string">'记事员'</span><span class="token punctuation">)</span>
 
 
-angles = np.linspace(0, 2*np.pi, 6, endpoint=False)
-fig = plt.figure(facecolor = &quot;white&quot;)
-plt.subplot(111, polar = True)
-plt.plot(angles, data,&#39;o-&#39;,linewidth=1, alpha=0.2)
-plt.fill(angles, data, alpha=0.25)
-plt.thetagrids(angles*180/np.pi, radar_labels)
-plt.figtext(0.52, 0.95, &#39;霍兰德人格分析&#39;, ha=&#39;center&#39;, size=20)
-legend = plt.legend(data_labels, loc = (0.94, 0.80), labelspacing = 0.1)
-plt.setp(legend.get_texts(), fontsize=&#39;large&#39;)
-plt.grid(True)
-plt.savefig(&#39;holland_radar.jpg&#39;)
-plt.show()
+angles <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> endpoint<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+fig <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>facecolor <span class="token operator">=</span> <span class="token string">"white"</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>subplot<span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">,</span> polar <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>angles<span class="token punctuation">,</span> data<span class="token punctuation">,</span><span class="token string">'o-'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.2</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>fill<span class="token punctuation">(</span>angles<span class="token punctuation">,</span> data<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.25</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>thetagrids<span class="token punctuation">(</span>angles<span class="token operator">*</span><span class="token number">180</span><span class="token operator">/</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span> radar_labels<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>figtext<span class="token punctuation">(</span><span class="token number">0.52</span><span class="token punctuation">,</span> <span class="token number">0.95</span><span class="token punctuation">,</span> <span class="token string">'霍兰德人格分析'</span><span class="token punctuation">,</span> ha<span class="token operator">=</span><span class="token string">'center'</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
+legend <span class="token operator">=</span> plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span>data_labels<span class="token punctuation">,</span> loc <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.94</span><span class="token punctuation">,</span> <span class="token number">0.80</span><span class="token punctuation">)</span><span class="token punctuation">,</span> labelspacing <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>setp<span class="token punctuation">(</span>legend<span class="token punctuation">.</span>get_texts<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token string">'large'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span><span class="token string">'holland_radar.jpg'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20210417214755175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 

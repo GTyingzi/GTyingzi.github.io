@@ -530,59 +530,59 @@
 </ul>
 <p>其中<br>$$<br>e_h=-\frac{\partial E}{\partial b_h}\frac{\partial b_h}{\partial \alpha_h}=-\sum_{j=1}^l\frac{\partial E}{\partial \beta_j}\frac{\partial \beta_j}{\partial b_h}f’(\alpha_h-\gamma_h)=\sum_{j=1}^lw_{hj}g_jf’(\alpha_h-\gamma_h)=b_h(1-b_h)\sum_{j=1}^lw_{hj}g_j<br>$$</p>
 <p>ok，到这里有关标准BP算法的介绍已经讲完了,附上实现的matlab代码</p>
-<pre><code class="c">clear;clc
-%标准BP算法
-x=[1.24 1.27];y=[1 0];  %初始数据
-[v,r,w,h,y_hat]=standard_BP(x,y,3,1e-6);
+<pre class=" language-c"><code class="language-c">clear<span class="token punctuation">;</span>clc
+<span class="token operator">%</span>标准BP算法
+x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1.24</span> <span class="token number">1.27</span><span class="token punctuation">]</span><span class="token punctuation">;</span>y<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始数据
+<span class="token punctuation">[</span>v<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">,</span>y_hat<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">standard_BP</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1e-6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-function [v,r,w,h,y_hat]=standard_BP(x,y,q,eps)  %q为隐层单元数目,eps均方误差限
+function <span class="token punctuation">[</span>v<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">,</span>y_hat<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">standard_BP</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>q<span class="token punctuation">,</span>eps<span class="token punctuation">)</span>  <span class="token operator">%</span>q为隐层单元数目<span class="token punctuation">,</span>eps均方误差限
 
-q=3;    %隐层单元数目
-L=length(y);    %输出单元数目
-n=length(x);  %获取数据的维度
-v=rand(n,q);  %初始化输入层到隐层的权值
-r=rand(1,q);    %初始化隐层的阀值
-w=rand(q,L);  %初始化隐层到输出层的权值
-h=rand(1,L);    %初始化输出层的阀值
-k=0.1;        %学习率
-E=1;
-while E&gt;eps  
+q<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>    <span class="token operator">%</span>隐层单元数目
+L<span class="token operator">=</span><span class="token function">length</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>输出单元数目
+n<span class="token operator">=</span><span class="token function">length</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>获取数据的维度
+v<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始化输入层到隐层的权值
+r<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>初始化隐层的阀值
+w<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始化隐层到输出层的权值
+h<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>初始化输出层的阀值
+k<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">;</span>        <span class="token operator">%</span>学习率
+E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> E<span class="token operator">></span>eps  
 
-A=x*v;                %输入层-&gt;隐层,各个隐层单元具有的权值
-b=fc_sigmod(A-r);     %经过隐层的激活函数的输出
+A<span class="token operator">=</span>x<span class="token operator">*</span>v<span class="token punctuation">;</span>                <span class="token operator">%</span>输入层<span class="token operator">-></span>隐层<span class="token punctuation">,</span>各个隐层单元具有的权值
+b<span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>A<span class="token operator">-</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token operator">%</span>经过隐层的激活函数的输出
 
-B=b*w;                %隐层-&gt;输出层,各个输出层单元具有的权值
-y_hat=fc_sigmod(B-h); %经过输出层的激活函数的输出
+B<span class="token operator">=</span>b<span class="token operator">*</span>w<span class="token punctuation">;</span>                <span class="token operator">%</span>隐层<span class="token operator">-></span>输出层<span class="token punctuation">,</span>各个输出层单元具有的权值
+y_hat<span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>B<span class="token operator">-</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">%</span>经过输出层的激活函数的输出
 
-E=0.5*sum((y_hat-y).^2);  %求均方误差
+E<span class="token operator">=</span><span class="token number">0.5</span><span class="token operator">*</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">(</span>y_hat<span class="token operator">-</span>y<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>求均方误差
 
-%以下对各个系数进行调整
-g=y_hat.*(1-y_hat).*(y-y_hat);
-e=b.*(1-b).*(w*g&#39;)&#39;;
+<span class="token operator">%</span>以下对各个系数进行调整
+g<span class="token operator">=</span>y_hat<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>y_hat<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span>y<span class="token operator">-</span>y_hat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+e<span class="token operator">=</span>b<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>b<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span>w<span class="token operator">*</span>g<span class="token string">')'</span><span class="token punctuation">;</span>
 
-for i=1:n
-    for j=1:q
-        v(i,j)=v(i,j)+k*e(j)*x(i);   %输入层-&gt;隐层的权值更新
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>n
+    <span class="token keyword">for</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>q
+        <span class="token function">v</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">v</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">+</span>k<span class="token operator">*</span><span class="token function">e</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">x</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token operator">%</span>输入层<span class="token operator">-></span>隐层的权值更新
     end
 end
-r=r-k*e;         %隐层的阀值更新
+r<span class="token operator">=</span>r<span class="token operator">-</span>k<span class="token operator">*</span>e<span class="token punctuation">;</span>         <span class="token operator">%</span>隐层的阀值更新
 
-for i=1:q
-    for j=1:L
-        w(i,j)=w(i,j)+k*g(j)*b(i);   %隐层-&gt;输出层的权值更新
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>q
+    <span class="token keyword">for</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>L
+        <span class="token function">w</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">w</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">+</span>k<span class="token operator">*</span><span class="token function">g</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">b</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token operator">%</span>隐层<span class="token operator">-></span>输出层的权值更新
     end
 end
-h=h-k*g;
+h<span class="token operator">=</span>h<span class="token operator">-</span>k<span class="token operator">*</span>g<span class="token punctuation">;</span>
 
 end
 
-disp(&#39;输入层到隐层的权值为&#39;);v
-disp(&#39;隐层的阀值为&#39;);r
-disp(&#39;隐层到输出层的权值为&#39;);w
-disp(&#39;输出层的阀值为&#39;);h
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'输入层到隐层的权值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>v
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'隐层的阀值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>r
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'隐层到输出层的权值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>w
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'输出层的阀值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>h
 
-function y=fc_sigmod(x)
-y=1./(1+exp(-x));
+function y<span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+y<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token function">exp</span><span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 end
 end
 </code></pre>
@@ -593,76 +593,76 @@ end
 y=[1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;0 1;0 1;0 1;0 1;0 1;0 1];
 </code></pre>
 <p>这里跳出调整参数，我改成了迭代次数,</p>
-<pre><code class="c">clear;clc
-%标准BP算法
-x=[1.24,1.27;1.36,1.74;1.38,1.64;1.38,1.82;1.38,1.90; 
- 1.40,1.70;1.48,1.82;1.54,1.82;1.56,2.08;1.14,1.82;1.18,1.96;1.20,1.86;1.26,2.00 
- 1.28,2.00;1.30,1.96];
-y=[1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;0 1;0 1;0 1;0 1;0 1;0 1];  %初始数据
+<pre class=" language-c"><code class="language-c">clear<span class="token punctuation">;</span>clc
+<span class="token operator">%</span>标准BP算法
+x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1.24</span><span class="token punctuation">,</span><span class="token number">1.27</span><span class="token punctuation">;</span><span class="token number">1.36</span><span class="token punctuation">,</span><span class="token number">1.74</span><span class="token punctuation">;</span><span class="token number">1.38</span><span class="token punctuation">,</span><span class="token number">1.64</span><span class="token punctuation">;</span><span class="token number">1.38</span><span class="token punctuation">,</span><span class="token number">1.82</span><span class="token punctuation">;</span><span class="token number">1.38</span><span class="token punctuation">,</span><span class="token number">1.90</span><span class="token punctuation">;</span> 
+ <span class="token number">1.40</span><span class="token punctuation">,</span><span class="token number">1.70</span><span class="token punctuation">;</span><span class="token number">1.48</span><span class="token punctuation">,</span><span class="token number">1.82</span><span class="token punctuation">;</span><span class="token number">1.54</span><span class="token punctuation">,</span><span class="token number">1.82</span><span class="token punctuation">;</span><span class="token number">1.56</span><span class="token punctuation">,</span><span class="token number">2.08</span><span class="token punctuation">;</span><span class="token number">1.14</span><span class="token punctuation">,</span><span class="token number">1.82</span><span class="token punctuation">;</span><span class="token number">1.18</span><span class="token punctuation">,</span><span class="token number">1.96</span><span class="token punctuation">;</span><span class="token number">1.20</span><span class="token punctuation">,</span><span class="token number">1.86</span><span class="token punctuation">;</span><span class="token number">1.26</span><span class="token punctuation">,</span><span class="token number">2.00</span> 
+ <span class="token number">1.28</span><span class="token punctuation">,</span><span class="token number">2.00</span><span class="token punctuation">;</span><span class="token number">1.30</span><span class="token punctuation">,</span><span class="token number">1.96</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+y<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始数据
 
-[v,r,w,h,y_hat]=standard_BP(x,y,3,1e6);
+<span class="token punctuation">[</span>v<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">,</span>y_hat<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">standard_BP</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1e6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-x_k=[1.24 1.80;1.28 1.84;1.40 2.04];
+x_k<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1.24</span> <span class="token number">1.80</span><span class="token punctuation">;</span><span class="token number">1.28</span> <span class="token number">1.84</span><span class="token punctuation">;</span><span class="token number">1.40</span> <span class="token number">2.04</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-function [v,r,w,h,y_hat]=standard_BP(x0,y0,q,N)  %q为隐层单元数目,N,迭代次数
+function <span class="token punctuation">[</span>v<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">,</span>y_hat<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">standard_BP</span><span class="token punctuation">(</span>x0<span class="token punctuation">,</span>y0<span class="token punctuation">,</span>q<span class="token punctuation">,</span>N<span class="token punctuation">)</span>  <span class="token operator">%</span>q为隐层单元数目<span class="token punctuation">,</span>N<span class="token punctuation">,</span>迭代次数
 
-%初始化连边权值和阀值
-L=size(y0,2);    %输出单元数目
-[m,n]=size(x0);  %获取数据的维度
-v=rand(n,q);  %初始化输入层到隐层的权值
-r=rand(1,q);    %初始化隐层的阀值
-w=rand(q,L);  %初始化隐层到输出层的权值
-h=rand(1,L);    %初始化输出层的阀值
-k=0.05;        %学习率
-E=1;
+<span class="token operator">%</span>初始化连边权值和阀值
+L<span class="token operator">=</span><span class="token function">size</span><span class="token punctuation">(</span>y0<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>输出单元数目
+<span class="token punctuation">[</span>m<span class="token punctuation">,</span>n<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">size</span><span class="token punctuation">(</span>x0<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>获取数据的维度
+v<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始化输入层到隐层的权值
+r<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>初始化隐层的阀值
+w<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始化隐层到输出层的权值
+h<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>初始化输出层的阀值
+k<span class="token operator">=</span><span class="token number">0.05</span><span class="token punctuation">;</span>        <span class="token operator">%</span>学习率
+E<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-iter=1;
-a=1;
+iter<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-while iter&lt;N
-    x=x0(a,:);
-    y=y0(a,:);
+<span class="token keyword">while</span> iter<span class="token operator">&lt;</span>N
+    x<span class="token operator">=</span><span class="token function">x0</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    y<span class="token operator">=</span><span class="token function">y0</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    A=x*v;                %输入层-&gt;隐层,各个隐层单元具有的权值
-    b=fc_sigmod(A-r);     %经过隐层的激活函数的输出
+    A<span class="token operator">=</span>x<span class="token operator">*</span>v<span class="token punctuation">;</span>                <span class="token operator">%</span>输入层<span class="token operator">-></span>隐层<span class="token punctuation">,</span>各个隐层单元具有的权值
+    b<span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>A<span class="token operator">-</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token operator">%</span>经过隐层的激活函数的输出
     
-    B=b*w;                %隐层-&gt;输出层,各个输出层单元具有的权值
-    y_hat(a,:)=fc_sigmod(B-h); %经过输出层的激活函数的输出
+    B<span class="token operator">=</span>b<span class="token operator">*</span>w<span class="token punctuation">;</span>                <span class="token operator">%</span>隐层<span class="token operator">-></span>输出层<span class="token punctuation">,</span>各个输出层单元具有的权值
+    <span class="token function">y_hat</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>B<span class="token operator">-</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">%</span>经过输出层的激活函数的输出
     
-    E=0.5*sum((y_hat(a,:)-y).^2);  %求均方误差
+    E<span class="token operator">=</span><span class="token number">0.5</span><span class="token operator">*</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">y_hat</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token operator">-</span>y<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>求均方误差
     
-    %以下对各个系数进行调整
-    g=y_hat(a,:).*(1-y_hat(a,:)).*(y-y_hat(a,:));
-    e=b.*(1-b).*(w*g&#39;)&#39;;
+    <span class="token operator">%</span>以下对各个系数进行调整
+    g<span class="token operator">=</span><span class="token function">y_hat</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span><span class="token function">y_hat</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span>y<span class="token operator">-</span><span class="token function">y_hat</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    e<span class="token operator">=</span>b<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>b<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span>w<span class="token operator">*</span>g<span class="token string">')'</span><span class="token punctuation">;</span>
     
-    for i=1:n
-        for j=1:q
-            v(i,j)=v(i,j)+k*e(j)*x(i);   %输入层-&gt;隐层的权值更新
+    <span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>n
+        <span class="token keyword">for</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>q
+            <span class="token function">v</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">v</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">+</span>k<span class="token operator">*</span><span class="token function">e</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">x</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token operator">%</span>输入层<span class="token operator">-></span>隐层的权值更新
         end
     end
-    r=r-k*e;         %隐层的阀值更新
+    r<span class="token operator">=</span>r<span class="token operator">-</span>k<span class="token operator">*</span>e<span class="token punctuation">;</span>         <span class="token operator">%</span>隐层的阀值更新
     
-    for i=1:q
-        for j=1:L
-            w(i,j)=w(i,j)+k*g(j)*b(i);   %隐层-&gt;输出层的权值更新
+    <span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>q
+        <span class="token keyword">for</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>L
+            <span class="token function">w</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">w</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">+</span>k<span class="token operator">*</span><span class="token function">g</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">b</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token operator">%</span>隐层<span class="token operator">-></span>输出层的权值更新
         end
     end
-    h=h-k*g;
+    h<span class="token operator">=</span>h<span class="token operator">-</span>k<span class="token operator">*</span>g<span class="token punctuation">;</span>
     
-    if a&gt;=m
-        a=a-m;
+    <span class="token keyword">if</span> a<span class="token operator">>=</span>m
+        a<span class="token operator">=</span>a<span class="token operator">-</span>m<span class="token punctuation">;</span>
     end
-    a=a+1;
-    iter=iter+1;
+    a<span class="token operator">=</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+    iter<span class="token operator">=</span>iter<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
 end
 
-disp(&#39;输入层到隐层的权值为&#39;);v
-disp(&#39;隐层的阀值为&#39;);r
-disp(&#39;隐层到输出层的权值为&#39;);w
-disp(&#39;输出层的阀值为&#39;);h
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'输入层到隐层的权值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>v
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'隐层的阀值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>r
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'隐层到输出层的权值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>w
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'输出层的阀值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>h
 
-function y=fc_sigmod(x)
-y=1./(1+exp(-x));
+function y<span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+y<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token function">exp</span><span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 end
 end
 </code></pre>
@@ -682,96 +682,96 @@ end
 <pre><code>我们只需要把对应的g_j,b_h,e_h以及x_i对应位置上通过m个样本计算完后,在其对应位置上取均值即可。
 </code></pre>
 <p>这里附上累积BP算法:</p>
-<pre><code class="c">clear;clc
-%累积BP算法
-x=[1.24,1.27;1.36,1.74;1.38,1.64;1.38,1.82;1.38,1.90; 
- 1.40,1.70;1.48,1.82;1.54,1.82;1.56,2.08;1.14,1.82;1.18,1.96;1.20,1.86;1.26,2.00 
- 1.28,2.00;1.30,1.96];
-y=[1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;0 1;0 1;0 1;0 1;0 1;0 1];  %初始数据
+<pre class=" language-c"><code class="language-c">clear<span class="token punctuation">;</span>clc
+<span class="token operator">%</span>累积BP算法
+x<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1.24</span><span class="token punctuation">,</span><span class="token number">1.27</span><span class="token punctuation">;</span><span class="token number">1.36</span><span class="token punctuation">,</span><span class="token number">1.74</span><span class="token punctuation">;</span><span class="token number">1.38</span><span class="token punctuation">,</span><span class="token number">1.64</span><span class="token punctuation">;</span><span class="token number">1.38</span><span class="token punctuation">,</span><span class="token number">1.82</span><span class="token punctuation">;</span><span class="token number">1.38</span><span class="token punctuation">,</span><span class="token number">1.90</span><span class="token punctuation">;</span> 
+ <span class="token number">1.40</span><span class="token punctuation">,</span><span class="token number">1.70</span><span class="token punctuation">;</span><span class="token number">1.48</span><span class="token punctuation">,</span><span class="token number">1.82</span><span class="token punctuation">;</span><span class="token number">1.54</span><span class="token punctuation">,</span><span class="token number">1.82</span><span class="token punctuation">;</span><span class="token number">1.56</span><span class="token punctuation">,</span><span class="token number">2.08</span><span class="token punctuation">;</span><span class="token number">1.14</span><span class="token punctuation">,</span><span class="token number">1.82</span><span class="token punctuation">;</span><span class="token number">1.18</span><span class="token punctuation">,</span><span class="token number">1.96</span><span class="token punctuation">;</span><span class="token number">1.20</span><span class="token punctuation">,</span><span class="token number">1.86</span><span class="token punctuation">;</span><span class="token number">1.26</span><span class="token punctuation">,</span><span class="token number">2.00</span> 
+ <span class="token number">1.28</span><span class="token punctuation">,</span><span class="token number">2.00</span><span class="token punctuation">;</span><span class="token number">1.30</span><span class="token punctuation">,</span><span class="token number">1.96</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+y<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">1</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始数据
 
-[v,r,w,h,y_hat]=acc_BP(x,y,3,1e3);
+<span class="token punctuation">[</span>v<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">,</span>y_hat<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">acc_BP</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1e3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-function [v,r,w,h,y_hat]=acc_BP(x0,y0,q,N)  %q为隐层单元数目,N为迭代次数
+function <span class="token punctuation">[</span>v<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">,</span>y_hat<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">acc_BP</span><span class="token punctuation">(</span>x0<span class="token punctuation">,</span>y0<span class="token punctuation">,</span>q<span class="token punctuation">,</span>N<span class="token punctuation">)</span>  <span class="token operator">%</span>q为隐层单元数目<span class="token punctuation">,</span>N为迭代次数
 
-%初始化连边权值和阀值
-L=size(y0,2);    %输出单元数目
-[m,n]=size(x0);  %获取样本个数以及数据维度
-v=rand(n,q);  %初始化输入层到隐层的权值
-r=rand(1,q);    %初始化隐层的阀值
-w=rand(q,L);  %初始化隐层到输出层的权值
-h=rand(1,L);    %初始化输出层的阀值
-k=0.1;        %学习率
+<span class="token operator">%</span>初始化连边权值和阀值
+L<span class="token operator">=</span><span class="token function">size</span><span class="token punctuation">(</span>y0<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>输出单元数目
+<span class="token punctuation">[</span>m<span class="token punctuation">,</span>n<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">size</span><span class="token punctuation">(</span>x0<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>获取样本个数以及数据维度
+v<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始化输入层到隐层的权值
+r<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>初始化隐层的阀值
+w<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>初始化隐层到输出层的权值
+h<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">%</span>初始化输出层的阀值
+k<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">;</span>        <span class="token operator">%</span>学习率
 
-iter=1;
-while iter&lt;N
+iter<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> iter<span class="token operator">&lt;</span>N
 
-for i=1:m
-    x=x0(i,:);
-    y=y0(i,:);
-    A=x*v;                %输入层-&gt;隐层,各个隐层单元具有的权值
-    b(i,:)=fc_sigmod(A-r);     %经过隐层的激活函数的输出
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>m
+    x<span class="token operator">=</span><span class="token function">x0</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    y<span class="token operator">=</span><span class="token function">y0</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    A<span class="token operator">=</span>x<span class="token operator">*</span>v<span class="token punctuation">;</span>                <span class="token operator">%</span>输入层<span class="token operator">-></span>隐层<span class="token punctuation">,</span>各个隐层单元具有的权值
+    <span class="token function">b</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>A<span class="token operator">-</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token operator">%</span>经过隐层的激活函数的输出
     
-B=b(i,:)*w;                %隐层-&gt;输出层,各个输出层单元具有的权值
-y_hat(i,:)=fc_sigmod(B-h); %经过输出层的激活函数的输出
+B<span class="token operator">=</span><span class="token function">b</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token operator">*</span>w<span class="token punctuation">;</span>                <span class="token operator">%</span>隐层<span class="token operator">-></span>输出层<span class="token punctuation">,</span>各个输出层单元具有的权值
+<span class="token function">y_hat</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>B<span class="token operator">-</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">%</span>经过输出层的激活函数的输出
     
-%以下对各个系数进行调整
-g(i,:)=y_hat(i,:).*(1-y_hat(i,:)).*(y-y_hat(i,:));
-e(i,:)=b(i,:).*(1-b(i,:)).*(w*g(i,:)&#39;)&#39;;    
+<span class="token operator">%</span>以下对各个系数进行调整
+<span class="token function">g</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">y_hat</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span><span class="token function">y_hat</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span>y<span class="token operator">-</span><span class="token function">y_hat</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">e</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">b</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span><span class="token function">b</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">(</span>w<span class="token operator">*</span><span class="token function">g</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token string">')'</span><span class="token punctuation">;</span>    
 end
 
-%对上述梯度下降策略后的调整至取均值
-b_bar=mean(b);
-g_bar=mean(g);
-e_bar=mean(e);    
+<span class="token operator">%</span>对上述梯度下降策略后的调整至取均值
+b_bar<span class="token operator">=</span><span class="token function">mean</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+g_bar<span class="token operator">=</span><span class="token function">mean</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span><span class="token punctuation">;</span>
+e_bar<span class="token operator">=</span><span class="token function">mean</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>    
 
-E=mean(sum((y_hat-y0).^2,2));  %求均方误差
-    for i=1:n
-        for j=1:q
-            v(i,j)=v(i,j)+k*e_bar(j)*mean(x0(:,i));   %输入层-&gt;隐层的权值更新
+E<span class="token operator">=</span><span class="token function">mean</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">(</span>y_hat<span class="token operator">-</span>y0<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token operator">%</span>求均方误差
+    <span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>n
+        <span class="token keyword">for</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>q
+            <span class="token function">v</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">v</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">+</span>k<span class="token operator">*</span><span class="token function">e_bar</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">mean</span><span class="token punctuation">(</span><span class="token function">x0</span><span class="token punctuation">(</span><span class="token punctuation">:</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token operator">%</span>输入层<span class="token operator">-></span>隐层的权值更新
         end
     end
-    r=r-k*e_bar;         %隐层的阀值更新
+    r<span class="token operator">=</span>r<span class="token operator">-</span>k<span class="token operator">*</span>e_bar<span class="token punctuation">;</span>         <span class="token operator">%</span>隐层的阀值更新
     
-    for i=1:q
-        for j=1:L
-            w(i,j)=w(i,j)+k*g_bar(j)*b_bar(i);   %隐层-&gt;输出层的权值更新
+    <span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>q
+        <span class="token keyword">for</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>L
+            <span class="token function">w</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">w</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token operator">+</span>k<span class="token operator">*</span><span class="token function">g_bar</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">b_bar</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token operator">%</span>隐层<span class="token operator">-></span>输出层的权值更新
         end
     end
-    h=h-k*g_bar;        %输出层的阀值更新
+    h<span class="token operator">=</span>h<span class="token operator">-</span>k<span class="token operator">*</span>g_bar<span class="token punctuation">;</span>        <span class="token operator">%</span>输出层的阀值更新
     
-iter=iter+1;    
+iter<span class="token operator">=</span>iter<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>    
 end
-disp(&#39;输入层到隐层的权值为&#39;);v
-disp(&#39;隐层的阀值为&#39;);r
-disp(&#39;隐层到输出层的权值为&#39;);w
-disp(&#39;输出层的阀值为&#39;);h
-disp(&#39;此时误差E为&#39;);E
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'输入层到隐层的权值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>v
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'隐层的阀值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>r
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'隐层到输出层的权值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>w
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'输出层的阀值为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>h
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'此时误差E为'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>E
 
 
-function y=fc_sigmod(x)
-y=1./(1+exp(-x));
+function y<span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+y<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token function">exp</span><span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 end
 end
 </code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20210411151735405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_1,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这里调整后求出的$\hat{y}$效果不是很好，后期数据收敛了。</p>
 <p>我们通过神经网络的内在结构求出各个连边权值和阀值,由有标签的数据，去预测无标签的数据类型。最后，我附上自己编写的预测代码</p>
-<pre><code class="c">function y_hat=standard_BP_predict(data,v,r,w,h)
-[m,n]=size(data);
-for i=1:m
-    x=data(i,:);
-    A=x*v;                %输入层-&gt;隐层,各个隐层单元具有的权值
-    b=fc_sigmod(A-r);     %经过隐层的激活函数的输出
+<pre class=" language-c"><code class="language-c">function y_hat<span class="token operator">=</span><span class="token function">standard_BP_predict</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span>v<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>m<span class="token punctuation">,</span>n<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">size</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">:</span>m
+    x<span class="token operator">=</span><span class="token function">data</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    A<span class="token operator">=</span>x<span class="token operator">*</span>v<span class="token punctuation">;</span>                <span class="token operator">%</span>输入层<span class="token operator">-></span>隐层<span class="token punctuation">,</span>各个隐层单元具有的权值
+    b<span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>A<span class="token operator">-</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token operator">%</span>经过隐层的激活函数的输出
     
-    B=b*w;                %隐层-&gt;输出层,各个输出层单元具有的权值
-    y_hat(i,:)=fc_sigmod(B-h); %经过输出层的激活函数的输出
+    B<span class="token operator">=</span>b<span class="token operator">*</span>w<span class="token punctuation">;</span>                <span class="token operator">%</span>隐层<span class="token operator">-></span>输出层<span class="token punctuation">,</span>各个输出层单元具有的权值
+    <span class="token function">y_hat</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token punctuation">:</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>B<span class="token operator">-</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">%</span>经过输出层的激活函数的输出
 end
-function y=fc_sigmod(x)
-y=1./(1+exp(-x));
+function y<span class="token operator">=</span><span class="token function">fc_sigmod</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+y<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token function">exp</span><span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 end
 end
 </code></pre>
 <p>data是我们需要去预测的数据,得到其类型,而v,r,w,h是前期可通过标准BP算法或者累积BP算法算得。</p>
-<pre><code class="bash">当然，想要获得精度更准确的数据，还得参考其他大量有关BP算法的文章。本文只是简易的对标准BP算法以及累积BP算法做个实现.
+<pre class=" language-bash"><code class="language-bash">当然，想要获得精度更准确的数据，还得参考其他大量有关BP算法的文章。本文只是简易的对标准BP算法以及累积BP算法做个实现.
 </code></pre>
 
                 
