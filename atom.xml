@@ -253,7 +253,7 @@ data=[-1 0 0 -1 1 -1 0 0 0 -1 1 1 -1 1 0 1 -1;
     <link href="https://gtyingzi.github.io/2021/060633523.html"/>
     <id>https://gtyingzi.github.io/2021/060633523.html</id>
     <published>2021-06-06T07:09:22.000Z</published>
-    <updated>2021-06-07T14:07:22.229Z</updated>
+    <updated>2021-06-12T14:50:53.549Z</updated>
     
     
       
@@ -262,9 +262,8 @@ data=[-1 0 0 -1 1 -1 0 0 0 -1 1 1 -1 1 0 1 -1;
         
     <summary type="html">&lt;p&gt;以下是自己编写的Python的代码,欢迎指正&lt;/p&gt;
 &lt;p&gt;标准BP算法:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;c&quot;&gt;import numpy as np
-
-x=np.matrix(np.random.rand(3,2))</summary>
+&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ hexo
+&lt;span class=&quot;token</summary>
         
       
     
@@ -282,19 +281,15 @@ x=np.matrix(np.random.rand(3,2))</summary>
     <link href="https://gtyingzi.github.io/2021/060642162.html"/>
     <id>https://gtyingzi.github.io/2021/060642162.html</id>
     <published>2021-06-06T07:03:55.000Z</published>
-    <updated>2021-06-06T07:06:41.725Z</updated>
+    <updated>2021-06-12T14:49:52.012Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;#-*- coding: utf-8 -*-
-&amp;#39;&amp;#39;&amp;#39;
-# author： 影子
-# datetime： 2021-05-18 12:10 
-# ide： PyCharm
-target :</summary>
+    <summary type="html">&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ hexo
+&lt;span class=&quot;token comment&quot; spellcheck=&quot;true&quot;&gt;#-*- coding: utf-8</summary>
         
       
     

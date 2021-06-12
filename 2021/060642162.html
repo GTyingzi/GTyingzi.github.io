@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="影子的成长" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -478,91 +478,92 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code class="python">#-*- coding: utf-8 -*-
-&#39;&#39;&#39;
+                <pre class=" language-bash"><code class="language-bash">$ hexo
+<span class="token comment" spellcheck="true">#-*- coding: utf-8 -*-</span>
+<span class="token string">''</span><span class="token string">'
 # author： 影子
 # datetime： 2021-05-18 12:10 
 # ide： PyCharm
 target : 完成一个简单的KMeans聚类算法
-&#39;&#39;&#39;
-from numpy import *
+'</span><span class="token string">''</span>
+from numpy <span class="token function">import</span> *
 
-# 欧式距离函数
-def Euclidean_Distance(vecA,vecB):
-    return sqrt(sum(power(vecA-vecB,2)))
+<span class="token comment" spellcheck="true"># 欧式距离函数</span>
+def Euclidean_Distance<span class="token punctuation">(</span>vecA,vecB<span class="token punctuation">)</span>:
+    <span class="token keyword">return</span> sqrt<span class="token punctuation">(</span>sum<span class="token punctuation">(</span>power<span class="token punctuation">(</span>vecA-vecB,2<span class="token punctuation">))</span><span class="token punctuation">)</span>
 
-# 随机设置k个质心
-def Rand_Cent(DataSet,k):
-    n = shape(DataSet)[1]     # 获取数据集的维度
-    centroids = mat(zeros([k,n]))  # 初始化一个k行n列的二维数组，数组初始值全部为0，然后用mat函数将其转化为矩阵
-    for j in range(n):
-        minj = min(DataSet[:,j])
-        rangej = float(max(DataSet[:,j])-minj)
-        centroids[:,j] = mat(minj+rangej*random.rand(k,1)) # 随机生成一个范围在[min_j,max_j]的数据
-    return centroids   # 返回k个初始质心
+<span class="token comment" spellcheck="true"># 随机设置k个质心</span>
+def Rand_Cent<span class="token punctuation">(</span>DataSet,k<span class="token punctuation">)</span>:
+    n <span class="token operator">=</span> shape<span class="token punctuation">(</span>DataSet<span class="token punctuation">)</span><span class="token punctuation">[</span>1<span class="token punctuation">]</span>     <span class="token comment" spellcheck="true"># 获取数据集的维度</span>
+    centroids <span class="token operator">=</span> mat<span class="token punctuation">(</span>zeros<span class="token punctuation">(</span><span class="token punctuation">[</span>k,n<span class="token punctuation">]</span><span class="token punctuation">))</span>  <span class="token comment" spellcheck="true"># 初始化一个k行n列的二维数组，数组初始值全部为0，然后用mat函数将其转化为矩阵</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span>:
+        minj <span class="token operator">=</span> min<span class="token punctuation">(</span>DataSet<span class="token punctuation">[</span>:,j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        rangej <span class="token operator">=</span> float<span class="token punctuation">(</span>max<span class="token punctuation">(</span>DataSet<span class="token punctuation">[</span>:,j<span class="token punctuation">]</span><span class="token punctuation">)</span>-minj<span class="token punctuation">)</span>
+        centroids<span class="token punctuation">[</span>:,j<span class="token punctuation">]</span> <span class="token operator">=</span> mat<span class="token punctuation">(</span>minj+rangej*random.rand<span class="token punctuation">(</span>k,1<span class="token punctuation">))</span> <span class="token comment" spellcheck="true"># 随机生成一个范围在[min_j,max_j]的数据</span>
+    <span class="token keyword">return</span> centroids   <span class="token comment" spellcheck="true"># 返回k个初始质心</span>
 
-# k-Means算法实现
-def kMeans(DataSet,k,Dist=Euclidean_Distance,set_cent=Rand_Cent):
-    &#39;&#39;&#39;
+<span class="token comment" spellcheck="true"># k-Means算法实现</span>
+def kMeans<span class="token punctuation">(</span>DataSet,k,Dist<span class="token operator">=</span>Euclidean_Distance,set_cent<span class="token operator">=</span>Rand_Cent<span class="token punctuation">)</span>:
+    <span class="token string">''</span><span class="token string">'
     :param DataSet: 需要聚类的数据集
     :param k: 聚类数目
     :param Dist: 距离函数,此处调用了欧式距离函数
     :param set_cent: 初始质心函数，此处调用随机生成的质心函数
     :return: 质心点；数据对应的聚类簇
-    &#39;&#39;&#39;
-    m = shape(DataSet)[0]   # 获取样本个数
-    centoids = set_cent(DataSet,k)  # 初始化质心
-    clusterAssment = mat(zeros((m,2))) # 第一列存放每个样本的聚类簇，第二列存放对该样本到该聚类中心的距离
-    clusterChanged = True
-    while clusterChanged:
-        clusterChanged = False
-        for i in range(m):   # 遍历所有样本
-            minDist = inf # 初始设定最小距离为无穷大
-            minIdex = -1 # 初始设定样本聚类簇为 -1
-            for j in range(k): # 对每个样本，计算到其他k个聚类中心的距离
-                DistJI = Dist(centoids[j,:],DataSet[i,:])
-                if minDist &gt; DistJI:  # 该样本到最小距离的聚类中心记录下来,此样本记录为该簇
-                    minDist = DistJI
-                    minIdex = j
-            if clusterAssment[i,0] != minIdex: # 判断样本所属簇是否更新，若更新则记为True
-                clusterChanged = True
-            clusterAssment[i,:]=minIdex,minDist # 将样本的聚类簇和到该聚类簇中心的距离记录下来
-        for cent_i in range(k):
-            cluster = DataSet[nonzero(clusterAssment[:,0].A==cent_i)[0]]
-            &#39;&#39;&#39;
+    '</span><span class="token string">''</span>
+    m <span class="token operator">=</span> shape<span class="token punctuation">(</span>DataSet<span class="token punctuation">)</span><span class="token punctuation">[</span>0<span class="token punctuation">]</span>   <span class="token comment" spellcheck="true"># 获取样本个数</span>
+    centoids <span class="token operator">=</span> set_cent<span class="token punctuation">(</span>DataSet,k<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 初始化质心</span>
+    clusterAssment <span class="token operator">=</span> mat<span class="token punctuation">(</span>zeros<span class="token variable"><span class="token punctuation">((</span>m<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">))</span></span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 第一列存放每个样本的聚类簇，第二列存放对该样本到该聚类中心的距离</span>
+    clusterChanged <span class="token operator">=</span> True
+    <span class="token keyword">while</span> clusterChanged:
+        clusterChanged <span class="token operator">=</span> False
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span>:   <span class="token comment" spellcheck="true"># 遍历所有样本</span>
+            minDist <span class="token operator">=</span> inf <span class="token comment" spellcheck="true"># 初始设定最小距离为无穷大</span>
+            minIdex <span class="token operator">=</span> -1 <span class="token comment" spellcheck="true"># 初始设定样本聚类簇为 -1</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>k<span class="token punctuation">)</span>: <span class="token comment" spellcheck="true"># 对每个样本，计算到其他k个聚类中心的距离</span>
+                DistJI <span class="token operator">=</span> Dist<span class="token punctuation">(</span>centoids<span class="token punctuation">[</span>j,:<span class="token punctuation">]</span>,DataSet<span class="token punctuation">[</span>i,:<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> minDist <span class="token operator">></span> DistJI:  <span class="token comment" spellcheck="true"># 该样本到最小距离的聚类中心记录下来,此样本记录为该簇</span>
+                    minDist <span class="token operator">=</span> DistJI
+                    minIdex <span class="token operator">=</span> j
+            <span class="token keyword">if</span> clusterAssment<span class="token punctuation">[</span>i,0<span class="token punctuation">]</span> <span class="token operator">!=</span> minIdex: <span class="token comment" spellcheck="true"># 判断样本所属簇是否更新，若更新则记为True</span>
+                clusterChanged <span class="token operator">=</span> True
+            clusterAssment<span class="token punctuation">[</span>i,:<span class="token punctuation">]</span><span class="token operator">=</span>minIdex,minDist <span class="token comment" spellcheck="true"># 将样本的聚类簇和到该聚类簇中心的距离记录下来</span>
+        <span class="token keyword">for</span> cent_i <span class="token keyword">in</span> range<span class="token punctuation">(</span>k<span class="token punctuation">)</span>:
+            cluster <span class="token operator">=</span> DataSet<span class="token punctuation">[</span>nonzero<span class="token punctuation">(</span>clusterAssment<span class="token punctuation">[</span>:,0<span class="token punctuation">]</span>.A<span class="token operator">==</span>cent_i<span class="token punctuation">)</span><span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">]</span>
+            <span class="token string">''</span><span class="token string">'
             clusterAssment[:,0]：记录每个样本的聚类簇
             clusterAssment[:,0].A：将其转化为行矩阵
             nonzero(clusterAssment[:,0].A==cent_i)[0]：获得元素为Ture的样本下标
             整句含义：获得数据集中聚类簇为cent_i的样本
-            &#39;&#39;&#39;
-            centoids[cent_i,:] = mean(cluster,axis=0) # 按行取均值
-    return centoids,clusterAssment # 返回质心点；每个样本的(聚类簇+最短距离)
+            '</span><span class="token string">''</span>
+            centoids<span class="token punctuation">[</span>cent_i,:<span class="token punctuation">]</span> <span class="token operator">=</span> mean<span class="token punctuation">(</span>cluster,axis<span class="token operator">=</span>0<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 按行取均值</span>
+    <span class="token keyword">return</span> centoids,clusterAssment <span class="token comment" spellcheck="true"># 返回质心点；每个样本的(聚类簇+最短距离)</span>
 
-# 画图
-def show(DataSet,k,centroids,clusterAssment):
-    from matplotlib import pyplot as plt
-    m,n = DataSet.shape
-    mark = [&#39;or&#39;, &#39;ob&#39;, &#39;og&#39;, &#39;ok&#39;, &#39;^r&#39;, &#39;+r&#39;, &#39;sr&#39;, &#39;dr&#39;, &#39;&lt;r&#39;, &#39;pr&#39;] # 样本集的样式
-    for i in range(m):
-        markIdex = int(clusterAssment[i,0])
-        plt.plot(DataSet[i,0],DataSet[i,1],mark[markIdex])
-    mark= [&#39;Dr&#39;, &#39;Db&#39;, &#39;Dg&#39;, &#39;Dk&#39;, &#39;^b&#39;, &#39;+b&#39;, &#39;sb&#39;, &#39;db&#39;, &#39;&lt;b&#39;, &#39;pb&#39;] # 质点的样式
-    for i in range(k):
-        plt.plot(centroids[i,0],centroids[i,1],mark[i],markersize=20)
-    plt.show()
+<span class="token comment" spellcheck="true"># 画图</span>
+def show<span class="token punctuation">(</span>DataSet,k,centroids,clusterAssment<span class="token punctuation">)</span>:
+    from matplotlib <span class="token function">import</span> pyplot as plt
+    m,n <span class="token operator">=</span> DataSet.shape
+    mark <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'or'</span>, <span class="token string">'ob'</span>, <span class="token string">'og'</span>, <span class="token string">'ok'</span>, <span class="token string">'^r'</span>, <span class="token string">'+r'</span>, <span class="token string">'sr'</span>, <span class="token string">'dr'</span>, <span class="token string">'&lt;r'</span>, <span class="token string">'pr'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 样本集的样式</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span>:
+        markIdex <span class="token operator">=</span> int<span class="token punctuation">(</span>clusterAssment<span class="token punctuation">[</span>i,0<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        plt.plot<span class="token punctuation">(</span>DataSet<span class="token punctuation">[</span>i,0<span class="token punctuation">]</span>,DataSet<span class="token punctuation">[</span>i,1<span class="token punctuation">]</span>,mark<span class="token punctuation">[</span>markIdex<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    mark<span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Dr'</span>, <span class="token string">'Db'</span>, <span class="token string">'Dg'</span>, <span class="token string">'Dk'</span>, <span class="token string">'^b'</span>, <span class="token string">'+b'</span>, <span class="token string">'sb'</span>, <span class="token string">'db'</span>, <span class="token string">'&lt;b'</span>, <span class="token string">'pb'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># 质点的样式</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>k<span class="token punctuation">)</span>:
+        plt.plot<span class="token punctuation">(</span>centroids<span class="token punctuation">[</span>i,0<span class="token punctuation">]</span>,centroids<span class="token punctuation">[</span>i,1<span class="token punctuation">]</span>,mark<span class="token punctuation">[</span>i<span class="token punctuation">]</span>,markersize<span class="token operator">=</span>20<span class="token punctuation">)</span>
+    plt.show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-def main():
-    DataSet = random.rand(100,2) # 随机生成100行2列的数据
-    DataSet = mat(DataSet) # 转化为矩阵
-    k=4 # 设置聚类簇
-    myCentroids,clustAssing = kMeans(DataSet,k) # 调用kMeans算法
-    print(&#39;聚类的质心为&#39;)
-    print(myCentroids)
-    show(DataSet,k,myCentroids,clustAssing)  # 画图
+def main<span class="token punctuation">(</span><span class="token punctuation">)</span>:
+    DataSet <span class="token operator">=</span> random.rand<span class="token punctuation">(</span>100,2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 随机生成100行2列的数据</span>
+    DataSet <span class="token operator">=</span> mat<span class="token punctuation">(</span>DataSet<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 转化为矩阵</span>
+    k<span class="token operator">=</span>4 <span class="token comment" spellcheck="true"># 设置聚类簇</span>
+    myCentroids,clustAssing <span class="token operator">=</span> kMeans<span class="token punctuation">(</span>DataSet,k<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 调用kMeans算法</span>
+    print<span class="token punctuation">(</span><span class="token string">'聚类的质心为'</span><span class="token punctuation">)</span>
+    print<span class="token punctuation">(</span>myCentroids<span class="token punctuation">)</span>
+    show<span class="token punctuation">(</span>DataSet,k,myCentroids,clustAssing<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 画图</span>
 
-if __name__ == &#39;__main__&#39;:
-    main()
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token keyword">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p><img src="https://img-blog.csdnimg.cn/20210518134759975.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L215bmFtZWlzZ3Q=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
